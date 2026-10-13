@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <main className="container section" style={{textAlign:'center',minHeight:'80vh'}}><p className="eyebrow" style={{justifyContent:'center'}}>PROGRESSIVE EDUCATION NETWORK</p><h1 style={{fontSize:64,color:'#13764e'}}>404</h1><h2 style={{marginTop:20}}>Let’s find your way back.</h2><p style={{margin:'20px auto 30px'}}>This page isn’t available. Explore PEN from the homepage.</p><Link href="/" className="pen-button" style={{display:'inline-flex',alignItems:'center'}}>Back to PEN home →</Link></main>}
