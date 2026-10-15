@@ -34,6 +34,8 @@ Import this repository into Vercel and select the repository root (`./`).
 The checked-in `vercel.json` selects Next.js, installs with `npm ci`, and runs
 `npm run build:vercel`, producing `.next` output. This deployment path uses
 Next.js directly; the existing Sites/Cloudflare commands remain available.
+Next.js uses `tsconfig.next.json` to check application code without requiring
+the local Sites hosting configuration in `.openai/hosting.json`.
 Use Node.js 22.x or 24.x. The current public website requires no environment
 variables, payment credentials, or database bindings.
 
