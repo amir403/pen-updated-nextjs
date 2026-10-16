@@ -28,6 +28,14 @@ The hosted build uses the Sites build helper and Cloudflare Workers. Keep the ex
 - Searchable news and website search, photo lightbox, documentary modal and manual hero carousel.
 - Donation sponsorship selector and bank-detail copy controls.
 
+## Animation behavior
+
+`components/site-motion.tsx` uses Motion for hero entrances, section/card reveals,
+and impact counters. Entrance effects run once per element, including cards
+mounted by tabs and pagination. Short hover interactions live in `app/globals.css`.
+Content remains visible without JavaScript. Reduced-motion preferences disable
+the effects, including when the preference changes during a visit.
+
 ## Vercel deployment
 
 Import this repository into Vercel and select the repository root (`./`).
@@ -45,6 +53,9 @@ To verify the Vercel build locally on Windows PowerShell:
 npm.cmd run build:vercel
 ```
 
+For a local Next.js preview matching the Vercel deployment, run
+`npm.cmd run dev:vercel` and open `http://localhost:5173`.
+
 After pushing your changes, choose **Add New Project** in Vercel, import the
 GitHub repository, keep the settings from `vercel.json`, and select **Deploy**.
 
@@ -52,4 +63,6 @@ GitHub repository, keep the settings from `vercel.json`, and select **Deploy**.
 Donations and volunteer/job applications continue on PEN's official website. The contact form opens an email draft; it does not submit to a server. No CMS, payment processing or application database is configured.
 
 ## Validation
-TypeScript and production build passed. All 35 pages were rendered on the server, with internal link and local image checks. All 51 PDF endpoints returned valid PDF signatures. Browser interaction and visual QA were unavailable in the build session.
+TypeScript, production build, and ESLint pass (existing lint warnings remain). Animation changes were checked in Chrome at desktop and mobile sizes, including hero slides, scroll reveals, hover effects, counters, search, tabs, school pagination, donation selection, reduced-motion changes, and rendering without JavaScript. Screenshots were inspected for layout issues.
+
+Original content validation covered server rendering of all 35 pages, internal links, local images, and valid PDF signatures from all 51 PDF endpoints.
