@@ -1,0 +1,87 @@
+/* Class-based themes keep an explicit choice independent of the OS preference. */
+:root { color-scheme: light; }
+.dark {
+  color-scheme: dark;
+  --background: #101b17;
+  --foreground: #e6eee8;
+  --card: #182720;
+  --card-foreground: #e6eee8;
+  --popover: #1b2c24;
+  --popover-foreground: #e6eee8;
+  --primary: #75d5a6;
+  --primary-foreground: #10291c;
+  --secondary: #23372c;
+  --secondary-foreground: #e6eee8;
+  --muted: #1b2c24;
+  --muted-foreground: #acbeb1;
+  --accent: #294533;
+  --accent-foreground: #a5edc8;
+  --destructive: #ff9494;
+  --border: #344c3d;
+  --input: #425c4b;
+  --ring: #75d5a6;
+  --sidebar: #182720;
+  --sidebar-foreground: #e6eee8;
+  --sidebar-primary: #75d5a6;
+  --sidebar-primary-foreground: #10291c;
+  --sidebar-accent: #294533;
+  --sidebar-accent-foreground: #a5edc8;
+  --sidebar-border: #344c3d;
+  --sidebar-ring: #75d5a6;
+}
+
+.dark body { background: var(--background); color: var(--foreground); }
+.dark p { color: var(--muted-foreground); }
+.dark :is(.header,.model-card,.school-card,.resource-card,.tender-notice-card,.bank-card,.office-grid>div,.value-card) { background: var(--card); border-color: var(--border); }
+.dark :is(.topbar,footer,.soft-section,.involved-section,.page-hero,.contact-form,.donation-summary,.partnership-box,.cheque-note,.schools-feature-copy) { background: var(--muted); border-color: var(--border); }
+.dark :is(.impact-strip,.stat,.news-tabs,.involved-card,.signature,.sponsor-grid>div,.school-numbers,.article-share,.bank-section,.footer-bottom,.footer-bottom button,.search-results a,.article-meta>span+span,.filter-pills button,.donation-option,.radio-mark,.empty-state) { border-color: var(--border); }
+.dark :is(.nav-link,.topbar,.footer-grid>div>a:not(.footer-brand),.social-links a,.mobile-direct-links a,.contact-item a,.bank-card dd,.check-list li,.contact-form label,.article-body>p,.faq-list [data-slot=accordion-content],.mobile-sheet [data-slot=accordion-content] a) { color: var(--foreground); }
+.dark :is(.eyebrow,.text-link,.inline-links a,.breadcrumbs a,.legal-copy a,.footer-brand,.stat strong,.school-numbers strong,.timeline strong,.donation-amount,.schools-feature-copy h2,.article-meta>span:first-child,.nav-link:hover,.nav-link[data-state=open]) { color: var(--primary); }
+.dark em { color: var(--primary); }
+.dark :is(.small-label,.stat span,.stats-note,.impact-label>span,.feature-note,.article-meta,.breadcrumbs,.source-note,.signature span,.results-meta,.school-numbers span,.pagination>span,.resource-count,.bank-card dt,.donation-option>span>span,.footer-bottom,.value-card>span) { color: var(--muted-foreground); }
+.dark :is(.stat>svg,.involved-card>svg,.value-card>svg,.contact-item>svg,.office-grid svg,.footer-contact>svg,.check-list svg,.cheque-note>svg,.donation-option>svg) { color: #94bda0; }
+.dark :is(.search-field input,.contact-form input,.contact-form textarea) { background: var(--background); color: var(--foreground); border-color: var(--input); }
+.dark :is(input,textarea)::placeholder { color: #9caf9f; }
+.dark :is(.nav-dropdown,[data-slot=dialog-content],[data-slot=sheet-content],[data-slot=select-content]) { background: var(--popover); color: var(--popover-foreground); border-color: var(--border); }
+.dark .nav-dropdown { box-shadow: 0 16px 40px #0005; }
+.dark :is(.search-results a:hover,.district-label,.page-hero-icon,.form-status) { background: var(--accent); color: var(--accent-foreground); }
+.dark :is(.photo-label,.model-image>span,.round-arrow,.resource-cover>span) { background: #263c2e; color: var(--primary); }
+.dark .photo-label span { color: var(--foreground); }
+.dark .photo-label strong { color: var(--primary); }
+.dark :is(.resource-cover,.article-image,.article-feature>img,.gallery-dialog>img,.person img,.leader-message>img) { background: #24372c; }
+.dark .resource-tone-1 { background: #293d2b; }
+.dark .resource-tone-2 { background: #253c36; }
+.dark .school-watermark { color: #64816b; }
+.dark .donation-option.chosen { background: #203d2b; border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary); }
+.dark .donation-option b { color: #b5e2c4; }
+.dark .chosen .radio-mark { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+.dark .news-tabs button { color: var(--muted-foreground); }
+.dark .news-tabs button[data-state=active] { color: var(--primary); border-bottom-color: var(--primary); }
+.dark .filter-pills button { color: var(--foreground); }
+.dark .filter-pills button.selected { background: #276c46; border-color: #75d5a6; color: #fff; }
+.dark :is(.pen-button,.donate-button) { background: #75d5a6; color: #10291c; }
+.dark :is(.pen-button,.donate-button):hover { background: #99e4bd; }
+.dark .schools-feature-copy .pen-button { background: #75d5a6; color: #10291c; }
+.dark .schools-feature-copy .pen-button:hover { background: #99e4bd; }
+.dark .outline-button { background: transparent; color: var(--primary); border-color: #709c7d; }
+.dark .outline-button:hover { background: var(--accent); color: var(--accent-foreground); }
+.dark .light-button { background: #e6eee0; color: #164a31; }
+.dark .light-button:hover { background: #f2dfb3; color: #164a31; }
+.dark .skip-link { background: var(--card); color: var(--foreground); }
+.dark .tender-demo-notice { background: #342d19; border-color: #9b8144; color: #f0d68c; }
+.dark .tender-demo-notice p { color: #dfcfa3; }
+.dark .tender-notice-card dt { color: var(--muted-foreground); }
+.dark .tender-notice-card dd { color: var(--foreground); }
+.dark .tender-notice-card dl div { border-color: var(--border); }
+/* Preserve the contrast and identity of photographic and green feature bands. */
+.dark .hero h1 { color: #fff; }
+.dark .hero h1 em { color: #e8c57e; }
+.dark .hero .hero-copy .eyebrow { color: #e0e9d8; }
+.dark .hero-copy>p { color: #d6e1d7; }
+.dark .give-band { background: #124d34; }
+.dark .give-band .eyebrow { color: #c4d6bd; }
+.dark .give-band p:not(.eyebrow) { color: #d5e5d4; }
+/* Keep the original logo artwork legible without recoloring the brand. */
+.dark .brand img { background: #fff; border-radius: 5px; padding: 3px; }
+.dark .sponsor-grid>div { background: #fff; }
+.theme-toggle { border-radius: 50%; }

@@ -36,6 +36,14 @@ mounted by tabs and pagination. Short hover interactions live in `app/globals.cs
 Content remains visible without JavaScript. Reduced-motion preferences disable
 the effects, including when the preference changes during a visit.
 
+## Color themes
+
+Use the sun/moon button in the header to switch between light and dark mode.
+The first visit follows the system theme; an explicit choice is saved as
+`pen-theme` in local storage. `components/site-theme-provider.tsx` initializes
+the theme before paint, while `app/theme.css` defines the dark palette for page
+content and portaled dialogs. Both themes share the same content and animations.
+
 ## Vercel deployment
 
 Import this repository into Vercel and select the repository root (`./`).
