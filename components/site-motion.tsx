@@ -17,7 +17,7 @@ function useReducedMotion() {
   return useSyncExternalStore(subscribeToMotionPreference, getMotionPreference, getServerMotionPreference);
 }
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const ease = [0.25, 0.1, 0.25, 1] as const;
 function preserveStyles(elements: Element[]) {
   const styles = elements.map(element => {
     const style = (element as HTMLElement).style;
@@ -57,7 +57,7 @@ export function AnimatedMain({children, page}: {children: ReactNode; page: strin
       const restore = preserveStyles([element]);
       const animation = animate(element, {
         opacity: [0, 1], transform: ['translateY(22px)', 'translateY(0px)'],
-      }, {duration: 0.65, delay: isGrid ? (index % 3) * 0.075 : 0, ease});
+      }, {duration: 1.2, delay: isGrid ? (index % 3) * 0.16 : 0, ease});
       animations.set(animation, restore);
       // Release inline transforms so CSS hover effects can take over.
       void animation.then(() => {
@@ -100,7 +100,7 @@ export function HeroCopy({children}: {children: ReactNode}) {
     const restore = preserveStyles(elements);
     const animation = animate(elements, {
       opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'],
-    }, {duration: 0.8, delay: stagger(0.11), ease});
+    }, {duration: 1.4, delay: stagger(0.18), ease});
     return () => { animation.cancel(); restore(); };
   }, [reducedMotion]);
   return <div ref={root} className="hero-copy">{children}</div>;
@@ -114,7 +114,7 @@ export function HeroPhoto({children}: {children: ReactNode}) {
     const restore = preserveStyles([root.current]);
     const animation = animate(root.current, {
       opacity: [0.4, 1], transform: ['scale(1.06)', 'scale(1)'],
-    }, {duration: 1.3, ease});
+    }, {duration: 2.4, ease});
     return () => { animation.cancel(); restore(); };
   }, [reducedMotion]);
   return <div ref={root} className="hero-photo">{children}</div>;
@@ -129,7 +129,7 @@ export function PageIntro({children}: {children: ReactNode}) {
     const restore = preserveStyles(elements);
     const animation = animate(elements, {
       opacity: [0, 1], transform: ['translateY(16px)', 'translateY(0px)'],
-    }, {duration: 0.65, delay: stagger(0.075), ease});
+    }, {duration: 1.15, delay: stagger(0.14), ease});
     return () => { animation.cancel(); restore(); };
   }, [reducedMotion]);
   return <div ref={root} className="container">{children}</div>;
@@ -145,7 +145,7 @@ export function CountUp({value}: {value: number}) {
     let animation: AnimationPlaybackControls | undefined;
     const stop = inView(element, () => {
       animation = animateValue(0, value, {
-        duration: 1.6, ease,
+        duration: 2.8, ease,
         onUpdate: latest => { element.textContent = Math.round(latest).toLocaleString('en-US'); },
       });
     }, {amount: 0.6});

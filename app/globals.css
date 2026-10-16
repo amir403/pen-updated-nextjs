@@ -146,10 +146,10 @@ body {
 /* Motion handles entrance effects; CSS handles short pointer/focus interactions. */
 .hero{overflow:hidden}.hero-photo{animation:none}.stat .counter-value{font:inherit;font-variant-numeric:tabular-nums}
 @media(prefers-reduced-motion:no-preference){
- .pen-button,.donate-button,.video-button>span,.slide-controls button{transition:transform .25s ease,background-color .25s ease,box-shadow .25s ease}
- .text-link svg,.pen-button svg,.model-copy h3 svg,.programme-card h3 svg{transition:transform .3s ease}
- .model-card,.programme-card,.article-card,.involved-card,.school-card,.tender-notice-card{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
- .model-image img,.programme-card>img,.article-image img{transition:transform .65s cubic-bezier(.22,1,.36,1)}
+ .pen-button,.donate-button,.video-button>span,.slide-controls button{transition:transform .45s ease,background-color .45s ease,box-shadow .45s ease}
+ .text-link svg,.pen-button svg,.model-copy h3 svg,.programme-card h3 svg{transition:transform .5s ease}
+ .model-card,.programme-card,.article-card,.involved-card,.school-card,.tender-notice-card{transition:transform .5s ease,box-shadow .5s ease,border-color .5s ease}
+ .model-image img,.programme-card>img,.article-image img{transition:transform .9s cubic-bezier(.25,.1,.25,1)}
  .model-image,.article-image{overflow:hidden}
  .text-link:focus-visible svg,.pen-button:focus-visible svg{transform:translate(3px,-3px)}
 }
