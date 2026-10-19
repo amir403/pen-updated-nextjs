@@ -18,6 +18,16 @@ Source collection: 13 October 2026.
 - Contact: https://pen.org.pk/contact-us/. The contact form opens a mailto draft and does not claim server submission.
 - Volunteer and careers applications use the official forms at https://pen.org.pk/volunteer/ and https://pen.org.pk/careers/.
 
+## Website navigation outline
+
+The user supplied `WEBSITE OUTLINE.docx` on 19 October 2026. Its eight thematic
+areas and six upcoming programme priority categories inform the navigation and
+the `/what-we-do` overview. These priorities are not presented as funded project
+announcements, verified outcomes, or scheduled launches. Existing programme pages,
+official application links, and donation behavior retain their previous sources.
+`PEN Website.pptx` remains a design/revision reference. `Potential partner.docx`
+was explicitly excluded by the user because it belongs to a separate portal.
+
 ## Implementation
 React / TypeScript using the Sites Vinext framework; Tailwind CSS; local shadcn/ui components built on Radix. All main pages use real URL routes. Source datasets are in lib/source-data.json; editorial content, navigation and article summaries are in lib/content.ts; page components in components/pen-site.tsx.
 

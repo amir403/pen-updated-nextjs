@@ -1,0 +1,60 @@
+/* Shared header: concise menus, with a wider grid for thematic expertise. */
+.desktop-nav { gap: 19px; }
+.nav-link { position: relative; font-size: 12px; }
+.nav-link>svg { transition: transform .25s ease; }
+.nav-link[data-state=open]>svg { transform: rotate(180deg); }
+.nav-link[data-current=true]::after { content: ''; position: absolute; height: 2px; background: #13764e; left: 0; right: 18px; bottom: 7px; }
+.nav-dropdown { width: 295px; max-width: calc(100vw - 40px); padding: 10px; border-radius: 8px; }
+.nav-menu-intro { padding: 14px 13px 17px; margin-bottom: 5px; border-bottom: 1px solid var(--border); }
+.nav-menu-intro>span { display: block; font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; color: #13764e; font-weight: 700; }
+.nav-menu-intro>p { margin-top: 7px; font-size: 12px; font-weight: 400; line-height: 1.6; white-space: normal; }
+.nav-dropdown .nav-menu-item { align-items: flex-start; gap: 13px; padding: 12px 13px; border-radius: 5px; white-space: normal; }
+.nav-menu-copy { display: block; flex: 1; min-width: 0; }
+.nav-menu-title { display: block; line-height: 1.5; }
+.nav-menu-item>svg { flex-shrink: 0; margin-top: 3px; opacity: .6; }
+.nav-menu-item[aria-current=page] { background: #edf4ed; color: #13764e; }
+.nav-dropdown--mega { width: 760px; padding: 14px; }
+.nav-menu-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 4px 12px; }
+.nav-menu-grid .nav-menu-item { padding: 14px; }
+.nav-menu-grid .nav-menu-title { font-size: 13px; font-weight: 600; }
+.nav-menu-description { display: block; margin-top: 5px; font-size: 11px; color: #69756d; line-height: 1.6; }
+.nav-dropdown .nav-menu-overview { border-top: 1px solid var(--border); margin-top: 10px; padding: 16px 14px 9px; color: #13764e; font-size: 12px; font-weight: 600; }
+.mobile-sheet { gap: 0; }
+.mobile-nav { margin-top: 4px; }
+.mobile-sheet .mobile-nav [data-slot=accordion-content] a { gap: 14px; align-items: flex-start; line-height: 1.55; }
+.mobile-nav [data-slot=accordion-content] a>svg { flex-shrink: 0; margin-top: 3px; }
+.mobile-sheet .mobile-nav .mobile-nav-overview { color: #13764e; font-weight: 600; }
+.mobile-nav-current { color: #13764e; }
+.mobile-sheet .mobile-direct-links { border-top: 1px solid var(--border); padding-top: 10px; margin-top: 16px; }
+.thematic-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; }
+.thematic-card { padding: 32px; border: 1px solid var(--border); border-radius: 5px; background: var(--card); scroll-margin-top: 125px; }
+.thematic-number { display: block; font-size: 12px; letter-spacing: 1px; color: #13764e; margin-bottom: 18px; }
+.thematic-card h2 { font-size: 26px; line-height: 1.3; }
+.thematic-card>p { margin-top: 15px; font-size: 14px; }
+.thematic-card .check-list { margin-block: 22px; }
+.thematic-card .check-list li { font-size: 13px; align-items: flex-start; }
+.thematic-card .check-list svg { flex-shrink: 0; margin-top: 4px; }
+.upcoming-priorities { padding: 45px; margin-top: 65px; background: #f5f6f0; border-radius: 5px; scroll-margin-top: 125px; }
+.upcoming-priorities>p:not(.eyebrow) { margin-top: 20px; max-width: 780px; }
+.upcoming-priorities dl { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 35px; margin-block: 32px; }
+.upcoming-priorities dt { font-weight: 600; font-size: 14px; }
+.upcoming-priorities dd { margin: 6px 0 0; color: #69756d; font-size: 13px; }
+.dark .nav-link[data-current=true]::after { background: var(--primary); }
+.dark :is(.nav-menu-intro>span,.nav-menu-overview,.mobile-nav-current,.mobile-sheet .mobile-nav .mobile-nav-overview,.thematic-number) { color: var(--primary); }
+.dark .nav-menu-description,.dark .upcoming-priorities dd { color: var(--muted-foreground); }
+.dark .nav-menu-item[aria-current=page] { background: var(--accent); color: var(--accent-foreground); }
+.dark .upcoming-priorities { background: var(--muted); }
+@media(max-width:1100px) {
+  .desktop-nav { display: none; }
+  .mobile-menu { display: inline-flex; }
+  .nav-actions { margin-left: auto; }
+}
+@media(max-width:700px) {
+  .thematic-grid { grid-template-columns: 1fr; gap: 20px; }
+  .thematic-card { padding: 25px; scroll-margin-top: 100px; }
+  .thematic-card h2 { font-size: 24px; }
+  .upcoming-priorities { padding: 28px 23px; margin-top: 40px; scroll-margin-top: 100px; }
+  .upcoming-priorities h2 { font-size: 29px; }
+  .upcoming-priorities dl { grid-template-columns: 1fr; gap: 20px; }
+}
+@media(prefers-reduced-motion:reduce) { .nav-link>svg { transition: none; } }

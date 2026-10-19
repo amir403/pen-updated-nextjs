@@ -1,12 +1,16 @@
+import {thematicAreas} from './website-outline';
+
 export const images = {
  hero:'/images/IMG_4626.jpg', classroom:'/images/IMG_4631.jpg', school:'/images/modelschoolpic1-ezgif.com-resize-1.jpg', training:'/images/training-img.jpg', academy:'/images/IMG_958330-1-scaled.jpg', nfe:'/images/Non-Formal-Education-min-scaled.jpg', school2:'/images/IMG_4701-1-min-scaled.jpg', scholarship:'/images/IMG_3496.jpg', logo:'/images/pen-logo-simple.png'
 };
-export const nav = [
- {label:'About us',items:[['Our story','/about-us'],['CEO message','/ceo-message'],['Founders & directors','/founders'],['Our values','/core-values'],['Corporate information','/corporate-information'],['Our supporters','/our-donors-supporters'],['FAQs','/faq']]},
- {label:'Our work',items:[['Our education models','/our-work'],['Our schools','/explore-our-schools'],['PEN Academy','/pen-academy'],['Teacher development','/teacher-training'],['Academics','/academics'],['Scholarships','/scholarships']]},
- {label:'Get involved',items:[['Ways to give','/donate-now'],['Volunteer with us','/volunteer'],['Contact us','/contact-us']]},
- {label:'News & stories',items:[['Latest news','/news'],['PEN heroes','/stories'],['Our blog','/pen-blogs'],['Photo gallery','/photo-gallery']]},
- {label:'Resources',items:[['Activity books','/pen-activity-books']]}
+type NavGroup = {label:string;description:string;overview?:string;mega?:boolean;items:{title:string;href:string;description?:string}[]};
+export const nav:NavGroup[] = [
+ {label:'About PEN',description:'The people and purpose behind PEN.',items:[{title:'Our story',href:'/about-us'},{title:'CEO message',href:'/ceo-message'},{title:'Founders & directors',href:'/founders'},{title:'Our values',href:'/core-values'},{title:'Our supporters',href:'/our-donors-supporters'},{title:'Privacy policy',href:'/privacy-policy'},{title:'FAQs',href:'/faq'}]},
+ {label:'What We Do',description:'Eight focus areas. One commitment to every child.',overview:'/what-we-do',mega:true,items:thematicAreas.map(area=>({title:area.title,href:'/what-we-do#'+area.id,description:area.summary}))},
+ {label:'Our Projects',description:'Explore our programmes, schools and future priorities.',items:[{title:'Ongoing programmes',href:'/our-work'},{title:'Upcoming project priorities',href:'/what-we-do#upcoming-projects'},{title:'Our schools',href:'/explore-our-schools'},{title:'PEN Academy',href:'/pen-academy'},{title:'Teacher development',href:'/teacher-training'},{title:'Academic support',href:'/academics'},{title:'Scholarships',href:'/scholarships'}]},
+ {label:'Get Involved',description:'Make a difference with your time, skills or support.',items:[{title:'Ways to give',href:'/donate-now'},{title:'Volunteer with us',href:'/volunteer'},{title:'Careers',href:'/careers'},{title:'Become a partner',href:'/contact-us'}]},
+ {label:'News & Media',description:'Meet our community and follow the latest stories.',items:[{title:'Latest news',href:'/news'},{title:'PEN heroes',href:'/stories'},{title:'Our blog',href:'/pen-blogs'},{title:'Photo gallery',href:'/photo-gallery'}]},
+ {label:'Resources',description:'Learning materials, publications and organisational records.',items:[{title:'Publications',href:'/publications'},{title:'Activity books',href:'/pen-activity-books'},{title:'Corporate information',href:'/corporate-information'},{title:'Tenders & opportunities',href:'/job'}]}
 ];
 export const models = [
  {id:'peima',title:'PEIMA model',tag:'PUBLIC–PRIVATE PARTNERSHIP',image:images.school,text:'Managing partner schools, strengthening teaching, and improving facilities through a partnership with Punjab Education Initiatives Management Authority.'},
@@ -42,6 +46,7 @@ export const faqs=[
  ['How can I donate?','Choose a sponsorship option or use PEN’s official donation page for current payment instructions.']
 ];
 export const pageMeta:Record<string,[string,string,string]>={
+ 'what-we-do':['What We Do','Education with every child in mind.','Explore PEN’s thematic focus areas, from stronger public schools to inclusive, community-led learning.'],
  'about-us':['Our story','A shared belief. A better future.','Helping children discover what is possible through free, quality education.'],
  'ceo-message':['CEO message','Working together for every child.','A commitment to education, accountability and the potential of our children.'],
  'founders':['Our people','A shared purpose, from the start.','Meet the founders and directors behind Progressive Education Network.'],
