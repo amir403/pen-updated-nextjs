@@ -16,7 +16,7 @@ export function ThematicOverview() {
       <p className="eyebrow">LOOKING AHEAD</p><h2>Upcoming project priorities</h2>
       <p>Inclusion, innovation and impact guide these areas for future project discussions. For current project announcements, opportunities and timelines, please contact the PEN team.</p>
       <dl>{upcomingPriorities.map(([title,text])=><div key={title}><dt>{title}</dt><dd>{text}</dd></div>)}</dl>
-      <Link href="/contact-us" className="text-link">Discuss a partnership<ArrowUpRight size={16} aria-hidden="true"/></Link>
+      <Link href="/upcoming-projects" className="text-link">Explore upcoming priorities<ArrowUpRight size={16} aria-hidden="true"/></Link>
     </section>
   </div>;
 }

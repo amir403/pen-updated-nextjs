@@ -1,0 +1,57 @@
+.project-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; margin-bottom: 72px; }
+.project-intro h2 { font-size: clamp(30px,3.2vw,42px); }
+.project-intro p:not(.eyebrow) { margin-top: 22px; font-size: 14px; }
+.project-intro>img { width: 100%; height: 340px; object-fit: cover; border-radius: 4px; }
+.project-intro-links { display: flex; flex-wrap: wrap; gap: 15px 26px; margin-top: 25px; }
+.project-section-heading { margin-bottom: 24px; }
+.project-section-heading h2 { font-size: 30px; }
+.project-section-heading p { font-size: 14px; margin-top: 12px; }
+.programme-jump-links { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
+.programme-jump-links a { padding: 8px 14px; border: 1px solid var(--border); border-radius: 20px; font-size: 11px; line-height: 1.5; background: var(--card); }
+.programme-jump-links a:hover { background: var(--accent); color: var(--accent-foreground); }
+.project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px; }
+.project-card { display: flex; flex-direction: column; padding: 32px; border: 1px solid var(--border); background: var(--card); border-radius: 5px; scroll-margin-top: 20px; }
+.project-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.project-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: #edf4ed; color: #13764e; }
+.project-number { font-size: 11px; color: #7a8b80; letter-spacing: 1px; }
+.project-card h3 { font-size: 26px; line-height: 1.3; }
+.project-card>p { margin-top: 15px; font-size: 14px; }
+.project-themes { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-block: 25px; }
+.project-label { font-size: 9px; color: #69756d; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 3px; }
+.project-theme-link { display: inline-flex; align-items: flex-start; gap: 9px; font-size: 11px; color: #3b6e4c; line-height: 1.6; }
+.project-theme-link>svg { flex-shrink: 0; margin-top: 2px; }
+.project-theme-link:hover { text-decoration: underline; }
+.project-card-links { display: flex; flex-direction: column; gap: 14px; width: 100%; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); }
+.project-card-links .text-link { width: 100%; justify-content: space-between; align-items: flex-start; line-height: 1.6; white-space: normal; }
+.project-card-links svg { flex-shrink: 0; }
+.project-resource { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; color: #69756d; }
+.project-resource:hover { color: #13764e; text-decoration: underline; }
+.priority-intro { max-width: 800px; margin-bottom: 40px; }
+.priority-intro>p:not(.eyebrow) { margin-top: 22px; font-size: 15px; }
+.priority-status { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #547055; background: #f1f5eb; padding: 6px 10px; border-radius: 3px; }
+.project-next-step { display: flex; align-items: center; justify-content: space-between; gap: 45px; padding: 42px; margin-top: 65px; background: #f2f5ed; border-radius: 5px; }
+.project-next-step>div { max-width: 760px; }
+.project-next-step h2 { font-size: 33px; }
+.project-next-step p:not(.eyebrow) { font-size: 14px; margin-top: 17px; }
+.project-next-step>.pen-button { flex-shrink: 0; }
+.dark :is(.project-icon,.priority-status) { background: var(--accent); color: var(--accent-foreground); }
+.dark :is(.project-number,.project-label,.project-resource) { color: var(--muted-foreground); }
+.dark .project-theme-link { color: var(--primary); }
+.dark .project-next-step { background: var(--muted); }
+@media(max-width:980px) {
+  .project-intro { gap: 35px; }
+  .project-intro>img { height: 320px; }
+  .project-next-step { padding: 32px; flex-direction: column; align-items: flex-start; gap: 25px; }
+}
+@media(max-width:700px) {
+  .project-intro { grid-template-columns: 1fr; gap: 30px; margin-bottom: 45px; }
+  .project-intro>img { height: 250px; }
+  .project-grid { grid-template-columns: 1fr; gap: 20px; }
+  .project-card { padding: 25px; }
+  .project-card h3 { font-size: 24px; }
+  .project-section-heading h2 { font-size: 28px; }
+  .programme-jump-links { gap: 8px; }
+  .programme-jump-links a { font-size: 10px; padding: 7px 11px; }
+  .project-next-step { padding: 28px 23px; margin-top: 40px; }
+  .project-next-step h2 { font-size: 29px; }
+}

@@ -33,6 +33,13 @@ photographs, and eight distinct SDG graphics also come from `WEBSITE OUTLINE.doc
 Original embedded JPEGs are stored in `public/images/website-outline/`. The SDG
 labels describe thematic alignment, not external certification or endorsement.
 
+The `/ongoing-projects` programme descriptions reproduce or lightly edit the
+eight entries in the outline's ongoing-projects table. Related thematic links
+are editorial navigation aids. `/upcoming-projects` expands the six supplied
+priority categories; it adds no project dates, budgets, locations or launch claims.
+The older `/our-work` education-model URLs and thematic overview anchors remain
+available so existing links continue to resolve.
+
 ## Implementation
 React / TypeScript using the Sites Vinext framework; Tailwind CSS; local shadcn/ui components built on Radix. All main pages use real URL routes. Source datasets are in lib/source-data.json; editorial content, navigation and article summaries are in lib/content.ts; page components in components/pen-site.tsx.
 

@@ -1,12 +1,13 @@
 # Progressive Education Network
 
-A responsive 37-page React/TypeScript website with PEN content and a TCF-inspired visual structure. Built with the Sites Vinext starter, Tailwind CSS and local shadcn/ui components.
+A responsive 39-page React/TypeScript website with PEN content and a TCF-inspired visual structure. Built with the Sites Vinext starter, Tailwind CSS and local shadcn/ui components.
 
 ## Main files
 - `components/pen-site.tsx`: site shell and page components.
 - `components/site-header.tsx`: shared desktop and mobile navigation and website search.
 - `lib/website-outline.ts`: document-supplied thematic areas and upcoming priority categories.
 - `components/homepage-focus.tsx`: five homepage priorities with supplied photographs and SDG graphics.
+- `components/projects.tsx`: ongoing programme cards, related resources and upcoming priority areas.
 - `lib/content.ts`: navigation, programmes, article summaries and page metadata.
 - `lib/source-data.json`: school directory, gallery and resource documents.
 - `app/globals.css`: responsive visual design.
@@ -24,7 +25,7 @@ pnpm build
 The hosted build uses the Sites build helper and Cloudflare Workers. Keep the existing Sites Vite integration when changing deployment configuration.
 
 ## Included
-- 37 navigable pages including articles, About, leadership, programmes, thematic expertise, schools, resources, donations and participation.
+- 39 navigable pages including articles, About, leadership, ongoing programmes, upcoming priorities, thematic expertise, schools, resources, donations and participation.
 - shadcn dropdown navigation, mobile sheet, tabs, dialogs, accordions, selects, buttons and form inputs.
 - 268 school records with district/name filters and pagination.
 - 30 activity books, 16 publications and 5 corporate documents, linked to PEN-hosted PDFs.

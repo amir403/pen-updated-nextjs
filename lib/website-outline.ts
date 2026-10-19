@@ -20,6 +20,27 @@ export const upcomingPriorities = [
   ['Partnerships & Resources','Donor partnerships and opportunities to work together'],
 ];
 
+export const ongoingProgrammes = [
+  {id:'public-school-adoption',title:'Public-School Adoption',description:'School improvement, access to education and support for disadvantaged children.',themes:['quality-education','school-infrastructure'],href:'/our-work#pen',linkText:'Explore the PEN model',resource:{title:'Find our schools',href:'/explore-our-schools'}},
+  {id:'peima-partnership',title:'PEIMA Partnership Model',description:'Management and quality improvement of public schools in Punjab.',themes:['quality-education','school-infrastructure'],href:'/our-work#peima',linkText:'Explore the PEIMA model',resource:{title:'Browse the school directory',href:'/explore-our-schools'}},
+  {id:'non-formal-education',title:'Non-Formal Education (NFE)',description:'Second-chance education for out-of-school and working children.',themes:['quality-education','inclusive-education'],href:'/our-work#non-formal',linkText:'Discover non-formal education',resource:{title:'Speak to our team',href:'/contact-us'}},
+  {id:'teacher-training',title:'Teacher Training',description:'Pre-service, in-service and refresher training, alongside mentoring and professional development.',themes:['teacher-development'],href:'/teacher-training',linkText:'Explore teacher development',resource:{title:'Browse PEN publications',href:'/publications'}},
+  {id:'academic-development',title:'Academic Development',description:'Lesson plans, activity books, teaching resources and student assessments.',themes:['quality-education','teacher-development'],href:'/academics',linkText:'Discover academic support',resource:{title:'Explore activity books',href:'/pen-activity-books'}},
+  {id:'pen-academy',title:'PEN Academy',description:'Digital learning content, educational technology and online learning resources.',themes:['digital-learning'],href:'/pen-academy',linkText:'Discover PEN Academy',resource:{title:'Visit the learning portal',href:'https://penacademy.pk/'}},
+  {id:'scholarships',title:'Scholarships',description:'Financial support for academically strong students from marginalized families.',themes:['quality-education','inclusive-education'],href:'/scholarships',linkText:'Explore the scholarship programme',resource:{title:'Ask about scholarships',href:'/contact-us'}},
+  {id:'monitoring-evaluation',title:'Monitoring and Evaluation',description:'Monitoring attendance, retention, classroom quality, teacher performance and school facilities.',themes:['research-impact'],href:'/what-we-do#research-impact',linkText:'Explore research and learning',resource:{title:'Read our publications',href:'/publications'}},
+];
+
+// Related destinations provide navigation, not new project announcements.
+export const priorityDestinations = [
+  {id:'education-programmes',href:'/ongoing-projects',label:'Explore education programmes',theme:'quality-education'},
+  {id:'girls-inclusion',href:'/what-we-do#girls-education',label:'Explore girls’ education',theme:'inclusive-education'},
+  {id:'digital-education',href:'/pen-academy',label:'Discover PEN Academy',theme:'digital-learning'},
+  {id:'teacher-school-development',href:'/teacher-training',label:'Explore teacher development',theme:'school-infrastructure'},
+  {id:'research-impact',href:'/what-we-do#research-impact',label:'Explore research and impact',theme:'research-impact'},
+  {id:'partnerships-resources',href:'/contact-us',label:'Connect with PEN',theme:'community-wellbeing'},
+];
+
 export const sdgLabels: Record<number,string> = {
   3:'Good Health and Well-being',4:'Quality Education',5:'Gender Equality',
   8:'Decent Work and Economic Growth',9:'Industry, Innovation and Infrastructure',
