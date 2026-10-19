@@ -44,6 +44,14 @@ The older `/our-work` education-model URLs and thematic overview anchors remain
 available so existing links continue to resolve.
 
 ## Implementation
+
+The About Us refresh uses editorial summaries of PEN's official About Us, CEO
+Message and Core Values pages (rechecked 19 October 2026). Mission and vision
+cards are summaries, not verbatim formal statements. The dated journey retains
+the published 2005, 2019 and 2022 milestones; the 2022 district statement is
+historical. Leadership and accountability links reuse existing sourced pages.
+`WEBSITE OUTLINE.docx` contains no replacement About Us copy. No new outcome,
+certification or leadership appointment is asserted.
 React / TypeScript using the Sites Vinext framework; Tailwind CSS; local shadcn/ui components built on Radix. All main pages use real URL routes. Source datasets are in lib/source-data.json; editorial content, navigation and article summaries are in lib/content.ts; page components in components/pen-site.tsx.
 
 No custom CMS, email delivery server, card processor or job-application database is configured. External services remain on their existing official URLs. Site privacy/terms text describes this build and links to official terms.
