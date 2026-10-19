@@ -28,6 +28,11 @@ official application links, and donation behavior retain their previous sources.
 `PEN Website.pptx` remains a design/revision reference. `Potential partner.docx`
 was explicitly excluded by the user because it belongs to a separate portal.
 
+The homepage headline, five flagship thematic summaries, SDG mappings, five
+photographs, and eight distinct SDG graphics also come from `WEBSITE OUTLINE.docx`.
+Original embedded JPEGs are stored in `public/images/website-outline/`. The SDG
+labels describe thematic alignment, not external certification or endorsement.
+
 ## Implementation
 React / TypeScript using the Sites Vinext framework; Tailwind CSS; local shadcn/ui components built on Radix. All main pages use real URL routes. Source datasets are in lib/source-data.json; editorial content, navigation and article summaries are in lib/content.ts; page components in components/pen-site.tsx.
 

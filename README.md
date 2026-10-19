@@ -6,6 +6,7 @@ A responsive 37-page React/TypeScript website with PEN content and a TCF-inspire
 - `components/pen-site.tsx`: site shell and page components.
 - `components/site-header.tsx`: shared desktop and mobile navigation and website search.
 - `lib/website-outline.ts`: document-supplied thematic areas and upcoming priority categories.
+- `components/homepage-focus.tsx`: five homepage priorities with supplied photographs and SDG graphics.
 - `lib/content.ts`: navigation, programmes, article summaries and page metadata.
 - `lib/source-data.json`: school directory, gallery and resource documents.
 - `app/globals.css`: responsive visual design.

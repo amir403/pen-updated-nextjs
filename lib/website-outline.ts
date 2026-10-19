@@ -19,3 +19,17 @@ export const upcomingPriorities = [
   ['Research & Impact','Monitoring, evaluation, research and results'],
   ['Partnerships & Resources','Donor partnerships and opportunities to work together'],
 ];
+
+export const sdgLabels: Record<number,string> = {
+  3:'Good Health and Well-being',4:'Quality Education',5:'Gender Equality',
+  8:'Decent Work and Economic Growth',9:'Industry, Innovation and Infrastructure',
+  10:'Reduced Inequalities',16:'Peace, Justice and Strong Institutions',17:'Partnerships for the Goals',
+};
+
+export const homepageFocus = [
+  {id:'quality-education',title:'Quality Education and School Improvement',image:'quality-education.jpg',alt:'A teacher supporting children with their classroom work',text:'Strengthening schools, improving teaching and learning, and expanding equitable access to quality education for underserved children.',sdgs:[4,10]},
+  {id:'girls-education',title:'Girls’ Education and Child Protection',image:'girls-education.jpg',alt:'Girls reading and learning together in a classroom',text:'Promoting girls’ enrolment, retention and empowerment while supporting safe learning environments, child safeguarding and awareness to prevent child marriage.',featured:'Child Marriage Prevention and Adolescent Girls’ Empowerment',sdgs:[5,3,16]},
+  {id:'digital-learning',title:'Digital Learning — PEN Academy',image:'digital-learning.jpg',alt:'Students using tablets for digital learning in a classroom',text:'Expanding access to technology-enabled education through digital lessons, learning resources and innovative approaches that support students and teachers.',sdgs:[4,9]},
+  {id:'teacher-development',title:'Teacher Development and Institutional Strengthening',image:'teacher-development.jpg',alt:'Teachers collaborating during a professional development session',text:'Building teachers’ skills, strengthening school leadership and improving institutional systems to support effective, accountable and sustainable education delivery.',sdgs:[4,8,16]},
+  {id:'inclusive-education',title:'Inclusive Education and Community Engagement',image:'inclusive-education.jpg',alt:'A student using a wheelchair alongside an adult at a school event',text:'Engaging families and communities to reduce barriers to education, promote inclusion and strengthen local ownership of children’s learning and wellbeing.',sdgs:[4,5,10,17]},
+];
