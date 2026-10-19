@@ -15,6 +15,7 @@ Source collection: 13 October 2026.
 - Story/article sources match each article slug under https://pen.org.pk/. Display copy is a concise paraphrase, with a link to the original article.
 - Learning portal: https://pen.org.pk/pen-academy/, https://penacademy.pk/
 - Donation amounts and bank details: https://pen.org.pk/donate-now/. No payment processing is implemented in this build; all donation processing is on PEN's official channels. The selected sponsorship amount is informational and not transmitted to the official donation page.
+- Donation rates and both bank accounts were rechecked on 19 October 2026. The published annual child sponsorship is PKR 30,000. The calculator's PKR 2,500 monthly equivalent is derived by dividing that annual rate by 12; it is not described as a confirmed monthly payment plan. Estimates multiply by a whole-number child count from 1 to 1,000. No checkout, recurring payment, or prefilled donation handoff is implemented.
 - Contact: https://pen.org.pk/contact-us/. The contact form opens a mailto draft and does not claim server submission.
 - Volunteer and careers applications use the official forms at https://pen.org.pk/volunteer/ and https://pen.org.pk/careers/.
 

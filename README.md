@@ -8,6 +8,7 @@ A responsive 39-page React/TypeScript website with PEN content and a TCF-inspire
 - `lib/website-outline.ts`: document-supplied thematic areas and upcoming priority categories.
 - `components/homepage-focus.tsx`: five homepage priorities with supplied photographs and SDG graphics.
 - `components/projects.tsx`: ongoing programme cards, related resources and upcoming priority areas.
+- `components/donation.tsx` and `lib/donations.ts`: validated child-sponsorship estimates and sourced donation rates/bank details.
 - `lib/content.ts`: navigation, programmes, article summaries and page metadata.
 - `lib/source-data.json`: school directory, gallery and resource documents.
 - `app/globals.css`: responsive visual design.
@@ -30,7 +31,7 @@ The hosted build uses the Sites build helper and Cloudflare Workers. Keep the ex
 - 268 school records with district/name filters and pagination.
 - 30 activity books, 16 publications and 5 corporate documents, linked to PEN-hosted PDFs.
 - Searchable news and website search, photo lightbox, documentary modal and manual hero carousel.
-- Donation sponsorship selector and bank-detail copy controls.
+- Child sponsorship calculator (yearly total or monthly equivalent), other sponsorship options and bank-detail copy controls. Donations continue on PEN's official website.
 
 ## Animation behavior
 

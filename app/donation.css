@@ -1,0 +1,50 @@
+.sponsorship-tabs { margin-top: 30px; }
+.sponsorship-tabs>[data-slot=tabs-list] { width: 100%; height: auto; padding: 5px; gap: 5px; }
+.sponsorship-tabs [data-slot=tabs-trigger] { padding: 12px 10px; height: auto; font-size: 12px; }
+.sponsorship-calculator { padding: 28px; margin-top: 16px; border: 1px solid var(--border); border-radius: 5px; background: var(--card); }
+.calculator-rate { display: flex; align-items: center; gap: 15px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.calculator-rate>svg { color: #13764e; flex-shrink: 0; }
+.calculator-rate span { display: block; font-size: 11px; color: #69756d; }
+.calculator-rate strong { display: block; font-size: 23px; font-weight: 600; color: #176240; margin-top: 4px; line-height: 1.5; }
+.calculator-rate small { font-size: 11px; color: #69756d; font-weight: 400; white-space: nowrap; }
+.calculator-period { margin: 24px 0; padding: 0; border: 0; min-width: 0; }
+.calculator-period legend,.calculator-quantity>label { font-size: 12px; font-weight: 600; margin-bottom: 12px; display: block; }
+.calculator-period>div { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.calculator-period label { display: flex; align-items: center; gap: 9px; padding: 12px; border: 1px solid var(--border); border-radius: 4px; cursor: pointer; font-size: 12px; }
+.calculator-period label:has(input:checked) { background: #edf4ed; border-color: #13764e; color: #176240; }
+.calculator-period input { accent-color: #13764e; width: 15px; height: 15px; flex-shrink: 0; }
+.quantity-stepper { display: grid; grid-template-columns: 44px minmax(0,1fr) 44px; gap: 10px; }
+.quantity-stepper>button { width: 44px; height: 48px; }
+.quantity-stepper input { height: 48px; text-align: center; font-size: 21px; font-variant-numeric: tabular-nums; background: var(--background); }
+.calculator-help,.calculator-error { font-size: 11px; margin-top: 9px; }
+.calculator-error { color: #b42318; }
+.quantity-presets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.quantity-presets button { padding: 7px 13px; border: 1px solid var(--border); border-radius: 20px; font-size: 11px; }
+.quantity-presets button[aria-pressed=true] { background: #13764e; color: white; border-color: #13764e; }
+.calculator-explanation { font-size: 11px; margin-block: 24px 14px; padding-top: 20px; border-top: 1px solid var(--border); }
+.calculator-inline-total { display: none; }
+.sponsorship-calculator>.text-link { font-size: 11px; }
+.donation-summary .donation-period { font-size: 13px; margin-top: 5px; }
+.donation-breakdown { display: grid; gap: 12px; padding-block: 22px; margin: 22px 0 0; border-block: 1px solid var(--border); font-size: 11px; }
+.donation-breakdown>div { display: flex; justify-content: space-between; gap: 15px; }
+.donation-breakdown dt { color: #69756d; }
+.donation-breakdown dd { margin: 0; font-weight: 600; text-align: right; }
+.donation-amount { font-size: clamp(30px,3.5vw,42px); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.donation-page .donation-options { margin-top: 16px; }
+.dark :is(.calculator-rate>svg,.calculator-rate strong) { color: var(--primary); }
+.dark :is(.calculator-rate span,.calculator-rate small,.calculator-help,.calculator-explanation,.donation-breakdown dt) { color: var(--muted-foreground); }
+.dark .calculator-period label:has(input:checked) { background: var(--accent); color: var(--accent-foreground); border-color: var(--primary); }
+.dark .calculator-period input { accent-color: #75d5a6; }
+.dark .calculator-error { color: #ffaaa0; }
+.dark .quantity-presets button[aria-pressed=true] { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+@media(max-width:700px) {
+  .calculator-inline-total { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 22px; padding: 16px 13px; background: var(--muted); border-radius: 4px; }
+  .calculator-inline-total>span { font-size: 10px; }
+  .calculator-inline-total small { display: block; font-size: 9px; color: var(--muted-foreground); margin-top: 4px; }
+  .calculator-inline-total strong { font-size: clamp(17px,5vw,23px); font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .sponsorship-calculator { padding: 23px 18px; }
+  .calculator-rate strong { font-size: 22px; }
+  .calculator-period label { padding: 11px 8px; gap: 6px; font-size: 11px; }
+  .quantity-presets button { padding: 7px 11px; }
+  .sponsorship-tabs [data-slot=tabs-trigger] { font-size: 11px; }
+}
