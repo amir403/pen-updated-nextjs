@@ -36,7 +36,7 @@ const revealTargets = [
   '.timeline > *', '.work-row', '.programme-detail > *', '.join-layout > *',
   '.contact-grid > *', '.office-grid > *', '.donation-layout > *',
   '.bank-grid > *', '.give-inner > div:not(.band-sun)', '.article-header > *',
-  '.article-feature', '.tender-notice-grid > *', '.thematic-grid > *', '.focus-grid > *', '.project-grid > *',
+  '.article-feature', '.tender-notice-grid > *', '.thematic-grid > *', '.focus-grid > *', '.project-grid > *', '.giving-shop-grid > *', '.giving-enquiry-grid > *',
 ].join(',');
 
 /** Enhance existing elements, preserving grid structure and server-rendered content. */

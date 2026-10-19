@@ -2,14 +2,15 @@
 
 import {useState} from 'react';
 import Link from 'next/link';
-import {ArrowUpRight, BookOpen, Check, Copy, GraduationCap, Mail, Minus, Plus, School, ShieldCheck, Users} from 'lucide-react';
+import {Armchair, ArrowUpRight, BookOpen, Building2, Check, Copy, DoorOpen, Droplets, GraduationCap, Mail, Minus, Plus, School, ShieldCheck, Users} from 'lucide-react';
+import {DonationWays} from '@/components/donation-ways';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
 import {images} from '@/lib/content';
 import {donationBanks, formatDonationAmount as money, maximumChildren, officialDonationUrl, sponsorshipOptions} from '@/lib/donations';
 
-const optionIcons = [GraduationCap,Users,School,BookOpen];
+const optionIcons = [GraduationCap,Users,School,BookOpen,Building2,DoorOpen,Armchair,Droplets];
 
 export function Donation() {
   const [mode,setMode] = useState('children');
@@ -31,7 +32,8 @@ export function Donation() {
   }
 
   return <section className="section container donation-page">
-    <div className="donation-layout">
+    <nav className="giving-jump-links" aria-label="Donation sections"><a href="#sponsorship-calculator">Child sponsorship</a><a href="#donation-shop">Donation shop</a><a href="#giving-options">More ways to give</a><a href="#custom-giving">Custom donation</a><a href="#zakat-calculator">Zakat calculator</a><a href="#bank-details">Bank details</a></nav>
+    <div className="donation-layout" id="sponsorship-calculator">
       <div><p className="eyebrow"><span/>INVEST IN POSSIBILITY</p><h2>A little support.<br/>A world of possibility.</h2><p className="section-intro">Plan support for one child or many, or explore another way to strengthen a learning community.</p>
         <Tabs value={mode} onValueChange={setMode} className="sponsorship-tabs">
           <TabsList aria-label="Choose your sponsorship"><TabsTrigger value="children">Sponsor children</TabsTrigger><TabsTrigger value="other">Other sponsorships</TabsTrigger></TabsList>
@@ -63,7 +65,7 @@ export function Donation() {
           })}</div><p className="source-note">Sponsorship amounts published by PEN. Confirm current details before transferring.</p></TabsContent>
         </Tabs>
       </div>
-      <aside className="donation-summary" aria-label="Your sponsorship estimate"><img src={images.hero} alt="Children at a PEN-supported school"/><div>
+      <aside className="donation-summary" id="sponsorship-estimate" tabIndex={-1} aria-label="Your sponsorship estimate"><img src={images.hero} alt="Children at a PEN-supported school"/><div>
         <span className="small-label">YOUR GENEROSITY. THEIR FUTURE.</span><h3>{title}</h3>
         <p className="donation-amount" aria-live="polite" aria-atomic="true"><span>PKR</span> {total===null?'—':money(total)}</p>
         <p className="donation-period">{childMode?(period==='monthly'?'Monthly equivalent':'Yearly total'):option.period}</p>
@@ -72,7 +74,8 @@ export function Donation() {
         <p className="secure-note"><ShieldCheck size={15} aria-hidden="true"/>Payment is completed through PEN’s official channels. Confirm your chosen amount and payment arrangements with PEN; this estimate is not sent to their website.</p>
       </div></aside>
     </div>
-    <div className="bank-section"><div className="section-heading"><div><p className="eyebrow"><span/>OTHER WAYS TO GIVE</p><h2>A direct contribution. A real difference.</h2><p className="section-intro">Use PEN’s published bank details or send a cheque in favour of Progressive Education Network.</p></div></div>
+    <DonationWays onChoose={index=>{if(index===0)setMode('children');else{setMode('other');setSelectedOther(index);}requestAnimationFrame(()=>{const estimate=document.getElementById('sponsorship-estimate');estimate?.focus({preventScroll:true});estimate?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});}}/>
+    <div className="bank-section" id="bank-details"><div className="section-heading"><div><p className="eyebrow"><span/>OTHER WAYS TO GIVE</p><h2>A direct contribution. A real difference.</h2><p className="section-intro">Use PEN’s published bank details or send a cheque in favour of Progressive Education Network.</p></div></div>
       <div className="bank-grid">{donationBanks.map(bank=><div className="bank-card" key={bank.name}><h3>{bank.name}</h3><dl><dt>Account title</dt><dd>Progressive Education Network</dd><dt>Account number</dt><dd>{bank.number}</dd><dt>IBAN</dt><dd className="iban">{bank.iban}</dd>{bank.swift&&<><dt>SWIFT code</dt><dd>{bank.swift}</dd></>}</dl><Button variant="outline" onClick={()=>copy(bank.iban)}>{copied===bank.iban?<Check size={15} aria-hidden="true"/>:<Copy size={15} aria-hidden="true"/>} {copied===bank.iban?'Copied':'Copy IBAN'}</Button></div>)}</div>
       <div className="cheque-note"><Mail size={23} aria-hidden="true"/><p><strong>Prefer to send a cheque?</strong><br/>Address it to Progressive Education Network, 172-A, Ahmad Block, New Garden Town, Lahore 54000.</p><Link className="text-link" href="/contact-us">Need help?<ArrowUpRight size={16} aria-hidden="true"/></Link></div>
     </div>

@@ -9,6 +9,7 @@ A responsive 39-page React/TypeScript website with PEN content and a TCF-inspire
 - `components/homepage-focus.tsx`: five homepage priorities with supplied photographs and SDG graphics.
 - `components/projects.tsx`: ongoing programme cards, related resources and upcoming priority areas.
 - `components/donation.tsx` and `lib/donations.ts`: validated child-sponsorship estimates and sourced donation rates/bank details.
+- `components/donation-ways.tsx`: donation shop, enquiry categories, custom contribution drafts and a user-supplied-nisab Zakat estimator.
 - `lib/content.ts`: navigation, programmes, article summaries and page metadata.
 - `lib/source-data.json`: school directory, gallery and resource documents.
 - `app/globals.css`: responsive visual design.
