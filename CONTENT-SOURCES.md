@@ -45,6 +45,12 @@ available so existing links continue to resolve.
 
 ## Implementation
 
+The school directory refresh retains the 268 existing source records and their
+original district/area labels. Its 23 district/area listings describe this
+dataset, not PEN's complete footprint. Search matches school names and areas;
+sorting and pagination are local. Missing map links are labelled as unlisted,
+and no addresses, enrolments or coordinates are inferred.
+
 The About Us refresh uses editorial summaries of PEN's official About Us, CEO
 Message and Core Values pages (rechecked 19 October 2026). Mission and vision
 cards are summaries, not verbatim formal statements. The dated journey retains

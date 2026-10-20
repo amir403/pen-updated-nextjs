@@ -1,0 +1,26 @@
+.schools-intro{display:flex;justify-content:space-between;gap:45px;align-items:center;margin-bottom:40px}
+.schools-intro h2{font-size:46px;line-height:1.12;margin-bottom:20px}
+.schools-intro p:not(.eyebrow){font-size:15px;line-height:1.8;color:var(--muted-foreground);max-width:530px}
+.schools-directory-facts{display:flex;gap:35px;padding:30px 35px;background:var(--muted);border:1px solid var(--border);border-radius:4px}
+.schools-directory-facts strong{display:block;font-size:42px;color:var(--primary);line-height:1.2}
+.schools-directory-facts span{display:block;font-size:12px;margin-top:10px;color:var(--muted-foreground)}
+.schools-filters{display:grid;grid-template-columns:1.5fr 1fr 1fr auto;gap:18px;align-items:end;padding:26px;background:var(--muted);border:1px solid var(--border);border-radius:4px}
+.schools-filters label{display:block;font-size:12px;font-weight:600;margin-bottom:10px}
+.schools-filters select{height:44px;width:100%;min-width:0;padding:0 30px 0 12px;border:1px solid var(--input);border-radius:4px;background:var(--background);color:var(--foreground);font-size:12px}
+.schools-filters>div{min-width:0}.schools-filters .search-field{background:var(--background);height:44px;padding-inline:12px;gap:9px}
+.schools-filters .search-field input{min-width:0;font-size:12px}.schools-filters .search-field>svg{flex-shrink:0}
+.schools-filters .search-field button{padding:5px;flex-shrink:0;cursor:pointer}.schools-filters>button{height:44px;font-size:12px}
+.schools-results-row{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:32px 0 24px}
+.schools-results-heading{font-family:inherit;font-size:17px;font-weight:600;scroll-margin-top:125px}
+.schools-results-heading span{display:block;font-size:12px;font-weight:400;color:var(--muted-foreground);margin-top:6px}
+.schools-published-label{font-size:11px;color:var(--muted-foreground)}
+.schools-directory .school-card{display:flex;flex-direction:column;background:var(--background)}
+.schools-directory .school-card h3{flex:1;line-height:1.3;margin-bottom:25px}
+.schools-directory .school-numbers{margin-bottom:0;gap:14px}.schools-directory .school-numbers dd{font-size:28px;line-height:1.25;color:var(--primary)}
+.schools-directory .school-numbers dt{font-size:10px;line-height:1.5;color:var(--muted-foreground);margin-top:5px}
+.school-card-location{border-top:1px solid var(--border);margin-top:22px;padding-top:18px;min-height:40px}
+.school-card-location>span{font-size:11px;color:var(--muted-foreground)}
+.schools-empty>button{margin-top:22px}.schools-source{border-top:1px solid var(--border);padding-top:24px;margin-top:35px;line-height:1.8}
+.schools-filters :is(select,button):focus-visible,.schools-results-heading:focus-visible{outline:2px solid var(--ring);outline-offset:4px}
+@media(max-width:1100px){.schools-filters{grid-template-columns:1fr 1fr}.schools-intro{gap:28px}.schools-directory-facts{gap:24px;padding:25px}.schools-directory-facts span{max-width:110px}.schools-intro h2{font-size:40px}}
+@media(max-width:700px){.schools-intro{display:block;margin-bottom:25px}.schools-intro h2{font-size:34px}.schools-intro p:not(.eyebrow){font-size:14px}.schools-directory-facts{margin-top:25px;justify-content:space-between;padding:22px 25px}.schools-directory-facts strong{font-size:34px}.schools-directory-facts span{max-width:none;font-size:11px}.schools-filters{padding:20px;gap:18px;grid-template-columns:1fr}.schools-results-row{align-items:flex-start;flex-direction:column;gap:10px}.schools-results-heading{font-size:16px}.schools-published-label{font-size:10px}.schools-directory .school-numbers dd{font-size:26px}.schools-pagination{justify-content:space-between;gap:8px}.schools-pagination>button{padding-inline:12px}}
