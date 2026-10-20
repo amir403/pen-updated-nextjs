@@ -45,6 +45,12 @@ available so existing links continue to resolve.
 
 ## Implementation
 
+The News & Media refresh reuses the existing nine sourced article summaries,
+dates and gallery assets. It adds local category/search controls, same-category
+related-story ordering and keyboard gallery navigation. Article detail pages
+explicitly identify their copy as a summary and retain the original story link.
+No new event dates, student outcomes or photo-specific claims are introduced.
+
 The school directory refresh retains the 268 existing source records and their
 original district/area labels. Its 23 district/area listings describe this
 dataset, not PEN's complete footprint. Search matches school names and areas;

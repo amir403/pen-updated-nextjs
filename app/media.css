@@ -1,0 +1,23 @@
+.media-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:40px}
+.media-intro h2{max-width:700px}.media-intro p:not(.eyebrow){max-width:650px;font-size:15px;line-height:1.85;margin-top:18px;color:var(--muted-foreground)}
+.media-intro>.text-link{flex-shrink:0}
+.media-tools{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;padding:25px;background:var(--muted);border:1px solid var(--border);border-radius:4px}
+.media-tools .filter-pills{display:flex;flex-wrap:wrap;gap:8px}.media-tools .filter-pills button{display:flex;align-items:center;gap:9px;font-size:12px;padding:10px 16px}
+.media-tools .filter-pills button span{font-size:10px;opacity:.8}.media-tools .filter-pills button[aria-pressed=true]{background:var(--primary);color:var(--primary-foreground)}
+.media-search{width:330px;max-width:100%;flex-shrink:0}.media-search label{display:block;font-size:12px;font-weight:600;margin-bottom:9px}
+.media-search>div{position:relative}.media-search input{height:44px;background:var(--background);padding:0 40px 0 38px;font-size:12px}
+.media-search svg{pointer-events:none}.media-search>div>svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted-foreground)}
+.media-search button{position:absolute;right:5px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:32px;height:32px}
+.media-results{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;font-size:12px}.media-results p{color:var(--muted-foreground)}.media-results button{text-decoration:underline;text-underline-offset:4px}
+.media-directory .article-grid{row-gap:48px}.media-directory .article-card{display:flex;flex-direction:column}.media-directory .article-card p{flex:1}.media-read-link{margin-top:18px}
+.media-directory .empty-state button{margin-top:22px}
+.media-explore{display:flex;flex-wrap:wrap;gap:15px 30px;border-top:1px solid var(--border);padding-top:30px;margin-top:55px;font-size:12px}
+.media-explore a{display:flex;align-items:center;gap:12px}.media-explore [aria-current=page]{color:var(--primary);font-weight:600}
+.media-gallery .gallery-photo{border-radius:4px}.media-gallery .gallery-photo>span{opacity:1}.media-gallery .gallery-photo:focus-visible{outline-offset:4px}
+.media-gallery-dialog{width:min(1000px,calc(100vw - 32px));max-width:1000px;max-height:calc(100dvh - 32px);overflow-y:auto}
+.media-gallery-image{display:grid;place-items:center;min-height:0;background:var(--muted);border-radius:4px;overflow:hidden}
+.media-gallery-image>img{width:100%;height:min(58dvh,620px);object-fit:contain}
+.media-gallery-dialog .gallery-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}.media-gallery-dialog .gallery-nav>span{font-size:12px;color:var(--muted-foreground)}
+.article-body{max-width:720px;padding-inline:24px;line-height:1.95}.article-body>p{font-size:17px}.article-body .article-source-note{font-size:12px;padding:18px 20px;margin-top:30px;background:var(--muted);border-left:3px solid var(--primary);line-height:1.8}
+@media(max-width:1000px){.media-intro{align-items:flex-start;flex-direction:column}.media-tools{align-items:stretch;flex-direction:column}.media-search{width:100%}}
+@media(max-width:700px){.media-intro{gap:22px;margin-bottom:28px}.media-intro h2{font-size:33px}.media-intro p:not(.eyebrow){font-size:14px}.media-tools{padding:20px;gap:22px}.media-tools .filter-pills button{font-size:11px;padding:9px 13px}.media-directory .article-grid{row-gap:36px}.media-gallery-dialog{padding:24px 16px}.media-gallery-dialog .gallery-nav{gap:6px}.media-gallery-dialog .gallery-nav button{font-size:11px;padding-inline:10px;gap:3px}.media-gallery-dialog .gallery-nav>span{font-size:10px}.media-gallery-image>img{height:45dvh}.article-body>p{font-size:15px}}
