@@ -31,6 +31,7 @@ export function Header() {
     <header className="header"><div className="container nav-inner">
       <Link href="/" className="brand" aria-label="PEN home"><img src={images.logo} alt="PEN"/></Link>
       <nav className="desktop-nav" aria-label="Main navigation">
+        <Link href="/" className="nav-link nav-home" data-current={pathname==='/'||undefined} aria-current={pathname==='/'?'page':undefined}>Home</Link>
         {nav.map(group=><DropdownMenu key={group.label} modal={false}>
           <DropdownMenuTrigger className="nav-link" data-current={currentGroup===group || undefined}>
             {group.label}<ChevronDown size={12} aria-hidden="true"/>
@@ -57,6 +58,7 @@ export function Header() {
           <SheetTrigger asChild><Button variant="ghost" size="icon" className="mobile-menu" aria-label="Open navigation"><Menu aria-hidden="true"/></Button></SheetTrigger>
           <SheetContent className="mobile-sheet">
             <SheetHeader><SheetTitle>Explore PEN</SheetTitle></SheetHeader>
+            <Link href="/" className="mobile-home-link" onClick={()=>setMenu(false)} aria-current={pathname==='/'?'page':undefined}>Home<ArrowUpRight size={16} aria-hidden="true"/></Link>
             <Accordion type="single" collapsible className="mobile-nav" aria-label="Mobile navigation">
               {nav.map(group=><AccordionItem value={group.label} key={group.label}>
                 <AccordionTrigger className={currentGroup===group?'mobile-nav-current':undefined}>{group.label}</AccordionTrigger>

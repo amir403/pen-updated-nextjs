@@ -4,6 +4,16 @@ export const images = {
  hero:'/images/IMG_4626.jpg', classroom:'/images/IMG_4631.jpg', school:'/images/modelschoolpic1-ezgif.com-resize-1.jpg', training:'/images/training-img.jpg', academy:'/images/IMG_958330-1-scaled.jpg', nfe:'/images/Non-Formal-Education-min-scaled.jpg', school2:'/images/IMG_4701-1-min-scaled.jpg', scholarship:'/images/IMG_3496.jpg', logo:'/images/pen-logo-simple.png'
 };
 type NavGroup = {label:string;description:string;overview?:string;mega?:boolean;items:{title:string;href:string;description?:string}[]};
+// Add confirmed profile URLs here; null entries remain visible without a link.
+export const socialMedia:{label:string;href:string|null}[]=[
+ {label:'Facebook',href:null},
+ {label:'Instagram',href:null},
+ {label:'TikTok',href:null},
+ {label:'LinkedIn',href:null},
+ {label:'X / Twitter',href:null},
+ {label:'YouTube',href:'https://www.youtube.com/c/PENAcademypk'},
+ {label:'WhatsApp',href:'https://wa.me/923494443736'},
+];
 export const nav:NavGroup[] = [
  {label:'About PEN',description:'The people and purpose behind PEN.',items:[{title:'Our story',href:'/about-us'},{title:'CEO message',href:'/ceo-message'},{title:'Founders & directors',href:'/founders'},{title:'Our values',href:'/core-values'},{title:'Our supporters',href:'/our-donors-supporters'},{title:'Privacy policy',href:'/privacy-policy'},{title:'FAQs',href:'/faq'}]},
  {label:'What We Do',description:'Eight focus areas. One commitment to every child.',overview:'/what-we-do',mega:true,items:thematicAreas.map(area=>({title:area.title,href:'/what-we-do#'+area.id,description:area.summary}))},

@@ -1,0 +1,14 @@
+.desktop-nav{gap:18px}.nav-link{font-size:15px}.nav-home[data-current=true]::after{right:0}
+.topbar{font-size:12px}.donate-button{font-size:13px}
+.nav-dropdown .nav-menu-item,.nav-menu-grid .nav-menu-title{font-size:15px}.nav-menu-description{font-size:13px}.nav-menu-intro>span{font-size:12px}.nav-menu-intro>p,.nav-dropdown .nav-menu-overview{font-size:14px}
+.mobile-sheet .mobile-nav [data-slot=accordion-trigger]{font-size:17px}.mobile-sheet .mobile-nav [data-slot=accordion-content] a,.mobile-sheet .mobile-direct-links a{font-size:15px}
+.mobile-home-link{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border);font-size:17px;font-weight:600}
+.mobile-home-link[aria-current=page]{color:var(--primary)}
+.site-footer .footer-grid{gap:35px}.site-footer .footer-grid h3{font-size:17px}.site-footer .footer-grid p{font-size:15px;line-height:1.85}
+.site-footer .footer-grid>div>a:not(.footer-brand){font-size:15px;line-height:1.7}.site-footer .footer-brand>span{font-size:12px;line-height:1.6}
+.footer-socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;max-width:360px}
+.footer-socials>a,.footer-socials>.social-pending{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:8px 11px;border:1px solid var(--border);border-radius:4px;font-size:13px;line-height:1.4}
+.footer-socials>a:hover{border-color:var(--primary);color:var(--primary)}.footer-socials>.social-pending{flex-direction:column;align-items:flex-start;gap:3px;color:var(--muted-foreground)}.social-pending small{font-size:10px}
+.site-footer .footer-bottom{font-size:12px;line-height:1.7}
+@media(max-width:1280px){.desktop-nav{display:none}.mobile-menu{display:inline-flex}.nav-actions{margin-left:auto}}
+@media(max-width:700px){.site-footer .footer-grid{gap:30px 20px}.site-footer .footer-grid h3{font-size:16px}.site-footer .footer-grid p,.site-footer .footer-grid>div>a:not(.footer-brand){font-size:14px}.site-footer .footer-bottom{font-size:12px}.topbar{font-size:10px}.footer-socials{max-width:none}.donate-button{font-size:12px}}
