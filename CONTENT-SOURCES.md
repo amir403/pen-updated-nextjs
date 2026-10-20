@@ -45,6 +45,14 @@ available so existing links continue to resolve.
 
 ## Implementation
 
+The Resources refresh retains the existing 16 publications, 30 activity books
+and five corporate documents. Class, subject and publication-type filters are
+derived from existing titles (Social Study/Studies share one subject filter).
+The user documents guide the overall website structure; these document records
+come from PEN's official pages, not the PPT or website outline. Search, category
+links and filter behavior are implementation improvements. No new files or
+claims of current certificate/exemption validity are added.
+
 The News & Media refresh reuses the existing nine sourced article summaries,
 dates and gallery assets. It adds local category/search controls, same-category
 related-story ordering and keyboard gallery navigation. Article detail pages
