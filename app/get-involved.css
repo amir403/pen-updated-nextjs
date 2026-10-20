@@ -1,0 +1,16 @@
+.enquiry-form{scroll-margin-top:125px}.enquiry-form h2{font-size:34px}.enquiry-form>p:not(.eyebrow){line-height:1.85}
+.enquiry-form select{width:100%;height:46px;border:1px solid var(--input);border-radius:4px;background:var(--background);color:var(--foreground);font-size:13px;padding:0 12px}
+.enquiry-form .enquiry-field-help{font-size:11px;line-height:1.7;margin-top:9px;color:var(--muted-foreground)}
+.enquiry-fallback{display:block;font-size:12px;line-height:1.8;color:var(--primary);overflow-wrap:anywhere}.enquiry-form .form-status{font-size:12px}.enquiry-form .form-status a{text-decoration:underline}
+.enquiry-form select:focus-visible{outline:2px solid var(--ring);outline-offset:3px}
+.contact-details .contact-item{padding-bottom:22px;border-bottom:1px solid var(--border)}
+.involvement-paths,.application-guide{margin-top:80px}.involvement-grid,.application-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.involvement-grid article,.application-steps li{padding:30px;border:1px solid var(--border);border-radius:4px;background:var(--background)}
+.involvement-grid article{display:flex;align-items:flex-start;flex-direction:column}.involvement-grid svg{color:var(--primary)}
+.involvement-grid h3,.application-steps h3{font-size:25px;margin:22px 0 14px}.involvement-grid p,.application-steps p{font-size:14px;line-height:1.85;color:var(--muted-foreground);margin-bottom:24px}.involvement-grid .text-link{margin-top:auto}
+.application-steps{list-style:none;padding:0;margin:0}.application-steps li>span{color:var(--primary);font-size:13px;letter-spacing:2px}.application-steps li{background:var(--muted)}
+.join-page .join-layout>div>p{line-height:1.85}.join-page .join-layout .pen-button{height:auto;min-height:48px;white-space:normal;padding-block:13px}
+.join-page .check-list{margin-block:28px}.join-page .check-list li{align-items:flex-start;line-height:1.8}.join-page .check-list svg{flex-shrink:0;margin-top:5px}
+.contact-page .office-grid{margin-top:60px}.contact-page .office-grid>div{background:var(--muted);border:1px solid var(--border);border-radius:4px}
+@media(max-width:1000px){.involvement-grid,.application-steps{gap:18px}.involvement-grid article,.application-steps li{padding:24px}.involvement-grid h3,.application-steps h3{font-size:23px}}
+@media(max-width:700px){.involvement-grid,.application-steps{grid-template-columns:1fr}.involvement-paths,.application-guide{margin-top:50px}.enquiry-form h2{font-size:29px}.enquiry-form>button{width:100%;gap:10px}.enquiry-form .form-row{gap:20px}.contact-page .office-grid{margin-top:40px}.involvement-grid p,.application-steps p{font-size:13px}}

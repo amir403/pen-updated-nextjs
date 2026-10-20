@@ -32,6 +32,7 @@ const revealTargets = [
   '.section-heading', '.about-split > div', '.schools-feature-copy > *',
   '.model-grid > *', '.programme-grid > *', '.article-grid > *',
   '.involved-grid > *', '.people-grid > *', '.values-grid > *',
+  '.involvement-grid > *', '.application-steps > *',
   '.about-purpose-grid > *', '.about-values-grid > *', '.about-people-grid > *', '.about-accountability-grid > *',
   '.resource-grid > *', '.gallery-grid > *', '.school-grid > *',
   '.timeline > *', '.work-row', '.programme-detail > *', '.join-layout > *',

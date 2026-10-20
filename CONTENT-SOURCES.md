@@ -45,6 +45,13 @@ available so existing links continue to resolve.
 
 ## Implementation
 
+Contact, volunteer and careers details were rechecked against their official
+PEN pages on 20 October 2026. Contact enquiries still prepare a local email draft;
+topic selection and draft status do not imply delivery. Partnership is an email
+enquiry, with no new partner terms. Application steps summarise the existing
+official process; identity documents and CVs are uploaded only on PEN's website.
+No vacancies, placements or response times are promised.
+
 The Resources refresh retains the existing 16 publications, 30 activity books
 and five corporate documents. Class, subject and publication-type filters are
 derived from existing titles (Social Study/Studies share one subject filter).
