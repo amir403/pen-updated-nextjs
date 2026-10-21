@@ -1,3 +1,4 @@
+import {SiteCard} from '@/components/site-card';
 import Link from 'next/link';
 import {ArrowUpRight} from 'lucide-react';
 import {homepageFocus, sdgLabels} from '@/lib/website-outline';
@@ -10,7 +11,7 @@ export function HomepageFocus() {
         <Link href="/what-we-do" className="text-link">Explore all focus areas<ArrowUpRight size={17} aria-hidden="true"/></Link>
       </div>
       <div className="focus-grid">
-        {homepageFocus.map((focus,index)=><Link href={'/what-we-do#'+focus.id} className={`focus-card ${index===0?'focus-card--featured':''}`} key={focus.id} aria-labelledby={'focus-title-'+focus.id}>
+        {homepageFocus.map((focus,index)=><SiteCard asChild interactive key={focus.id}><Link href={'/what-we-do#'+focus.id} className={`focus-card ${index===0?'focus-card--featured':''}`} key={focus.id} aria-labelledby={'focus-title-'+focus.id}>
           <div className="focus-photo"><img src={'/images/website-outline/'+focus.image} alt={focus.alt} loading="lazy" width={640} height={420}/><span className="focus-index">0{index+1}</span></div>
           <div className="focus-copy">
             <h3 id={'focus-title-'+focus.id}>{focus.title}</h3><p>{focus.text}</p>
@@ -18,7 +19,7 @@ export function HomepageFocus() {
             <div className="focus-sdgs"><span>Aligned with</span><div>{focus.sdgs.map(sdg=><img key={sdg} src={'/images/website-outline/sdg-'+String(sdg).padStart(2,'0')+'.jpg'} alt={'SDG '+sdg+': '+sdgLabels[sdg]} title={'SDG '+sdg+': '+sdgLabels[sdg]} width={48} height={48} loading="lazy"/>)}</div></div>
             <span className="text-link focus-link">Explore this focus area<ArrowUpRight size={17} aria-hidden="true"/></span>
           </div>
-        </Link>)}
+        </Link></SiteCard>)}
       </div>
     </div>
   </section>;

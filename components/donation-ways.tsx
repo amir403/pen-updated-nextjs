@@ -1,4 +1,5 @@
 'use client';
+import {SiteCard} from '@/components/site-card';
 
 import {useState} from 'react';
 import {ArrowUpRight, Gift} from 'lucide-react';
@@ -23,15 +24,15 @@ export function DonationWays({onChoose}: {onChoose:(index:number)=>void}) {
   return <>
     <section className="giving-section" id="donation-shop" aria-labelledby="donation-shop-heading">
       <p className="eyebrow"><span/>DONATION SHOP</p><h2 id="donation-shop-heading">Choose a way to make a difference.</h2><p className="section-intro">Explore PEN’s published sponsorship options. Select an item to review its estimate above.</p>
-      <div className="giving-shop-grid">{sponsorshipOptions.map((item,index)=><button type="button" className="giving-shop-card" key={item.id} onClick={()=>onChoose(index)}>
+      <div className="giving-shop-grid">{sponsorshipOptions.map((item,index)=><SiteCard asChild interactive key={item.id}><button type="button" className="giving-shop-card" key={item.id} onClick={()=>onChoose(index)}>
         <Gift size={23} aria-hidden="true"/><strong>{item.title}</strong><span className="giving-shop-price">PKR {money(item.amount)}</span><span>{item.period}</span><span className="text-link">Review this option<ArrowUpRight size={15} aria-hidden="true"/></span>
-      </button>)}</div>
+      </button></SiteCard>)}</div>
     </section>
     <section className="giving-section" id="giving-options" aria-labelledby="giving-options-heading">
       <p className="eyebrow"><span/>MORE WAYS TO GIVE</p><h2 id="giving-options-heading">Bring your support to the conversation.</h2><p className="section-intro">These options are open for enquiries. Availability, rates and arrangements will be confirmed by PEN.</p>
-      <div className="giving-enquiry-grid">{givingEnquiries.map(item=><article className="giving-enquiry-card" id={item.id} key={item.id}>
+      <div className="giving-enquiry-grid">{givingEnquiries.map(item=><SiteCard asChild key={item.id}><article className="giving-enquiry-card" id={item.id} key={item.id}>
         <span className="giving-status">By enquiry</span><h3>{item.title}</h3><p>{item.text}</p><a href={givingEnquiryUrl(item.title+' enquiry')} aria-label={'Enquire about '+item.title} className="text-link">Enquire with PEN<ArrowUpRight size={15} aria-hidden="true"/></a>
-      </article>)}</div>
+      </article></SiteCard>)}</div>
       <p className="source-note">Enquiry links open an email draft; send it from your email app to contact PEN.</p>
     </section>
     <section className="giving-section giving-tools" aria-label="Donation planning tools">

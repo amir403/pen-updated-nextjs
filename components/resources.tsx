@@ -1,4 +1,5 @@
 'use client';
+import {SiteCard} from '@/components/site-card';
 import {useRef,useState} from 'react';
 import Link from 'next/link';
 import {ArrowUpRight,BookOpen,FileText,Search,X} from 'lucide-react';
@@ -29,7 +30,7 @@ export function Resources({page}:{page:ResourcePageKey}){
       <Button variant="outline" disabled={!query&&grade==='all'&&kind==='all'} onClick={reset}>Reset filters</Button>
     </div>
     <p className="resource-results" role="status">{filtered.length} of {docs.length} {filtered.length===1?'document':'documents'} shown</p>
-    <div className="resource-grid">{filtered.map((resource,index)=><a href={resource.url} key={resource.url} className="resource-card" target="_blank" rel="noreferrer" aria-label={`Open ${resource.title} PDF (opens in a new tab)`}><div className={'resource-cover resource-tone-'+index%3}>{resource.image?<img src={resource.image} alt="" loading="lazy"/>:<FileText size={60} aria-hidden="true"/>}<span>PDF</span></div><div className="resource-info"><span className="small-label">{books?`${gradeOf(resource.title)==='KG'?'KG':'CLASS '+gradeOf(resource.title)} · ${subjectOf(resource.title)}`:page==='publications'?typeOf(resource.title):'CORPORATE DOCUMENT'}</span><h3>{resource.title}</h3><span className="text-link">Open PDF<ArrowUpRight size={17} aria-hidden="true"/></span></div></a>)}</div>
+    <div className="resource-grid">{filtered.map((resource,index)=><SiteCard asChild interactive key={resource.url}><a href={resource.url} key={resource.url} className="resource-card" target="_blank" rel="noreferrer" aria-label={`Open ${resource.title} PDF (opens in a new tab)`}><div className={'resource-cover resource-tone-'+index%3}>{resource.image?<img src={resource.image} alt="" loading="lazy"/>:<FileText size={60} aria-hidden="true"/>}<span>PDF</span></div><div className="resource-info"><span className="small-label">{books?`${gradeOf(resource.title)==='KG'?'KG':'CLASS '+gradeOf(resource.title)} · ${subjectOf(resource.title)}`:page==='publications'?typeOf(resource.title):'CORPORATE DOCUMENT'}</span><h3>{resource.title}</h3><span className="text-link">Open PDF<ArrowUpRight size={17} aria-hidden="true"/></span></div></a></SiteCard>)}</div>
     {filtered.length===0&&<div className="empty-state"><BookOpen size={30} aria-hidden="true"/><h3>No documents match your filters.</h3><p>Try a shorter title or choose another class, subject or type.</p><Button variant="outline" onClick={()=>{reset();input.current?.focus()}}>Show all documents</Button></div>}
     <p className="source-note resource-source">Documents are linked from <a href={'https://pen.org.pk/'+page+'/'} target="_blank" rel="noreferrer">PEN’s published {info.label.toLowerCase()} page</a>. Titles and dates reflect the source collection; publication does not confirm that a certificate or exemption is currently valid. Files are hosted by PEN.</p>
   </section>;

@@ -1,4 +1,6 @@
 'use client';
+import {SiteCard} from '@/components/site-card';
+import {CardContent} from '@/components/ui/card';
 
 import {useRef, useState} from 'react';
 import Link from 'next/link';
@@ -9,7 +11,7 @@ import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription} fro
 import {articles, type Article} from '@/lib/content';
 import data from '@/lib/source-data.json';
 
-export function ArticleCard({article}:{article:Article}){return <Link href={'/'+article.slug} className="article-card"><div className="article-image"><img src={article.image} alt={article.source||article.title} loading="lazy"/><span className="round-arrow"><ArrowUpRight size={19} aria-hidden="true"/></span></div><div className="article-meta"><span>{article.category==='PEN heroes'?'PEN Heroes':article.category}</span><span>{article.date}</span></div><h3>{article.title}</h3><p>{article.summary}</p><span className="text-link media-read-link">Read story<ArrowUpRight size={16} aria-hidden="true"/></span></Link>}
+export function ArticleCard({article}:{article:Article}){return <SiteCard asChild interactive><Link href={'/'+article.slug} className="article-card"><div className="article-image"><img src={article.image} alt={article.source||article.title} loading="lazy"/><span className="round-arrow"><ArrowUpRight size={19} aria-hidden="true"/></span></div><CardContent className="news-card-content"><div className="article-meta"><span>{article.category==='PEN heroes'?'PEN Heroes':article.category}</span><span>{article.date}</span></div><h3>{article.title}</h3><p>{article.summary}</p><span className="text-link media-read-link">Read story<ArrowUpRight size={16} aria-hidden="true"/></span></CardContent></Link></SiteCard>}
 
 export function News({page}:{page:string}){
   const initial=page==='stories'?'PEN heroes':page==='pen-blogs'?'Blog':'All';
