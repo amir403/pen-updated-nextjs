@@ -2,6 +2,12 @@
 
 **Updated:** 21 October 2026. **Code baseline:** `f4f2477`.
 
+**Follow-up update:** Neeche ki baseline list ke baad chaar items complete ho
+gaye hain: six-theme cross-cutting section, Disclosures structure, five-logo
+homepage partner strip aur `/impact` overview. Approved reports/policies,
+reporting channels aur updated figures abhi pending hain. Updated English status
+`docs/WORK-STATUS-ENGLISH.md` aur Word document mein available hai.
+
 Ye list PPT, website outline, old PEN website se collect kiye gaye content aur user ke additional requests ko alag karti hai. “Complete” ka matlab listed UI/content available hai; payment ya form backend bhi complete hone ka matlab nahi.
 
 ## 1. PPT se liya gaya aur complete kiya gaya kaam

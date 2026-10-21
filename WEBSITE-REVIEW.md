@@ -3,6 +3,11 @@
 Reviewed 21 October 2026 against commit `e592f1b` and the local Next.js preview.
 This is a content and navigation review, not a live Vercel deployment audit.
 
+Later follow-up: the six-theme cross-cutting section, `/disclosures` structure,
+homepage five-logo partner strip and `/impact` overview have now been implemented.
+The baseline findings below remain historical; approved disclosure documents,
+reporting processes, updated impact figures and demo-tender cleanup are pending.
+
 Follow-up, 21 October: volunteer applications now have an on-site form preview
 at `/volunteer#volunteer-application`, as requested after this review. Its fields
 and selected documents are not submitted or saved. Careers remain external;

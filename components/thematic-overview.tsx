@@ -1,4 +1,5 @@
 import {SiteCard} from '@/components/site-card';
+import {CrossCutting} from '@/components/impact-and-transparency';
 import Link from 'next/link';
 import {ArrowUpRight, Check} from 'lucide-react';
 import {thematicAreas, upcomingPriorities} from '@/lib/website-outline';
@@ -13,7 +14,7 @@ export function ThematicOverview() {
         <Link href={area.href} className="text-link">{area.linkText}<ArrowUpRight size={16} aria-hidden="true"/></Link>
       </section></SiteCard>)}
     </div>
-    <section className="upcoming-priorities" id="upcoming-projects">
+    <CrossCutting/><section className="upcoming-priorities" id="upcoming-projects">
       <p className="eyebrow">LOOKING AHEAD</p><h2>Upcoming project priorities</h2>
       <p>Inclusion, innovation and impact guide these areas for future project discussions. For current project announcements, opportunities and timelines, please contact the PEN team.</p>
       <dl>{upcomingPriorities.map(([title,text])=><div key={title}><dt>{title}</dt><dd>{text}</dd></div>)}</dl>

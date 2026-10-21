@@ -45,6 +45,15 @@ available so existing links continue to resolve.
 
 ## Implementation
 
+21 October follow-up: `/what-we-do#cross-cutting-themes` displays all six outline
+headings with editorial summaries. `/disclosures` provides a structure only:
+audit reports, organisational policies and reporting channels are visibly
+pending, with no invented files, contacts or confidentiality promises. The
+homepage supporter strip reuses the same five logo assets as the supporters
+page. `/impact` reuses the published homepage figures collected 13 October
+and the existing two PEN Heroes summaries, clearly distinguishing the smaller
+school directory dataset. No new outcome totals or impact evaluation are claimed.
+
 Volunteer form update, 21 October 2026: the user requested the official form's
 fields locally, deferring submission. `/volunteer#volunteer-application` now
 provides name, mobile, address, father name, CNIC, email, institution, degree,
