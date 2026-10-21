@@ -3,6 +3,11 @@
 Reviewed 21 October 2026 against commit `e592f1b` and the local Next.js preview.
 This is a content and navigation review, not a live Vercel deployment audit.
 
+Follow-up, 21 October: volunteer applications now have an on-site form preview
+at `/volunteer#volunteer-application`, as requested after this review. Its fields
+and selected documents are not submitted or saved. Careers remain external;
+references below to external applications describe the original review baseline.
+
 ## Sources and interpretation
 
 - `PEN Website.pptx`: revision brief and visual examples. Other charities' screenshots are design references, not evidence of PEN programmes or policies.

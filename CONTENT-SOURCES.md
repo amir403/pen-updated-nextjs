@@ -45,6 +45,14 @@ available so existing links continue to resolve.
 
 ## Implementation
 
+Volunteer form update, 21 October 2026: the user requested the official form's
+fields locally, deferring submission. `/volunteer#volunteer-application` now
+provides name, mobile, address, father name, CNIC, email, institution, degree,
+document selection and message. Fields were checked against the official
+volunteer page. File selection and validation are browser-only; no uploads,
+requests, persistent storage or success/delivery claims are implemented.
+Careers applications continue to use the official external form.
+
 Contact, volunteer and careers details were rechecked against their official
 PEN pages on 20 October 2026. Contact enquiries still prepare a local email draft;
 topic selection and draft status do not imply delivery. Partnership is an email
