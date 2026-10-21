@@ -1,6 +1,6 @@
 'use client';
 
-import {useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {ArrowUpRight, ChevronDown, Heart, Menu, Search} from 'lucide-react';
@@ -18,6 +18,12 @@ export function Header() {
   const [menu,setMenu] = useState(false);
   const [search,setSearch] = useState(false);
   const [query,setQuery] = useState('');
+  const [openGroup,setOpenGroup] = useState<string|null>(null);
+  const closeTimer=useRef<ReturnType<typeof setTimeout>|null>(null);
+  const hoverOpened=useRef(false);
+  const cancelClose=()=>{if(closeTimer.current!==null){clearTimeout(closeTimer.current);closeTimer.current=null}};
+  const scheduleClose=()=>{cancelClose();closeTimer.current=setTimeout(()=>setOpenGroup(null),220)};
+  useEffect(()=>()=>{if(closeTimer.current!==null)clearTimeout(closeTimer.current)},[]);
   const pathname = usePathname();
   const currentGroup = nav.find(group=>group.overview===pathname) ?? nav.find(group=>group.items.some(item=>item.href===pathname));
   const results = [...Object.entries(pageMeta).map(([slug,value])=>({title:value[0],slug})),...thematicAreas.map(area=>({title:area.title,slug:'what-we-do#'+area.id})),...articles.map(article=>({title:article.title,slug:article.slug}))]
@@ -32,11 +38,19 @@ export function Header() {
       <Link href="/" className="brand" aria-label="PEN home"><img src={images.logo} alt="PEN"/></Link>
       <nav className="desktop-nav" aria-label="Main navigation">
         <Link href="/" className="nav-link nav-home" data-current={pathname==='/'||undefined} aria-current={pathname==='/'?'page':undefined}>Home</Link>
-        {nav.map(group=><DropdownMenu key={group.label} modal={false}>
-          <DropdownMenuTrigger className="nav-link" data-current={currentGroup===group || undefined}>
+        {nav.map(group=><DropdownMenu key={group.label} modal={false} open={openGroup===group.label} onOpenChange={open=>{cancelClose();setOpenGroup(open?group.label:null)}}>
+          <DropdownMenuTrigger className="nav-link" data-current={currentGroup===group || undefined}
+            onPointerEnter={event=>{if(event.pointerType==='mouse'){cancelClose();hoverOpened.current=true;setOpenGroup(group.label)}}}
+            onPointerLeave={event=>{if(event.pointerType==='mouse')scheduleClose()}}
+            onPointerDownCapture={()=>{hoverOpened.current=false}}
+            onKeyDownCapture={()=>{hoverOpened.current=false}}>
             {group.label}<ChevronDown size={12} aria-hidden="true"/>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align={group.mega?'center':'start'} sideOffset={12} collisionPadding={20} aria-label={group.label} className={`nav-dropdown ${group.mega?'nav-dropdown--mega':''}`}>
+          <DropdownMenuContent align={group.mega?'center':'start'} sideOffset={12} collisionPadding={20} aria-label={group.label} className={`nav-dropdown ${group.mega?'nav-dropdown--mega':''}`}
+            onPointerEnter={cancelClose}
+            onPointerLeave={event=>{if(event.pointerType==='mouse')scheduleClose()}}
+            onKeyDownCapture={()=>{hoverOpened.current=false}}
+            onCloseAutoFocus={event=>{if(hoverOpened.current)event.preventDefault()}}>
             <DropdownMenuLabel className="nav-menu-intro"><span>{group.label}</span><p>{group.description}</p></DropdownMenuLabel>
             <DropdownMenuGroup className={group.mega?'nav-menu-grid':undefined}>
               {group.items.map(item=><DropdownMenuItem asChild key={item.href}>
