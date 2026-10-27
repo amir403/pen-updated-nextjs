@@ -18,6 +18,21 @@
 return [
 
     'collections' => [
+        'opportunities' => [
+            'rules' => [
+                'type' => ['required', 'in:Job,Tender'],
+                'title' => ['required', 'string', 'max:160'],
+                'reference' => ['nullable', 'string', 'max:60'],
+                'category' => ['nullable', 'string', 'max:60'],
+                'location' => ['nullable', 'string', 'max:80'],
+                'closing_date' => ['nullable', 'date_format:Y-m-d'],
+                'summary' => ['nullable', 'string', 'max:1000'],
+                'document_url' => ['nullable', 'url', 'max:500'],
+                'apply_url' => ['nullable', 'string', 'max:500', 'regex:/^(https?:\/\/|mailto:)/'],
+                'is_open' => ['required', 'boolean'],
+            ],
+            'attributes' => ['closing_date' => 'closing date', 'document_url' => 'notice document', 'apply_url' => 'application link', 'is_open' => 'open'],
+        ],
         'published_impact' => [
             'rules' => [
                 'value' => ['required', 'string', 'max:20'],

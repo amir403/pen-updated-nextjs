@@ -2,6 +2,7 @@ import {statIcons} from '@/lib/homepage';
 import {valueIcons} from '@/lib/about';
 import {programmeIcons,programmePageSlugs} from '@/lib/programmes';
 import {sponsorshipIcons} from '@/lib/donations';
+import {opportunityTypes} from '@/lib/opportunities';
 
 /** `upload` adds a file picker to a url/text field; the uploaded file's link fills the field. */
 export type AdminField={name:string;label:string;type:'text'|'textarea'|'number'|'url'|'select'|'image'|'paragraphs'|'lines'|'checkbox'|'date';options?:readonly string[];required?:boolean;help?:string;upload?:boolean};
@@ -209,6 +210,19 @@ export const adminResources:AdminResource[]=[
   {name:'status',label:'Status',type:'text',required:true,help:'For example “Awaiting documents” or “Published”.'},
   {name:'text',label:'Text',type:'textarea',required:true},
   {name:'documents',label:'Documents',type:'lines',help:'One per line as “Title | https://link”. Upload files under File uploads to get a link.'},
+  position,
+ ]},
+ {key:'jobs-tenders',apiPath:'collections/opportunities',group:'Get involved',label:'Jobs & tenders',singular:'notice',description:'Job and tender notices on the Jobs & Tenders and Careers pages.',titleField:'title',columns:['type','title','closing_date','is_open'],canCreate:true,canDelete:true,fields:[
+  {name:'type',label:'Type',type:'select',options:opportunityTypes,required:true},
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'reference',label:'Reference',type:'text'},
+  {name:'category',label:'Category',type:'text',help:'For example “Supply tender” or “Full-time”.'},
+  {name:'location',label:'Location',type:'text'},
+  {name:'closing_date',label:'Closing date',type:'date',help:'Notices disappear from the website after this date.'},
+  {name:'summary',label:'Summary',type:'textarea'},
+  {name:'document_url',label:'Notice document',type:'url',upload:true},
+  {name:'apply_url',label:'Application or submission link',type:'text',help:'A https:// link or mailto: address.'},
+  {name:'is_open',label:'Published',type:'checkbox',help:'Untick to hide the notice without deleting it.'},
   position,
  ]},
  {key:'partners',apiPath:'collections/partners',group:'About PEN',label:'Partners & supporters',singular:'partner',description:'Logos on the supporters page and the homepage strip.',titleField:'name',columns:['name','url'],canCreate:true,canDelete:true,fields:[

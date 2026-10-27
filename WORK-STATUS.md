@@ -88,7 +88,7 @@ PPT mein doosri organisations ke screenshots ko design references samjha gaya ha
 | Disclosures landing page/navigation | Structure ban sakta hai; actual reports, policies aur reporting channels ke liye approved data chahiye. |
 | Homepage partner strip | Five existing logos se initial strip ban sakti hai; expanded list/placement approval pending. |
 | Dedicated impact overview | Existing published counters/stories se initial overview ban sakta hai; stronger/current reporting ke liye updated data chahiye. |
-| Demo tenders cleanup | `/job` par three clearly labelled demo notices hain. Real notices na hon to empty state aur matching hero copy karna pending hai. |
+| Demo tenders cleanup | Complete (27 October 2026): demo notices hata diye. `/job` ab admin panel ke "Jobs & tenders" module se real notices dikhata hai; koi open notice na ho to empty state. |
 
 ## 6. Old website ke collected data mein nahi mila / approved data chahiye
 

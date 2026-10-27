@@ -50,7 +50,7 @@ Har module ke liye ye kaam hota hai:
 | M8 | **What we do** | 8 thematic areas (summary, points), 6 cross-cutting themes | `/what-we-do`, header mega menu | ✅ |
 | M9 | **Donations** | Sponsorship options & rates, bank accounts (IBAN/SWIFT), giving enquiry categories, max children limit | `/donate-now` (calculator, shop, bank details) | ✅ |
 | M10 | **Impact & transparency** | Published impact figures, disclosure categories (status, text, document links) | `/impact`, `/disclosures` | ✅ |
-| M11 | **Jobs & tenders** | Real job/tender notices (reference, title, type, deadline, document link, open/closed) — demo notices hata kar | `/job`, `/careers` | ⏳ |
+| M11 | **Jobs & tenders** | Real job/tender notices (reference, title, type, deadline, document link, open/closed) — demo notices hata kar | `/job`, `/careers` | ✅ |
 | M12 | **Legal pages** | Privacy policy & terms ke sections | `/privacy-policy`, `/terms-of-services` | ⏳ |
 | M13 | **Navigation menu** | Header menu groups & links, footer links | Header (desktop + mobile), footer | ⏳ |
 | M14 | **Admin users & account** | Admin users list, naya admin, remove, apna password change | `/admin` | ⏳ |
@@ -97,3 +97,4 @@ mein push hota hai, taake har step alag se review aur test ho sake.
 | 27 Oct 2026 | M8 | Collections `thematic_areas`, `cross_cutting_themes`. What We Do page, header mega menu ("Eight focus areas" ginti ke saath badalta hai), website search aur programme cards ke related-theme links sab isi se |
 | 27 Oct 2026 | M9 | Setting `donations` (per-child rate, calculator limit, account title) + collections `sponsorship_options`, `bank_accounts` (IBAN/SWIFT format check), `giving_enquiries`. Per-child rate alag setting mein taake ghalti se delete na ho |
 | 27 Oct 2026 | M10 | Collections `published_impact`, `disclosure_categories` (har category mein documents: "Title \| link" lines). Uploads ab PDF/Word/Excel/PowerPoint bhi (max 10 MB); admin mein "File uploads" page (upload + copy link); Documents module mein PDF seedha upload |
+| 27 Oct 2026 | M11 | Collection `opportunities` (job/tender, reference, closing date, notice document upload, apply link, published toggle). Demo notices hata diye; closing date guzarne par notice khud chhup jata hai; careers page par open jobs; koi notice na ho to empty state |

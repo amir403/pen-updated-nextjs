@@ -83,7 +83,7 @@ Potential partner.docx was excluded at the user’s request because it belongs t
 | Disclosures landing page and navigation | Completed at /disclosures. Audit reports, policies, complaints and whistleblowing show explicit pending statuses; approved material is still needed. |
 | Homepage partner strip | Completed on the homepage using the five existing PEN logo assets. Expanded coverage still needs approved logos and names. |
 | Dedicated impact overview | Completed at /impact, with a homepage introduction. Uses existing published counters, stories and evidence links; stronger/current reporting needs updated material. |
-| Demo tender cleanup | /job contains three clearly labelled demo notices. Replace them with real approved notices, or a clear empty state and matching hero copy. |
+| Demo tender cleanup | Complete (27 October 2026): demo notices removed. /job lists real notices from the admin panel's Jobs & tenders module, with an empty state when none are open. |
 
 ## 6. Missing from the collected old-website data or awaiting approved information
 
@@ -128,7 +128,7 @@ The volunteer backend, donation-availability updates and five social URLs were e
 
 ## Recommended next steps
 
-1. Replace demo tenders with approved notices or an appropriate empty state.
+1. ~~Replace demo tenders with approved notices or an appropriate empty state.~~ Done: notices are managed in the admin panel.
 2. Supply approved audit reports, policies and reporting contacts to populate the completed Disclosures structure.
 3. Confirm updated impact figures and any additional partner logos for the completed overview and homepage strip.
 4. Connect deferred services when their content and arrangements are confirmed.

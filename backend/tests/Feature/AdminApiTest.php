@@ -114,7 +114,10 @@ class AdminApiTest extends TestCase
 
         foreach (array_keys(config('content.collections')) as $collection) {
             $items = $this->getJson("/api/collections/{$collection}")->json('data');
-            $this->assertNotEmpty($items, "{$collection} has no seed items");
+            // Job and tender notices are only ever published from the admin panel.
+            if ($collection !== 'opportunities') {
+                $this->assertNotEmpty($items, "{$collection} has no seed items");
+            }
 
             foreach ($items as $item) {
                 $this->putJson("/api/collections/{$collection}/{$item['id']}", $item)->assertOk();
