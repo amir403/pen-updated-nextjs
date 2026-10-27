@@ -326,6 +326,8 @@ export const adminSettings:AdminSetting[]=[
 /** Admin pages that are neither list modules nor settings forms. */
 export const adminTools:{href:string;group:AdminGroup;label:string;description:string}[]=[
  {href:'/admin/uploads',group:'Content',label:'File uploads',description:'Upload a PDF, document or image and copy its link.'},
+ {href:'/admin/users',group:'Settings',label:'Admin users',description:'People who can sign in to this admin panel.'},
+ {href:'/admin/account',group:'Settings',label:'My account',description:'Change your password.'},
 ];
 
 export const findAdminSetting=(key:string)=>adminSettings.find(s=>s.key===key);

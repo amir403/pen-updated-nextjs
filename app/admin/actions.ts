@@ -102,6 +102,26 @@ export async function uploadFile(_:FormState&{url?:string},form:FormData):Promis
  return {message:'Uploaded.',url:(await response.json() as {url:string}).url};
 }
 
+export async function createUser(_:FormState,form:FormData):Promise<FormState>{
+ const values={name:String(form.get('name')??''),email:String(form.get('email')??'')};
+ const response=await adminFetch('/users',{method:'POST',body:JSON.stringify({...values,password:form.get('password'),password_confirmation:form.get('password_confirmation')})});
+ if(!response.ok)return {...await failure(response),values};
+ revalidatePath('/admin/users');
+ return {message:`${values.name} can now sign in to the admin panel.`};
+}
+
+export async function deleteUser(id:string){
+ const response=await adminFetch('/users/'+id,{method:'DELETE'});
+ if(!response.ok)throw new Error(`Removing the user failed with HTTP ${response.status}`);
+ revalidatePath('/admin/users');
+}
+
+export async function changePassword(_:FormState,form:FormData):Promise<FormState>{
+ const response=await adminFetch('/auth/password',{method:'PUT',body:JSON.stringify({current_password:form.get('current_password'),password:form.get('password'),password_confirmation:form.get('password_confirmation')})});
+ if(!response.ok)return failure(response);
+ return {message:'Password changed. Other signed-in sessions have been signed out.'};
+}
+
 export async function deleteRecord(resourceKey:string,id:string){
  const resource=findAdminResource(resourceKey);
  if(!resource?.canDelete)return;

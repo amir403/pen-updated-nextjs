@@ -53,7 +53,7 @@ Har module ke liye ye kaam hota hai:
 | M11 | **Jobs & tenders** | Real job/tender notices (reference, title, type, deadline, document link, open/closed) — demo notices hata kar | `/job`, `/careers` | ✅ |
 | M12 | **Legal pages** | Privacy policy & terms ke sections | `/privacy-policy`, `/terms-of-services` | ✅ |
 | M13 | **Navigation menu** | Header menu groups & links, footer links | Header (desktop + mobile), footer | ✅ |
-| M14 | **Admin users & account** | Admin users list, naya admin, remove, apna password change | `/admin` | ⏳ |
+| M14 | **Admin users & account** | Admin users list, naya admin, remove, apna password change | `/admin` | ✅ |
 | M15 | **Form submissions inbox** | Contact & volunteer forms ki entries admin mein | `/contact-us`, `/volunteer` | ❓ |
 | M16 | **Final QA & handover** | Poori website + admin ka end-to-end test, docs, deployment guide | Sab | ⏳ |
 
@@ -100,3 +100,4 @@ mein push hota hai, taake har step alag se review aur test ho sake.
 | 27 Oct 2026 | M11 | Collection `opportunities` (job/tender, reference, closing date, notice document upload, apply link, published toggle). Demo notices hata diye; closing date guzarne par notice khud chhup jata hai; careers page par open jobs; koi notice na ho to empty state |
 | 27 Oct 2026 | M12 | Collection `legal_sections` (page, heading, paragraphs, optional link). Text mein `{email}` likhne se contact email ka link ban jata hai |
 | 27 Oct 2026 | M13 | Collections `nav_menu` (label, description, "Title \| /link" lines, focus-areas mega toggle) aur `footer_columns`. Mega menu thematic areas aur cross-cutting themes se khud banta hai, ginti ke saath |
+| 27 Oct 2026 | M14 | `/api/users` (list, add, remove; khud ko remove nahi kar sakte) aur `/api/auth/password` (purana password zaroori; doosre sessions sign out). Admin mein "Admin users" aur "My account" pages. 3 naye tests |

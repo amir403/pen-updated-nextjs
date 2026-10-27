@@ -13,7 +13,7 @@ composer install
 php artisan key:generate
 php artisan migrate --seed      # creates tables and imports the current website content
 php artisan storage:link        # serves uploaded images from /storage
-php artisan admin:create you@example.org --name="Your Name"   # prompts for a password (min. 12 characters)
+php artisan admin:create you@example.org --name="Your Name"   # first admin; prompts for a password (min. 12 characters). Add more under Admin users in the panel.
 php artisan serve               # http://localhost:8000
 ```
 
@@ -35,6 +35,8 @@ All responses are JSON. Admin endpoints require `Authorization: Bearer <token>`.
 | POST | `/api/auth/login` | Email + password → token (rate-limited to 5 attempts per minute; tokens expire after 12 hours) |
 | GET | `/api/auth/me` | Signed-in user |
 | POST | `/api/auth/logout` | Revoke the current token |
+| PUT | `/api/auth/password` | Change your password (`current_password`, `password`, `password_confirmation`); signs out your other sessions |
+| GET, POST, DELETE | `/api/users`, `/api/users/{id}` | Admin users (passwords of at least 12 characters; you cannot remove yourself) |
 | GET, PUT | `/api/pages`, `/api/pages/{id}` | Page titles and hero text (pages map to website routes, so they cannot be created or deleted) |
 | CRUD | `/api/articles`, `/api/faqs`, `/api/schools`, `/api/resources`, `/api/team-members` | `GET` list, `POST` create, `GET/PUT/DELETE /{id}` |
 | GET | `/api/settings` | All settings |

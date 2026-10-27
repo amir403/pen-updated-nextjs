@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\SiteContentController;
 use App\Http\Controllers\Api\SummaryController;
 use App\Http\Controllers\Api\TeamMemberController;
 use App\Http\Controllers\Api\UploadController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/content', SiteContentController::class);
@@ -21,6 +22,9 @@ Route::post('/auth/login', [AuthController::class, 'login'])->middleware('thrott
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/auth/me', [AuthController::class, 'me']);
     Route::post('/auth/logout', [AuthController::class, 'logout']);
+    Route::put('/auth/password', [UserController::class, 'password']);
+
+    Route::apiResource('users', UserController::class)->only(['index', 'store', 'destroy']);
 
     Route::get('/summary', SummaryController::class);
 
