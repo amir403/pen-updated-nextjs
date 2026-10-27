@@ -1,4 +1,5 @@
 import {statIcons} from '@/lib/homepage';
+import {valueIcons} from '@/lib/about';
 
 export type AdminField={name:string;label:string;type:'text'|'textarea'|'number'|'url'|'select'|'image'|'paragraphs'|'lines'|'checkbox'|'date';options?:readonly string[];required?:boolean;help?:string};
 /** A list module. `key` is the admin URL segment; `apiPath` the Laravel path (defaults to `key`). */
@@ -9,6 +10,9 @@ export type AdminSetting={key:string;group:AdminGroup;label:string;description:s
 /** Sidebar sections, in display order. */
 export const adminGroups=['Content','Homepage','About PEN','Programmes','Get involved','Transparency','Website','Settings'] as const;
 export type AdminGroup=typeof adminGroups[number];
+
+/** Links may point to a website page ("/pen-academy"), an anchor or a full URL. */
+const linkHelp='A website page such as /pen-academy, or a full https:// link.';
 
 const position:AdminField={name:'position',label:'Position',type:'number',help:'Lower numbers appear first. Leave blank to add at the end.'};
 
@@ -52,7 +56,7 @@ export const adminResources:AdminResource[]=[
   {name:'image',label:'Cover image',type:'image'},
   position,
  ]},
- {key:'team-members',group:'Website',label:'Founders & directors',singular:'person',description:'People on the founders page.',titleField:'name',columns:['name','role'],canCreate:true,canDelete:true,fields:[
+ {key:'team-members',group:'About PEN',label:'Founders & directors',singular:'person',description:'People on the founders page.',titleField:'name',columns:['name','role'],canCreate:true,canDelete:true,fields:[
   {name:'name',label:'Name',type:'text',required:true},
   {name:'role',label:'Role',type:'text',required:true},
   {name:'image',label:'Photo',type:'image'},
@@ -81,6 +85,32 @@ export const adminResources:AdminResource[]=[
   {name:'text',label:'Text',type:'textarea',required:true},
   {name:'featured',label:'“In focus” line',type:'text'},
   {name:'sdgs',label:'SDG numbers',type:'lines',help:'One per line. Available: 3, 4, 5, 8, 9, 10, 16, 17.'},
+  position,
+ ]},
+ {key:'purpose-cards',apiPath:'collections/purpose_cards',group:'About PEN',label:'Mission & vision',singular:'card',description:'Purpose cards on the About page.',titleField:'title',columns:['title','text'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'text',label:'Text',type:'textarea',required:true},
+  position,
+ ]},
+ {key:'journey',apiPath:'collections/journey',group:'About PEN',label:'Journey timeline',singular:'milestone',description:'Milestones on the About page.',titleField:'title',columns:['year','title'],canCreate:true,canDelete:true,fields:[
+  {name:'year',label:'Year',type:'text',required:true},
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'text',label:'Text',type:'textarea',required:true},
+  {name:'href',label:'Link',type:'text',help:linkHelp},
+  {name:'label',label:'Link text',type:'text',help:'Required when a link is set.'},
+  position,
+ ]},
+ {key:'core-values',apiPath:'collections/core_values',group:'About PEN',label:'Core values',singular:'value',description:'Values on the About and Core Values pages.',titleField:'title',columns:['title','icon'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'summary',label:'Short text (About page)',type:'textarea',required:true},
+  {name:'text',label:'Full text (Core Values page)',type:'textarea',required:true},
+  {name:'icon',label:'Icon',type:'select',options:valueIcons,required:true},
+  position,
+ ]},
+ {key:'accountability-links',apiPath:'collections/accountability_links',group:'About PEN',label:'Accountability links',singular:'link',description:'Link cards at the end of the About page.',titleField:'title',columns:['title','href'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'text',label:'Text',type:'textarea',required:true},
+  {name:'href',label:'Link',type:'text',required:true,help:linkHelp},
   position,
  ]},
  {key:'partners',apiPath:'collections/partners',group:'About PEN',label:'Partners & supporters',singular:'partner',description:'Logos on the supporters page and the homepage strip.',titleField:'name',columns:['name','url'],canCreate:true,canDelete:true,fields:[
@@ -123,6 +153,19 @@ export const adminSettings:AdminSetting[]=[
   {name:'schools_image',label:'Schools: photo',type:'image',required:true},
   {name:'schools_heading',label:'Schools: heading',type:'lines',required:true,help:'One line per row.'},
   {name:'schools_text',label:'Schools: text',type:'textarea'},
+ ]},
+ {key:'about',group:'About PEN',label:'Our story & CEO message',description:'About page story and the CEO message page.',fields:[
+  {name:'story_image',label:'Story: photo',type:'image',required:true},
+  {name:'story_since',label:'Story: year badge',type:'text',help:'Leave empty to hide the badge.'},
+  {name:'story_heading',label:'Story: heading',type:'text',required:true},
+  {name:'story_highlight',label:'Story: highlighted line',type:'text'},
+  {name:'story_text',label:'Story: text',type:'paragraphs',required:true,help:'Separate paragraphs with a blank line.'},
+  {name:'ceo_photo',label:'CEO: photo',type:'image',required:true},
+  {name:'ceo_name',label:'CEO: name',type:'text',required:true},
+  {name:'ceo_role',label:'CEO: role',type:'text'},
+  {name:'ceo_heading',label:'Message: heading',type:'text',required:true},
+  {name:'ceo_message',label:'Message: text',type:'paragraphs',required:true,help:'Separate paragraphs with a blank line.'},
+  {name:'ceo_source_url',label:'Message: original link',type:'url',help:'Leave empty to hide the “Read the original message” link.'},
  ]},
  {key:'contact',group:'Settings',label:'Contact details',description:'Email, phone, WhatsApp and address shown in the footer, contact page and enquiry forms.',fields:[
   {name:'email',label:'Email address',type:'text',required:true,help:'Enquiry forms open an email draft to this address.'},

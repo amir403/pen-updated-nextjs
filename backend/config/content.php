@@ -18,6 +18,38 @@
 return [
 
     'collections' => [
+        'purpose_cards' => [
+            'rules' => [
+                'title' => ['required', 'string', 'max:80'],
+                'text' => ['required', 'string', 'max:500'],
+            ],
+        ],
+        'journey' => [
+            'rules' => [
+                'year' => ['required', 'string', 'max:12'],
+                'title' => ['required', 'string', 'max:120'],
+                'text' => ['required', 'string', 'max:500'],
+                'href' => ['nullable', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/|mailto:)/'],
+                'label' => ['nullable', 'required_with:href', 'string', 'max:60'],
+            ],
+            'attributes' => ['href' => 'link', 'label' => 'link text'],
+        ],
+        'core_values' => [
+            'rules' => [
+                'title' => ['required', 'string', 'max:80'],
+                'summary' => ['required', 'string', 'max:300'],
+                'text' => ['required', 'string', 'max:500'],
+                'icon' => ['required', 'in:responsibility,governance,impact,transparency,community,learning'],
+            ],
+        ],
+        'accountability_links' => [
+            'rules' => [
+                'title' => ['required', 'string', 'max:80'],
+                'text' => ['required', 'string', 'max:300'],
+                'href' => ['required', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/|mailto:)/'],
+            ],
+            'attributes' => ['href' => 'link'],
+        ],
         'gallery' => [
             'rules' => [
                 'image' => ['required', 'string', 'max:255'],
@@ -77,6 +109,34 @@ return [
     ],
 
     'settings' => [
+        'about' => [
+            'rules' => [
+                'value' => ['required', 'array'],
+                'value.story_image' => ['required', 'string', 'max:255'],
+                'value.story_since' => ['nullable', 'string', 'max:10'],
+                'value.story_heading' => ['required', 'string', 'max:80'],
+                'value.story_highlight' => ['nullable', 'string', 'max:80'],
+                'value.story_text' => ['required', 'array', 'min:1'],
+                'value.story_text.*' => ['string', 'max:1500'],
+                'value.ceo_photo' => ['required', 'string', 'max:255'],
+                'value.ceo_name' => ['required', 'string', 'max:120'],
+                'value.ceo_role' => ['nullable', 'string', 'max:120'],
+                'value.ceo_heading' => ['required', 'string', 'max:120'],
+                'value.ceo_message' => ['required', 'array', 'min:1'],
+                'value.ceo_message.*' => ['string', 'max:2000'],
+                'value.ceo_source_url' => ['nullable', 'url', 'max:300'],
+            ],
+            'attributes' => [
+                'value.story_image' => 'story photo',
+                'value.story_heading' => 'story heading',
+                'value.story_text' => 'story text',
+                'value.ceo_photo' => 'CEO photo',
+                'value.ceo_name' => 'CEO name',
+                'value.ceo_heading' => 'message heading',
+                'value.ceo_message' => 'message',
+                'value.ceo_source_url' => 'original message link',
+            ],
+        ],
         'homepage' => [
             'rules' => [
                 'value' => ['required', 'array'],

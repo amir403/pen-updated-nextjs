@@ -3,6 +3,7 @@ import data from '@/lib/source-data.json';
 import {heroSlides,homepageText,impactStats,type FocusArea,type HeroSlide,type HomepageText,type ImpactStat} from '@/lib/homepage';
 import {homepageFocus} from '@/lib/website-outline';
 import {existingPartners,type Partner} from '@/lib/transparency';
+import {aboutText,accountabilityLinks,coreValues,journey,purposeCards,type AboutText,type AccountabilityLink,type CoreValue,type JourneyItem,type PurposeCard} from '@/lib/about';
 import {contactDetails,offices,siteOptions,type ContactDetails,type Office,type SiteOptions} from '@/lib/site-settings';
 
 export type School={name:string;district:string;enrollment:number;boys:number;girls:number;map:string};
@@ -31,6 +32,11 @@ export type SiteContent={
  homepage:HomepageText;
  partners:Partner[];
  gallery:GalleryPhoto[];
+ purposeCards:PurposeCard[];
+ journey:JourneyItem[];
+ coreValues:CoreValue[];
+ accountabilityLinks:AccountabilityLink[];
+ about:AboutText;
 };
 
 /** Content bundled with the site; used when the Laravel API is not configured or unreachable. */
@@ -51,4 +57,9 @@ export const staticSiteContent:SiteContent={
  homepage:homepageText,
  partners:existingPartners,
  gallery:data.gallery.map(image=>({image,caption:null})),
+ purposeCards,
+ journey,
+ coreValues,
+ accountabilityLinks,
+ about:aboutText,
 };

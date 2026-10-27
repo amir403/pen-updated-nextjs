@@ -3,6 +3,7 @@ import {resourceTypes,staticSiteContent,type GalleryPhoto,type ResourceDoc,type 
 import type {Office} from '@/lib/site-settings';
 import type {FocusArea,HeroSlide,ImpactStat} from '@/lib/homepage';
 import type {Partner} from '@/lib/transparency';
+import type {AccountabilityLink,CoreValue,JourneyItem,PurposeCard} from '@/lib/about';
 
 /** Base URL of the Laravel API, e.g. https://api.example.org (without /api). */
 export const apiUrl=process.env.PEN_API_URL?.replace(/\/+$/,'');
@@ -51,6 +52,11 @@ function fromApi(api:ApiContent):SiteContent{
   homepage:fromSetting(api,'homepage',staticSiteContent.homepage),
   partners:fromCollection(api,'partners',staticSiteContent.partners,item=>item as Partner),
   gallery:fromCollection(api,'gallery',staticSiteContent.gallery,item=>item as GalleryPhoto),
+  purposeCards:fromCollection(api,'purpose_cards',staticSiteContent.purposeCards,item=>item as PurposeCard),
+  journey:fromCollection(api,'journey',staticSiteContent.journey,item=>item as JourneyItem),
+  coreValues:fromCollection(api,'core_values',staticSiteContent.coreValues,item=>item as CoreValue),
+  accountabilityLinks:fromCollection(api,'accountability_links',staticSiteContent.accountabilityLinks,item=>item as AccountabilityLink),
+  about:fromSetting(api,'about',staticSiteContent.about),
  };
 }
 
