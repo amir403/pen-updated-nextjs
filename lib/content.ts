@@ -22,17 +22,6 @@ export const nav:NavGroup[] = [
  {label:'News & Media',description:'Meet our community and follow the latest stories.',items:[{title:'Latest news',href:'/news'},{title:'PEN heroes',href:'/stories'},{title:'Our blog',href:'/pen-blogs'},{title:'Photo gallery',href:'/photo-gallery'}]},
  {label:'Resources',description:'Learning materials, publications and organisational records.',items:[{title:'Publications',href:'/publications'},{title:'Activity books',href:'/pen-activity-books'},{title:'Corporate information',href:'/corporate-information'},{title:'Disclosures',href:'/disclosures'},{title:'Tenders & opportunities',href:'/job'}]}
 ];
-export const models = [
- {id:'peima',title:'PEIMA model',tag:'PUBLIC–PRIVATE PARTNERSHIP',image:images.school,text:'Managing partner schools, strengthening teaching, and improving facilities through a partnership with Punjab Education Initiatives Management Authority.'},
- {id:'pen',title:'PEN model',tag:'STRONGER PUBLIC SCHOOLS',image:images.school2,text:'Supporting government-managed schools with resources and better learning environments.'},
- {id:'non-formal',title:'Non-formal education',tag:'A SECOND CHANCE TO LEARN',image:images.nfe,text:'Flexible schooling helps working and out-of-school children return to learning.'}
-];
-export const programmes = [
- {title:'PEN Academy',text:'Free digital lessons and learning resources.',image:images.academy,href:'/pen-academy'},
- {title:'Teacher development',text:'Practical training and classroom mentoring.',image:images.training,href:'/teacher-training'},
- {title:'Academic support',text:'Lesson plans, activity books and learning materials.',image:images.classroom,href:'/academics'},
- {title:'100 Scholarship Program',text:'Helping deserving students continue their education.',image:images.scholarship,href:'/scholarships'}
-];
 export type Article={slug:string;title:string;category:string;date:string;image:string;summary:string;body:string[];source?:string;sourceUrl?:string};
 export const articles:Article[]=[
  {slug:'ali-garh-model-school-sports-gala-2025',title:'A day of teamwork, talent and possibility',category:'News',date:'15 April 2025',image:'/images/pic-3.Edited-Pic-png-1.png',summary:'Highlights from the Ali Garh Model School Sports Gala 2025.',body:['PEN shared photographic highlights from the Ali Garh Model School Sports Gala 2025. Explore the event through the original photo feature.'],source:'Ali Garh Model School Sports Gala 2025'},

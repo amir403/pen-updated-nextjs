@@ -3,6 +3,7 @@ import {resourceTypes,staticSiteContent,type GalleryPhoto,type ResourceDoc,type 
 import type {Office} from '@/lib/site-settings';
 import type {FocusArea,HeroSlide,ImpactStat} from '@/lib/homepage';
 import type {Partner} from '@/lib/transparency';
+import type {EducationModel,Intervention,OngoingProgramme,Priority,ProgrammePage} from '@/lib/programmes';
 import type {AccountabilityLink,CoreValue,JourneyItem,PurposeCard} from '@/lib/about';
 
 /** Base URL of the Laravel API, e.g. https://api.example.org (without /api). */
@@ -57,6 +58,11 @@ function fromApi(api:ApiContent):SiteContent{
   coreValues:fromCollection(api,'core_values',staticSiteContent.coreValues,item=>item as CoreValue),
   accountabilityLinks:fromCollection(api,'accountability_links',staticSiteContent.accountabilityLinks,item=>item as AccountabilityLink),
   about:fromSetting(api,'about',staticSiteContent.about),
+  educationModels:fromCollection(api,'education_models',staticSiteContent.educationModels,item=>item as EducationModel),
+  interventions:fromCollection(api,'interventions',staticSiteContent.interventions,item=>item as Intervention),
+  programmePages:fromCollection(api,'programme_pages',staticSiteContent.programmePages,item=>item as ProgrammePage),
+  ongoingProgrammes:fromCollection(api,'ongoing_programmes',staticSiteContent.ongoingProgrammes,item=>item as OngoingProgramme),
+  priorities:fromCollection(api,'upcoming_priorities',staticSiteContent.priorities,item=>item as Priority),
  };
 }
 

@@ -1,5 +1,6 @@
 import {statIcons} from '@/lib/homepage';
 import {valueIcons} from '@/lib/about';
+import {programmeIcons,programmePageSlugs} from '@/lib/programmes';
 
 export type AdminField={name:string;label:string;type:'text'|'textarea'|'number'|'url'|'select'|'image'|'paragraphs'|'lines'|'checkbox'|'date';options?:readonly string[];required?:boolean;help?:string};
 /** A list module. `key` is the admin URL segment; `apiPath` the Laravel path (defaults to `key`). */
@@ -111,6 +112,51 @@ export const adminResources:AdminResource[]=[
   {name:'title',label:'Title',type:'text',required:true},
   {name:'text',label:'Text',type:'textarea',required:true},
   {name:'href',label:'Link',type:'text',required:true,help:linkHelp},
+  position,
+ ]},
+ {key:'education-models',apiPath:'collections/education_models',group:'Programmes',label:'Education models',singular:'model',description:'Model cards on the homepage and the Our Work page.',titleField:'title',columns:['image','title','tag'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens; the card opens /our-work#this-value.'},
+  {name:'tag',label:'Small heading',type:'text'},
+  {name:'image',label:'Photo',type:'image',required:true},
+  {name:'text',label:'Text',type:'textarea',required:true},
+  position,
+ ]},
+ {key:'interventions',apiPath:'collections/interventions',group:'Programmes',label:'Interventions',singular:'intervention',description:'Linked cards under the models on the Our Work page.',titleField:'title',columns:['image','title','href'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'text',label:'Text',type:'textarea',required:true},
+  {name:'image',label:'Photo',type:'image',required:true},
+  {name:'href',label:'Link',type:'text',required:true,help:linkHelp},
+  position,
+ ]},
+ {key:'programme-pages',apiPath:'collections/programme_pages',group:'Programmes',label:'Programme pages',singular:'programme page',description:'Main section of the PEN Academy, teacher development, academics and scholarships pages.',titleField:'page',columns:['page','title'],canCreate:false,canDelete:false,fields:[
+  {name:'page',label:'Page',type:'select',options:programmePageSlugs,required:true},
+  {name:'image',label:'Photo',type:'image',required:true},
+  {name:'title',label:'Heading',type:'text',required:true},
+  {name:'text',label:'Text',type:'paragraphs',required:true,help:'Separate paragraphs with a blank line.'},
+  {name:'points',label:'Checklist points',type:'lines',help:'One point per line.'},
+  {name:'cta_label',label:'Button text',type:'text',required:true},
+  {name:'cta_href',label:'Button link',type:'text',required:true,help:linkHelp},
+ ]},
+ {key:'ongoing-programmes',apiPath:'collections/ongoing_programmes',group:'Programmes',label:'Ongoing programmes',singular:'programme',description:'Programme cards on the Ongoing Programmes page.',titleField:'title',columns:['title','icon','position'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens, used for the jump links.'},
+  {name:'description',label:'Description',type:'textarea',required:true},
+  {name:'icon',label:'Icon',type:'select',options:programmeIcons,required:true},
+  {name:'themes',label:'Related focus areas',type:'lines',help:'One What We Do section per line, for example “girls-education”.'},
+  {name:'link_label',label:'Link text',type:'text',required:true},
+  {name:'link_href',label:'Link',type:'text',required:true,help:linkHelp},
+  {name:'resource_title',label:'Second link text',type:'text'},
+  {name:'resource_href',label:'Second link',type:'text',help:'Optional. '+linkHelp},
+  position,
+ ]},
+ {key:'upcoming-priorities',apiPath:'collections/upcoming_priorities',group:'Programmes',label:'Upcoming priorities',singular:'priority',description:'Cards on the Upcoming Project Priorities page and the What We Do summary.',titleField:'title',columns:['title','theme'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens.'},
+  {name:'text',label:'Text',type:'textarea',required:true},
+  {name:'theme',label:'Related focus area',type:'text',help:'A What We Do section, for example “digital-learning”.'},
+  {name:'link_label',label:'Link text',type:'text',required:true},
+  {name:'link_href',label:'Link',type:'text',required:true,help:linkHelp},
   position,
  ]},
  {key:'partners',apiPath:'collections/partners',group:'About PEN',label:'Partners & supporters',singular:'partner',description:'Logos on the supporters page and the homepage strip.',titleField:'name',columns:['name','url'],canCreate:true,canDelete:true,fields:[

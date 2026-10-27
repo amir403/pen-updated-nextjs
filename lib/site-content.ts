@@ -3,6 +3,7 @@ import data from '@/lib/source-data.json';
 import {heroSlides,homepageText,impactStats,type FocusArea,type HeroSlide,type HomepageText,type ImpactStat} from '@/lib/homepage';
 import {homepageFocus} from '@/lib/website-outline';
 import {existingPartners,type Partner} from '@/lib/transparency';
+import {educationModels,interventions,ongoingProgrammes,priorities,programmePages,type EducationModel,type Intervention,type OngoingProgramme,type Priority,type ProgrammePage} from '@/lib/programmes';
 import {aboutText,accountabilityLinks,coreValues,journey,purposeCards,type AboutText,type AccountabilityLink,type CoreValue,type JourneyItem,type PurposeCard} from '@/lib/about';
 import {contactDetails,offices,siteOptions,type ContactDetails,type Office,type SiteOptions} from '@/lib/site-settings';
 
@@ -37,6 +38,11 @@ export type SiteContent={
  coreValues:CoreValue[];
  accountabilityLinks:AccountabilityLink[];
  about:AboutText;
+ educationModels:EducationModel[];
+ interventions:Intervention[];
+ programmePages:ProgrammePage[];
+ ongoingProgrammes:OngoingProgramme[];
+ priorities:Priority[];
 };
 
 /** Content bundled with the site; used when the Laravel API is not configured or unreachable. */
@@ -62,4 +68,9 @@ export const staticSiteContent:SiteContent={
  coreValues,
  accountabilityLinks,
  about:aboutText,
+ educationModels,
+ interventions,
+ programmePages,
+ ongoingProgrammes,
+ priorities,
 };

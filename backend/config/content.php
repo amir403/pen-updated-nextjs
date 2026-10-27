@@ -18,6 +18,65 @@
 return [
 
     'collections' => [
+        'education_models' => [
+            'rules' => [
+                'anchor' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
+                'title' => ['required', 'string', 'max:80'],
+                'tag' => ['nullable', 'string', 'max:60'],
+                'image' => ['required', 'string', 'max:255'],
+                'text' => ['required', 'string', 'max:600'],
+            ],
+            'attributes' => ['anchor' => 'section link'],
+        ],
+        'interventions' => [
+            'rules' => [
+                'title' => ['required', 'string', 'max:80'],
+                'text' => ['required', 'string', 'max:300'],
+                'image' => ['required', 'string', 'max:255'],
+                'href' => ['required', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/|mailto:)/'],
+            ],
+            'attributes' => ['href' => 'link'],
+        ],
+        'programme_pages' => [
+            'rules' => [
+                'page' => ['required', 'in:pen-academy,teacher-training,academics,scholarships'],
+                'image' => ['required', 'string', 'max:255'],
+                'title' => ['required', 'string', 'max:120'],
+                'text' => ['required', 'array', 'min:1'],
+                'text.*' => ['string', 'max:1500'],
+                'points' => ['present', 'array', 'max:10'],
+                'points.*' => ['string', 'max:200'],
+                'cta_label' => ['required', 'string', 'max:60'],
+                'cta_href' => ['required', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/|mailto:)/'],
+            ],
+            'attributes' => ['cta_label' => 'button text', 'cta_href' => 'button link', 'points.*' => 'point'],
+        ],
+        'ongoing_programmes' => [
+            'rules' => [
+                'anchor' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
+                'title' => ['required', 'string', 'max:120'],
+                'description' => ['required', 'string', 'max:600'],
+                'themes' => ['present', 'array', 'max:6'],
+                'themes.*' => ['string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
+                'icon' => ['required', 'in:school,handshake,users,graduation,book,laptop,search'],
+                'link_href' => ['required', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/|mailto:)/'],
+                'link_label' => ['required', 'string', 'max:80'],
+                'resource_title' => ['nullable', 'required_with:resource_href', 'string', 'max:80'],
+                'resource_href' => ['nullable', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/|mailto:)/'],
+            ],
+            'attributes' => ['anchor' => 'section link', 'themes.*' => 'focus area', 'link_href' => 'link', 'link_label' => 'link text', 'resource_title' => 'resource text', 'resource_href' => 'resource link'],
+        ],
+        'upcoming_priorities' => [
+            'rules' => [
+                'anchor' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
+                'title' => ['required', 'string', 'max:120'],
+                'text' => ['required', 'string', 'max:400'],
+                'theme' => ['nullable', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
+                'link_href' => ['required', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/|mailto:)/'],
+                'link_label' => ['required', 'string', 'max:80'],
+            ],
+            'attributes' => ['anchor' => 'section link', 'theme' => 'focus area', 'link_href' => 'link', 'link_label' => 'link text'],
+        ],
         'purpose_cards' => [
             'rules' => [
                 'title' => ['required', 'string', 'max:80'],
