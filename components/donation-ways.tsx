@@ -5,9 +5,12 @@ import {useState} from 'react';
 import {ArrowUpRight, Gift} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
-import {formatDonationAmount as money, givingEnquiries, givingEnquiryUrl, parseGivingAmount, sponsorshipOptions} from '@/lib/donations';
+import {formatDonationAmount as money, givingEnquiries, givingEnquiryUrl as enquiryUrl, parseGivingAmount, sponsorshipOptions} from '@/lib/donations';
+import {useSiteContent} from '@/components/site-content-provider';
 
 export function DonationWays({onChoose}: {onChoose:(index:number)=>void}) {
+  const {contact} = useSiteContent();
+  const givingEnquiryUrl = (subject:string,body?:string) => enquiryUrl(contact.email,subject,body);
   const [custom,setCustom] = useState('');
   const [currency,setCurrency] = useState('PKR');
   const [frequency,setFrequency] = useState('One-time');

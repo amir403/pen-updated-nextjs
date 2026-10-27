@@ -1,5 +1,6 @@
 import {articles,faqs,founders,pageMeta,socialMedia,type Article} from '@/lib/content';
 import data from '@/lib/source-data.json';
+import {contactDetails,offices,siteOptions,type ContactDetails,type Office,type SiteOptions} from '@/lib/site-settings';
 
 export type School={name:string;district:string;enrollment:number;boys:number;girls:number;map:string};
 export type ResourceDoc={title:string;url:string;image:string};
@@ -17,6 +18,9 @@ export type SiteContent={
  resources:Record<ResourceType,ResourceDoc[]>;
  team:TeamMember[];
  socialMedia:SocialLink[];
+ contact:ContactDetails;
+ site:SiteOptions;
+ offices:Office[];
 };
 
 /** Content bundled with the site; used when the Laravel API is not configured or unreachable. */
@@ -28,4 +32,7 @@ export const staticSiteContent:SiteContent={
  resources:data.resources,
  team:founders.map(([name,role],i)=>({name,role,image:data.founderImages[i]})),
  socialMedia,
+ contact:contactDetails,
+ site:siteOptions,
+ offices,
 };

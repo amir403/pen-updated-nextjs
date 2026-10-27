@@ -56,6 +56,12 @@ export const adminResources:AdminResource[]=[
   {name:'image',label:'Photo',type:'image'},
   position,
  ]},
+ {key:'offices',apiPath:'collections/offices',group:'Settings',label:'Offices',singular:'office',description:'Office addresses on the contact page.',titleField:'title',columns:['title','address'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Office name',type:'text',required:true,help:'For example “Head office · Lahore”.'},
+  {name:'address',label:'Address',type:'lines',required:true,help:'One line per row.'},
+  {name:'map_url',label:'Map link',type:'url',help:'Google Maps link for the “Get directions” button.'},
+  position,
+ ]},
 ];
 
 export const findAdminResource=(key:string)=>adminResources.find(r=>r.key===key);
@@ -63,6 +69,19 @@ export const resourceApiPath=(resource:AdminResource)=>resource.apiPath??resourc
 
 /** Settings forms. `social_media` has its own list editor; the rest use the generic form. */
 export const adminSettings:AdminSetting[]=[
+ {key:'contact',group:'Settings',label:'Contact details',description:'Email, phone, WhatsApp and address shown in the footer, contact page and enquiry forms.',fields:[
+  {name:'email',label:'Email address',type:'text',required:true,help:'Enquiry forms open an email draft to this address.'},
+  {name:'phones',label:'Phone numbers',type:'lines',help:'One number per line. The first appears in the footer.'},
+  {name:'whatsapp',label:'WhatsApp numbers',type:'lines',help:'One number per line. Leave empty to hide the WhatsApp section.'},
+  {name:'address',label:'Footer address',type:'lines',required:true,help:'One line per row. Office addresses are managed under Offices.'},
+ ]},
+ {key:'site',group:'Settings',label:'Site options',description:'Top bar text, footer tagline, homepage video and official links.',fields:[
+  {name:'topbar_text',label:'Top bar text',type:'text'},
+  {name:'footer_tagline',label:'Footer tagline',type:'textarea',help:'Press Enter for a line break.'},
+  {name:'video_url',label:'Homepage video (YouTube link)',type:'url',help:'Leave empty to hide the “Watch our story” button.'},
+  {name:'donation_url',label:'Official donation page',type:'url',required:true},
+  {name:'careers_url',label:'Official careers form',type:'url',required:true},
+ ]},
  {key:'social_media',group:'Settings',label:'Social links',description:'Profiles listed in the website footer.',fields:[]},
 ];
 

@@ -100,7 +100,7 @@ class AdminApiTest extends TestCase
         $this->assertSame(9, Article::count());
     }
 
-    public function test_every_seeded_record_passes_validation_unchanged(): void
+    public function test_every_seeded_record_collection_item_and_setting_passes_validation(): void
     {
         Sanctum::actingAs(User::factory()->create());
 
@@ -110,6 +110,19 @@ class AdminApiTest extends TestCase
             foreach ($this->getJson("/api/{$endpoint}")->json('data') as $record) {
                 $this->putJson("/api/{$endpoint}/{$record['id']}", $record)->assertOk();
             }
+        }
+
+        foreach (array_keys(config('content.collections')) as $collection) {
+            $items = $this->getJson("/api/collections/{$collection}")->json('data');
+            $this->assertNotEmpty($items, "{$collection} has no seed items");
+
+            foreach ($items as $item) {
+                $this->putJson("/api/collections/{$collection}/{$item['id']}", $item)->assertOk();
+            }
+        }
+
+        foreach ($this->getJson('/api/settings')->json('data') as $key => $value) {
+            $this->putJson("/api/settings/{$key}", ['value' => $value])->assertOk();
         }
     }
 

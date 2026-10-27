@@ -1,5 +1,6 @@
 import {cache} from 'react';
 import {resourceTypes,staticSiteContent,type ResourceDoc,type ResourceType,type SiteContent} from '@/lib/site-content';
+import type {Office} from '@/lib/site-settings';
 
 /** Base URL of the Laravel API, e.g. https://api.example.org (without /api). */
 export const apiUrl=process.env.PEN_API_URL?.replace(/\/+$/,'');
@@ -38,6 +39,9 @@ function fromApi(api:ApiContent):SiteContent{
   resources,
   team:api.team.map(t=>({name:t.name,role:t.role,image:t.image??''})),
   socialMedia:api.settings.social_media??staticSiteContent.socialMedia,
+  contact:fromSetting(api,'contact',staticSiteContent.contact),
+  site:fromSetting(api,'site',staticSiteContent.site),
+  offices:fromCollection(api,'offices',staticSiteContent.offices,item=>item as Office),
  };
 }
 

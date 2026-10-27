@@ -3213,6 +3213,48 @@
     "label": "WhatsApp",
     "href": "https://wa.me/923494443736"
    }
+  ],
+  "contact": {
+   "email": "info@pen.org.pk",
+   "phones": [
+    "+92 42 3584 2554",
+    "+92 42 3584 7711"
+   ],
+   "whatsapp": [
+    "+92 349 4443736",
+    "+92 345 0055422"
+   ],
+   "address": [
+    "172-A, Ahmad Block,",
+    "New Garden Town, Lahore 54000"
+   ]
+  },
+  "site": {
+   "topbar_text": "Opening doors through education, since 2005.",
+   "footer_tagline": "Every child deserves the chance\nto learn. Every future matters.",
+   "video_url": "https://www.youtube.com/watch?v=AzbJMPYcaV0",
+   "donation_url": "https://pen.org.pk/donate-now/",
+   "careers_url": "https://pen.org.pk/careers/"
+  }
+ },
+ "collections": {
+  "offices": [
+   {
+    "title": "Head office · Lahore",
+    "address": [
+     "172-A, Ahmad Block, New Garden Town,",
+     "Lahore 54000, Pakistan"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Progressive+Education+Network+172-A+Lahore"
+   },
+   {
+    "title": "Regional office · Karachi",
+    "address": [
+     "Plot No. C117, Sector 31, Mehran Town Extension,",
+     "Korangi Industrial Area, Karachi"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Progressive+Education+Network+Mehran+Town+Karachi"
+   }
   ]
  }
 }

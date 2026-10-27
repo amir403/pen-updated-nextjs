@@ -26,14 +26,14 @@ export function Header() {
   const scheduleClose=()=>{cancelClose();closeTimer.current=setTimeout(()=>setOpenGroup(null),220)};
   useEffect(()=>()=>{if(closeTimer.current!==null)clearTimeout(closeTimer.current)},[]);
   const pathname = usePathname();
-  const {pageMeta,articles} = useSiteContent();
+  const {pageMeta,articles,site} = useSiteContent();
   const currentGroup = nav.find(group=>group.overview===pathname) ?? nav.find(group=>group.items.some(item=>item.href===pathname));
   const results = [...Object.entries(pageMeta).map(([slug,value])=>({title:value[0],slug})),...thematicAreas.map(area=>({title:area.title,slug:'what-we-do#'+area.id})),...articles.map(article=>({title:article.title,slug:article.slug}))]
     .filter(item=>item.title.toLowerCase().includes(query.trim().toLowerCase()));
 
   return <>
     <div className="topbar"><div className="container topbar-inner">
-      <span>Opening doors through education, since 2005.</span>
+      <span>{site.topbar_text}</span>
       <div><Link href="/pen-academy">PEN Academy<ArrowUpRight size={12} aria-hidden="true"/></Link><Link href="/careers">Careers</Link><Link href="/contact-us">Contact us</Link></div>
     </div></div>
     <header className="header"><div className="container nav-inner">

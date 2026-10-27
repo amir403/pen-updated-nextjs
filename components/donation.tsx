@@ -8,11 +8,13 @@ import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
 import {images} from '@/lib/content';
-import {donationBanks, formatDonationAmount as money, maximumChildren, officialDonationUrl, sponsorshipOptions} from '@/lib/donations';
+import {donationBanks, formatDonationAmount as money, maximumChildren, sponsorshipOptions} from '@/lib/donations';
+import {useSiteContent} from '@/components/site-content-provider';
 
 const optionIcons = [GraduationCap,Users,School,BookOpen,Building2,DoorOpen,Armchair,Droplets];
 
 export function Donation() {
+  const {site:{donation_url:officialDonationUrl}} = useSiteContent();
   const [mode,setMode] = useState('children');
   const [selectedOther,setSelectedOther] = useState(1);
   const [quantity,setQuantity] = useState('1');

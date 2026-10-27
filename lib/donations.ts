@@ -1,5 +1,5 @@
 // Rechecked against https://pen.org.pk/donate-now/ on 19 October 2026.
-export const officialDonationUrl = 'https://pen.org.pk/donate-now/';
+import {mailtoHref} from '@/lib/site-settings';
 export const sponsorshipOptions = [
   {id:'child',title:'Sponsor a child',amount:30000,period:'per year'},
   {id:'class',title:'Sponsor a class',amount:600000,period:'per year'},
@@ -25,8 +25,8 @@ export const givingEnquiries = [
   {id:'fundraising',title:'Fundraising',text:'Discuss a community appeal, fundraising event or campaign with the PEN team.'},
   {id:'zakat-giving',title:'Zakat giving',text:'Confirm PEN’s Zakat acceptance, allocation and payment arrangements before making a transfer.'},
 ];
-export function givingEnquiryUrl(subject:string,body='Please share availability, rates and next steps.') {
-  return 'mailto:info@pen.org.pk?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+export function givingEnquiryUrl(email:string,subject:string,body='Please share availability, rates and next steps.') {
+  return mailtoHref(email,subject,body);
 }
 // Parse monetary inputs as whole minor units, without accepting partial strings.
 export function parseGivingAmount(value:string):number|null {
