@@ -2,7 +2,7 @@ import {cache} from 'react';
 import {resourceTypes,staticSiteContent,type GalleryPhoto,type ResourceDoc,type ResourceType,type SiteContent} from '@/lib/site-content';
 import type {Office} from '@/lib/site-settings';
 import type {FocusArea,HeroSlide,ImpactStat} from '@/lib/homepage';
-import type {CrossCuttingTheme,Partner} from '@/lib/transparency';
+import type {CrossCuttingTheme,DisclosureCategory,ImpactFigure,Partner} from '@/lib/transparency';
 import type {ThematicArea} from '@/lib/website-outline';
 import type {BankAccount,GivingEnquiry,SponsorshipOption} from '@/lib/donations';
 import type {EducationModel,Intervention,OngoingProgramme,Priority,ProgrammePage} from '@/lib/programmes';
@@ -71,6 +71,8 @@ function fromApi(api:ApiContent):SiteContent{
   sponsorships:fromCollection(api,'sponsorship_options',staticSiteContent.sponsorships,item=>({...item,amount:Number(item.amount)}) as SponsorshipOption),
   bankAccounts:fromCollection(api,'bank_accounts',staticSiteContent.bankAccounts,item=>item as BankAccount),
   givingEnquiries:fromCollection(api,'giving_enquiries',staticSiteContent.givingEnquiries,item=>item as GivingEnquiry),
+  publishedImpact:fromCollection(api,'published_impact',staticSiteContent.publishedImpact,item=>item as ImpactFigure),
+  disclosureCategories:fromCollection(api,'disclosure_categories',staticSiteContent.disclosureCategories,item=>item as DisclosureCategory),
  };
 }
 

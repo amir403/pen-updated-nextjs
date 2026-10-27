@@ -12,7 +12,8 @@ class UploadController extends Controller
     public function __invoke(Request $request): JsonResponse
     {
         $request->validate([
-            'file' => ['required', 'file', 'mimes:jpg,jpeg,png,webp,gif', 'max:5120'],
+            // Images for the website, documents for reports, policies and resources (max 10 MB).
+            'file' => ['required', 'file', 'mimes:jpg,jpeg,png,webp,gif,pdf,doc,docx,xls,xlsx,ppt,pptx', 'max:10240'],
         ]);
 
         $path = $request->file('file')->store('uploads', 'public');

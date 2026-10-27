@@ -53,7 +53,7 @@ async function convertFields(fields:AdminField[],form:FormData):Promise<Converte
   else if(field.type==='checkbox'){payload[field.name]=form.get(field.name)==='on';values[field.name]=payload[field.name]?'on':''}
   else if(field.type==='paragraphs')payload[field.name]=value.split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean);
   else if(field.type==='lines')payload[field.name]=value.split('\n').map(p=>p.trim()).filter(Boolean);
-  else if(field.type==='image'){
+  else if(field.type==='image'||field.upload){
    const file=form.get(field.name+'_file');
    if(file instanceof File&&file.size>0){
     const upload=new FormData();upload.append('file',file);
@@ -91,6 +91,15 @@ export async function saveSetting(key:string,_:FormState,form:FormData):Promise<
  }
  refreshSite();
  return {message:'Saved. The website has been updated.',values};
+}
+
+export async function uploadFile(_:FormState&{url?:string},form:FormData):Promise<FormState&{url?:string}>{
+ const file=form.get('file');
+ if(!(file instanceof File)||file.size===0)return {message:'Choose a file to upload.',errors:{file:['Choose a file to upload.']}};
+ const upload=new FormData();upload.append('file',file);
+ const response=await adminFetch('/uploads',{method:'POST',body:upload});
+ if(!response.ok)return failure(response);
+ return {message:'Uploaded.',url:(await response.json() as {url:string}).url};
 }
 
 export async function deleteRecord(resourceKey:string,id:string){

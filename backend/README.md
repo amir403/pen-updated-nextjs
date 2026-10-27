@@ -38,8 +38,10 @@ All responses are JSON. Admin endpoints require `Authorization: Bearer <token>`.
 | GET, PUT | `/api/pages`, `/api/pages/{id}` | Page titles and hero text (pages map to website routes, so they cannot be created or deleted) |
 | CRUD | `/api/articles`, `/api/faqs`, `/api/schools`, `/api/resources`, `/api/team-members` | `GET` list, `POST` create, `GET/PUT/DELETE /{id}` |
 | GET | `/api/settings` | All settings |
-| PUT | `/api/settings/social_media` | Footer social links: `{"value": [{"label": "...", "href": "https://..." or null}]}` |
-| POST | `/api/uploads` | Multipart `file` (JPG, PNG, WebP or GIF, max 5 MB) → `{"url": "..."}` |
+| PUT | `/api/settings/{key}` | A setting defined in `config/content.php`, as `{"value": ...}` (for example `social_media`: `[{"label": "...", "href": "https://..." or null}]`) |
+| GET | `/api/summary` | Record counts per module for the admin dashboard |
+| CRUD | `/api/collections/{name}` | Items of a collection defined in `config/content.php` (`GET` list, `POST` create, `GET/PUT/DELETE /{id}`) |
+| POST | `/api/uploads` | Multipart `file` (JPG, PNG, WebP, GIF, PDF, Word, Excel or PowerPoint, max 10 MB) → `{"url": "..."}` |
 
 ## Tests
 

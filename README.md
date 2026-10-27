@@ -79,7 +79,7 @@ GitHub repository, keep the settings from `vercel.json`, and select **Deploy**.
 `/admin` is a Next.js admin panel for the website's content: page titles and
 hero text, news and stories, FAQs, the school directory, documents, founders and
 directors, and footer social links. It talks to the Laravel API in `backend/`,
-which stores content in MySQL and handles sign-in and image uploads; see
+which stores content in MySQL and handles sign-in and file uploads; see
 `backend/README.md` for setup and endpoints.
 
 Set `PEN_API_URL` to the API's base address (for example `http://localhost:8000`)

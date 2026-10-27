@@ -162,7 +162,11 @@ class AdminApiTest extends TestCase
             ->json('url');
 
         Storage::disk('public')->assertExists(str_replace('/storage/', '', parse_url($url, PHP_URL_PATH)));
+        $this->postJson('/api/uploads', ['file' => UploadedFile::fake()->create('report.pdf', 200, 'application/pdf')])
+            ->assertCreated();
         $this->postJson('/api/uploads', ['file' => UploadedFile::fake()->create('doc.php', 1)])
+            ->assertJsonValidationErrors('file');
+        $this->postJson('/api/uploads', ['file' => UploadedFile::fake()->create('big.pdf', 10241, 'application/pdf')])
             ->assertJsonValidationErrors('file');
     }
 }

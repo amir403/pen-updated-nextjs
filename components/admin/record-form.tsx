@@ -15,15 +15,17 @@ const initialValue=(field:AdminField,value:unknown)=>{
 };
 
 function FieldInput({field,value,invalid}:{field:AdminField;value:string;invalid:boolean}){
- const common={id:field.name,name:field.name,defaultValue:value,required:field.required,'aria-invalid':invalid||undefined,'aria-describedby':field.help?field.name+'-help':undefined};
+ const common={id:field.name,name:field.name,defaultValue:value,required:field.required&&!field.upload,'aria-invalid':invalid||undefined,'aria-describedby':field.help?field.name+'-help':undefined};
  if(field.type==='textarea'||field.type==='paragraphs'||field.type==='lines')return <Textarea {...common} rows={field.type==='paragraphs'?10:field.type==='lines'?6:4}/>;
  if(field.type==='select')return <select {...common} className="admin-select"><option value="">Choose…</option>{field.options?.map(o=><option key={o} value={o}>{o}</option>)}</select>;
  if(field.type==='checkbox')return <input id={field.name} name={field.name} type="checkbox" defaultChecked={value==='on'} className="admin-checkbox" aria-describedby={common['aria-describedby']}/>;
  if(field.type==='image')return <div className="admin-image-field">
   {value&&<img src={value} alt=""/>}
-  <div><Input {...common} required={false} placeholder="/images/photo.jpg or https://…"/><Input name={field.name+'_file'} type="file" accept="image/jpeg,image/png,image/webp,image/gif" aria-label={field.label+' upload'}/><small>Upload a new image (max 5 MB) or enter an image path.</small></div>
+  <div><Input {...common} required={false} placeholder="/images/photo.jpg or https://…"/><Input name={field.name+'_file'} type="file" accept="image/jpeg,image/png,image/webp,image/gif" aria-label={field.label+' upload'}/><small>Upload a new image (max 10 MB) or enter an image path.</small></div>
  </div>;
- return <Input {...common} type={field.type==='number'?'number':field.type==='url'?'url':field.type==='date'?'date':'text'} min={field.type==='number'?0:undefined}/>;
+ const input=<Input {...common} type={field.type==='number'?'number':field.type==='url'?'url':field.type==='date'?'date':'text'} min={field.type==='number'?0:undefined}/>;
+ if(field.upload)return <div className="admin-upload-field">{input}<Input name={field.name+'_file'} type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,image/*" aria-label={field.label+' upload'}/><small>Upload a file (max 10 MB) or enter a link.</small></div>;
+ return input;
 }
 
 /** Field errors arrive under the field name, or under "name.0" etc. for list fields. */

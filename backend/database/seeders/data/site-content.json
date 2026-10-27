@@ -4098,6 +4098,50 @@
     "title": "Zakat giving",
     "text": "Confirm PEN’s Zakat acceptance, allocation and payment arrangements before making a transfer."
    }
+  ],
+  "published_impact": [
+   {
+    "value": "530",
+    "label": "Adopted schools"
+   },
+   {
+    "value": "90,301",
+    "label": "Enrolled students"
+   },
+   {
+    "value": "27",
+    "label": "Districts across Pakistan"
+   }
+  ],
+  "disclosure_categories": [
+   {
+    "anchor": "audit-reports",
+    "title": "Audit reports",
+    "status": "Awaiting documents",
+    "text": "Year-wise approved audit reports, including the requested 2025–2026 material, will appear here when supplied.",
+    "documents": []
+   },
+   {
+    "anchor": "policies",
+    "title": "PEN policies",
+    "status": "Awaiting documents",
+    "text": "Approved organisational policies, including safeguarding and PSEA material, will be added when available for publication.",
+    "documents": []
+   },
+   {
+    "anchor": "complaints",
+    "title": "Complaints",
+    "status": "Awaiting confirmed process",
+    "text": "The authorised complaints contact, submission instructions and process are awaiting confirmation. A dedicated complaint number is not currently published here.",
+    "documents": []
+   },
+   {
+    "anchor": "whistleblowing",
+    "title": "Whistleblowing",
+    "status": "Awaiting confirmed process",
+    "text": "The approved policy, authorised reporting channel and confidentiality information will be published once confirmed.",
+    "documents": []
+   }
   ]
  }
 }

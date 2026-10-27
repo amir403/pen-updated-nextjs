@@ -3,7 +3,8 @@ import {valueIcons} from '@/lib/about';
 import {programmeIcons,programmePageSlugs} from '@/lib/programmes';
 import {sponsorshipIcons} from '@/lib/donations';
 
-export type AdminField={name:string;label:string;type:'text'|'textarea'|'number'|'url'|'select'|'image'|'paragraphs'|'lines'|'checkbox'|'date';options?:readonly string[];required?:boolean;help?:string};
+/** `upload` adds a file picker to a url/text field; the uploaded file's link fills the field. */
+export type AdminField={name:string;label:string;type:'text'|'textarea'|'number'|'url'|'select'|'image'|'paragraphs'|'lines'|'checkbox'|'date';options?:readonly string[];required?:boolean;help?:string;upload?:boolean};
 /** A list module. `key` is the admin URL segment; `apiPath` the Laravel path (defaults to `key`). */
 export type AdminResource={key:string;apiPath?:string;group:AdminGroup;label:string;singular:string;description:string;titleField:string;columns:string[];fields:AdminField[];canCreate:boolean;canDelete:boolean};
 /** A single-record settings form, stored in Laravel under `settings/<key>`. */
@@ -54,7 +55,7 @@ export const adminResources:AdminResource[]=[
  {key:'resources',group:'Content',label:'Documents',singular:'document',description:'Publications, activity books and corporate documents.',titleField:'title',columns:['title','type'],canCreate:true,canDelete:true,fields:[
   {name:'type',label:'Section',type:'select',options:['publications','pen-activity-books','corporate-information'],required:true},
   {name:'title',label:'Title',type:'text',required:true},
-  {name:'url',label:'PDF link',type:'url',required:true},
+  {name:'url',label:'PDF link',type:'url',required:true,upload:true},
   {name:'image',label:'Cover image',type:'image'},
   position,
  ]},
@@ -197,6 +198,19 @@ export const adminResources:AdminResource[]=[
   {name:'text',label:'Text',type:'textarea',required:true},
   position,
  ]},
+ {key:'published-impact',apiPath:'collections/published_impact',group:'Transparency',label:'Published impact figures',singular:'figure',description:'Figures on the Our Impact page.',titleField:'label',columns:['value','label'],canCreate:true,canDelete:true,fields:[
+  {name:'value',label:'Figure',type:'text',required:true,help:'As it should appear, for example “90,301”.'},
+  {name:'label',label:'Label',type:'text',required:true},
+  position,
+ ]},
+ {key:'disclosures',apiPath:'collections/disclosure_categories',group:'Transparency',label:'Disclosures',singular:'disclosure category',description:'Audit reports, policies and reporting channels on the Disclosures page.',titleField:'title',columns:['title','status','documents'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens.'},
+  {name:'status',label:'Status',type:'text',required:true,help:'For example “Awaiting documents” or “Published”.'},
+  {name:'text',label:'Text',type:'textarea',required:true},
+  {name:'documents',label:'Documents',type:'lines',help:'One per line as “Title | https://link”. Upload files under File uploads to get a link.'},
+  position,
+ ]},
  {key:'partners',apiPath:'collections/partners',group:'About PEN',label:'Partners & supporters',singular:'partner',description:'Logos on the supporters page and the homepage strip.',titleField:'name',columns:['name','url'],canCreate:true,canDelete:true,fields:[
   {name:'name',label:'Name',type:'text',required:true,help:'Also used as the logo description.'},
   {name:'logo',label:'Logo',type:'image',required:true},
@@ -271,6 +285,11 @@ export const adminSettings:AdminSetting[]=[
   {name:'careers_url',label:'Official careers form',type:'url',required:true},
  ]},
  {key:'social_media',group:'Settings',label:'Social links',description:'Profiles listed in the website footer.',fields:[]},
+];
+
+/** Admin pages that are neither list modules nor settings forms. */
+export const adminTools:{href:string;group:AdminGroup;label:string;description:string}[]=[
+ {href:'/admin/uploads',group:'Content',label:'File uploads',description:'Upload a PDF, document or image and copy its link.'},
 ];
 
 export const findAdminSetting=(key:string)=>adminSettings.find(s=>s.key===key);

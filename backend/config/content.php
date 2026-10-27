@@ -18,6 +18,24 @@
 return [
 
     'collections' => [
+        'published_impact' => [
+            'rules' => [
+                'value' => ['required', 'string', 'max:20'],
+                'label' => ['required', 'string', 'max:80'],
+            ],
+        ],
+        'disclosure_categories' => [
+            'rules' => [
+                'anchor' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
+                'title' => ['required', 'string', 'max:80'],
+                'status' => ['required', 'string', 'max:60'],
+                'text' => ['required', 'string', 'max:600'],
+                'documents' => ['present', 'array', 'max:50'],
+                // "Title | https://link" per line.
+                'documents.*' => ['string', 'max:500', 'regex:/^[^|]+\|\s*https?:\/\/\S+$/'],
+            ],
+            'attributes' => ['anchor' => 'section link', 'documents.*' => 'document line'],
+        ],
         'sponsorship_options' => [
             'rules' => [
                 'title' => ['required', 'string', 'max:80'],
