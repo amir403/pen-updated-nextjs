@@ -4149,7 +4149,8 @@
     "page": "privacy-policy",
     "heading": "Information you choose to share",
     "text": [
-     "This website’s contact form prepares an email draft on your device. The information is sent only when you send the email using your email provider."
+     "The contact and volunteer forms send the details you enter, and any documents you attach, to PEN’s team through this website. Volunteer documents are kept in private storage that only signed-in PEN administrators can open. If the contact form cannot be sent, it offers to prepare an email draft instead.",
+     "To ask about or remove information you have sent, contact {email}."
     ],
     "link_label": null,
     "link_href": null
@@ -4158,7 +4159,7 @@
     "page": "privacy-policy",
     "heading": "Applications and donations",
     "text": [
-     "Donation, careers and volunteer application links take you to PEN’s official website. Its privacy practices apply to information you submit there. This website does not collect payment information."
+     "Donation and careers links take you to PEN’s official website. Its privacy practices apply to information you submit there. This website does not collect payment information."
     ],
     "link_label": null,
     "link_href": null

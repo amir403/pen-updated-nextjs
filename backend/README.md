@@ -21,6 +21,8 @@ Point the website at the API by setting `PEN_API_URL` (for example `http://local
 
 `APP_URL` must be the public address of this API: uploaded image URLs are built from it.
 
+Set `FORMS_PROXY_KEY` to a long random string and give the Next.js site the same value as `PEN_FORMS_KEY`, so the form rate limit counts each visitor separately. Volunteer documents are stored in `storage/app/private/submissions` and are never publicly served; include that folder in backups.
+
 ## Updating
 
 After pulling new code:
@@ -44,6 +46,9 @@ All responses are JSON. Admin endpoints require `Authorization: Bearer <token>`.
 | Method | Path | Purpose |
 | --- | --- | --- |
 | GET | `/api/content` | Public: everything the website renders, in one response |
+| POST | `/api/forms/contact`, `/api/forms/volunteer` | Public website forms (volunteer: multipart with up to five 5 MB PDF/JPG/PNG `documents[]`). Rejects a filled `website` honeypot; 5 per visitor per 10 minutes |
+| GET, PUT, DELETE | `/api/submissions`, `/api/submissions/{id}` | Admin inbox (`?type=contact\|volunteer`, `?status=new\|read\|archived`); opening marks read, delete removes documents |
+| GET | `/api/submissions/{id}/files/{index}` | Download a volunteer document (admins only) |
 | POST | `/api/auth/login` | Email + password → token (rate-limited to 5 attempts per minute; tokens expire after 12 hours) |
 | GET | `/api/auth/me` | Signed-in user |
 | POST | `/api/auth/logout` | Revoke the current token |

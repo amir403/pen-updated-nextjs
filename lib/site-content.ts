@@ -59,6 +59,8 @@ export type SiteContent={
  legalSections:LegalSection[];
  navMenu:NavMenuGroup[];
  footerColumns:FooterColumn[];
+ /** True when content comes from the Laravel API, which also receives the website's forms. */
+ formsEnabled:boolean;
 };
 
 /** Content bundled with the site; used when the Laravel API is not configured or unreachable. */
@@ -101,4 +103,5 @@ export const staticSiteContent:SiteContent={
  legalSections,
  navMenu,
  footerColumns,
+ formsEnabled:false,
 };

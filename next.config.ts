@@ -6,8 +6,9 @@ const nextConfig: NextConfig = {
     tsconfigPath: "tsconfig.next.json",
   },
   experimental: {
-    // Admin uploads pass through server actions (Laravel accepts files up to 10 MB).
-    serverActions: { bodySizeLimit: "11mb" },
+    // Admin uploads (up to 10 MB) and volunteer applications (up to five 5 MB documents)
+    // pass through server actions.
+    serverActions: { bodySizeLimit: "26mb" },
   },
 };
 

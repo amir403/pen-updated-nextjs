@@ -112,10 +112,10 @@ Ye **collected dataset ka gap** hai; poori old website/internet par kabhi data t
 
 | Item | Current state | Remaining action |
 | --- | --- | --- |
-| Volunteer submission/upload backend | On-site form preview only; nothing sent or saved | Connect submission/storage/email later, as requested |
+| Volunteer submission/upload backend | Complete (27 October 2026): API configured hone par form aur documents admin panel ke Form submissions mein aate hain; documents private storage mein | Email notification abhi nahi |
 | Donation category availability | Visible enquiry options | Confirm and update later, as requested |
 | Five social media URLs | Facebook, Instagram, TikTok, LinkedIn and X show Coming soon | User will supply proper URLs later |
-| Contact server submission | Opens email draft | Connect a delivery service if direct website submission is wanted |
+| Contact server submission | Complete (27 October 2026): API configured hone par message admin panel ke Form submissions mein; API na ho to email draft | Email notification abhi nahi |
 | Native payments/recurring billing | Official payment handoff; no on-site checkout | Separate payment integration and confirmed arrangements required |
 | Domain / old-site strategy | GitHub/Vercel workflow configured | Decide final domain and how the old site/Academy should be linked or redirected |
 | On-site careers form | Official external application retained | Optional future migration; current request was volunteer only |

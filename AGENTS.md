@@ -28,4 +28,4 @@ Run lint, TypeScript checks, and a production build before submitting code chang
 The short Git history uses imperative subjects such as `Fix Windows development server startup`; continue with concise, descriptive subjects. Pull requests should explain the behavior changed, list validation performed, link relevant issues, and include screenshots for UI changes.
 
 ## Content & Configuration
-Consult `CONTENT-SOURCES.md` when changing published figures, documents, or integration behavior. Preserve official donation/application links and the contact form's email-draft behavior. Keep credentials and local runtime state out of commits; `.env*` files are ignored.
+Consult `CONTENT-SOURCES.md` when changing published figures, documents, or integration behavior. Preserve official donation/careers links and the contact form's email-draft fallback when the API is unavailable. Keep credentials and local runtime state out of commits; `.env*` files are ignored.

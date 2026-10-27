@@ -324,7 +324,9 @@ export const adminSettings:AdminSetting[]=[
 ];
 
 /** Admin pages that are neither list modules nor settings forms. */
-export const adminTools:{href:string;group:AdminGroup;label:string;description:string}[]=[
+/** `countKey` names a /summary count shown as a badge (for example unread form entries). */
+export const adminTools:{href:string;group:AdminGroup;label:string;description:string;countKey?:string}[]=[
+ {href:'/admin/submissions',group:'Content',label:'Form submissions',description:'Contact messages and volunteer applications sent from the website.',countKey:'submissions-new'},
  {href:'/admin/uploads',group:'Content',label:'File uploads',description:'Upload a PDF, document or image and copy its link.'},
  {href:'/admin/users',group:'Settings',label:'Admin users',description:'People who can sign in to this admin panel.'},
  {href:'/admin/account',group:'Settings',label:'My account',description:'Change your password.'},

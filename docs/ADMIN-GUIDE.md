@@ -37,6 +37,7 @@ PDF ya Word file ka link chahiye? **Content → File uploads** par file upload k
 | | Schools | `/explore-our-schools` (search, district filter) |
 | | Documents | `/publications`, `/pen-activity-books`, `/corporate-information` |
 | | Photo gallery | `/photo-gallery` (caption viewer mein dikhta hai) |
+| | Form submissions | Contact form ke messages aur volunteer applications (documents ke saath) |
 | | File uploads | Kisi bhi file ka link banane ke liye |
 | Homepage | Hero slides | Homepage ka bada slider |
 | | Impact counters | Slider ke neeche animated numbers (ek row mein 6 tak) |
@@ -80,12 +81,15 @@ PDF ya Word file ka link chahiye? **Content → File uploads** par file upload k
   (focus areas, programmes) inhi naamon se thematic areas ko jodte hain.
 - **Programme pages** sirf edit ho sakte hain, kyunke un ke page addresses fixed hain.
   Naya page add karne ke liye developer ki zaroorat hai.
-- Website ki doosri pages (donation calculator ka logic, volunteer form, contact form ka
-  email draft) code mein hain aur admin se nahi badalte.
+- **Form submissions**: naye entries ki ginti sidebar mein dikhti hai. Entry kholne par woh "read" ho jati hai.
+  **Reply by email** se jawab dein. Volunteer documents (CNIC wagera) sirf login ke baad download hote hain;
+  kaam khatam hone par entry **Delete** kar dein, documents bhi mit jate hain. Spam bots ke liye form mein
+  chhupa field aur har visitor ke liye 10 minute mein 5 submissions ki limit hai.
+- Website ka code wala hissa (donation calculator ka logic, forms ke fields) admin se nahi badalta.
 
 ## 4. Backup aur update (technical team ke liye)
 
 - Database backup: `mysqldump -u <user> -p pen > pen-backup.sql`
-- Uploaded files: `backend/storage/app/public/uploads/` folder ka backup lein.
+- Uploaded files: `backend/storage/app/public/uploads/` aur volunteer documents: `backend/storage/app/private/submissions/` folders ka backup lein.
 - Naya code aane par `backend` mein: `composer install`, `php artisan migrate --force`,
   `php artisan db:seed --force`. Seeder sirf khali modules bharta hai; admin ki edits nahi badalti.

@@ -36,5 +36,5 @@ The Next.js side has no test suite. Validate with lint, typecheck, a production 
 
 ## Content constraints
 
-- No public forms submit to a server: contact prepares a `mailto:` draft, the volunteer form is a browser-only preview, and donations/job applications link to PEN's official site. Don't add success/delivery claims.
+- With the API (`formsEnabled` in `SiteContent`), the contact and volunteer forms post through server actions in `app/form-actions.ts` to `/api/forms/*` (honeypot field `website`, `throttle:forms` keyed by the forwarded visitor IP when `PEN_FORMS_KEY`/`FORMS_PROXY_KEY` match); entries land in the `submissions` table and the admin inbox, volunteer documents on Laravel's private `local` disk (never public). Without the API, contact falls back to a `mailto:` draft and volunteer to a browser-only preview. Donations and job applications link to PEN's official site. Only claim delivery when the API confirms it.
 - Don't invent figures, dates, documents, contacts or outcomes. `CONTENT-SOURCES.md` records the provenance of every published claim and must be updated when content changes. `WORK-STATUS.md` (Roman Urdu) and `docs/WORK-STATUS-ENGLISH.md` track what is complete vs. pending against the client's PPT and website outline.

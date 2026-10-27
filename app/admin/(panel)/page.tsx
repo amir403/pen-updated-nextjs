@@ -18,7 +18,7 @@ export default async function Dashboard(){
     <div className="admin-tiles">
      {resources.map(r=><Link key={r.key} href={'/admin/'+r.key} className="admin-tile"><strong>{counts[resourceApiPath(r)]??0}</strong><span>{r.label}</span><small>{r.description}</small></Link>)}
      {settings.map(s=><Link key={s.key} href={'/admin/settings/'+s.key} className="admin-tile"><strong aria-hidden="true">✎</strong><span>{s.label}</span><small>{s.description}</small></Link>)}
-     {tools.map(t=><Link key={t.href} href={t.href} className="admin-tile"><strong aria-hidden="true">⇪</strong><span>{t.label}</span><small>{t.description}</small></Link>)}
+     {tools.map(t=><Link key={t.href} href={t.href} className="admin-tile"><strong aria-hidden={t.countKey?undefined:true}>{t.countKey?counts[t.countKey]??0:'⇪'}</strong><span>{t.label}{t.countKey?' (new)':''}</span><small>{t.description}</small></Link>)}
     </div>
    </section>;
   })}

@@ -62,6 +62,12 @@ volunteer page. File selection and validation are browser-only; no uploads,
 requests, persistent storage or success/delivery claims are implemented.
 Careers applications continue to use the official external form.
 
+Form submissions update, 27 October 2026: at the user's request, the contact and
+volunteer forms now submit to the Laravel API when it is configured and appear in
+the admin panel's Form submissions inbox; volunteer documents are stored privately.
+The privacy policy copy was updated to describe this. Without the API the earlier
+behaviour below still applies.
+
 Contact, volunteer and careers details were rechecked against their official
 PEN pages on 20 October 2026. Contact enquiries still prepare a local email draft;
 topic selection and draft status do not imply delivery. Partnership is an email

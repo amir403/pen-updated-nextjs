@@ -122,6 +122,20 @@ export async function changePassword(_:FormState,form:FormData):Promise<FormStat
  return {message:'Password changed. Other signed-in sessions have been signed out.'};
 }
 
+export async function setSubmissionStatus(id:string,status:'new'|'read'|'archived'){
+ const response=await adminFetch('/submissions/'+id,{method:'PUT',body:JSON.stringify({status})});
+ if(!response.ok)throw new Error(`Updating the entry failed with HTTP ${response.status}`);
+ revalidatePath('/admin','layout');
+ if(status==='archived')redirect('/admin/submissions?archived=1');
+}
+
+export async function deleteSubmission(id:string){
+ const response=await adminFetch('/submissions/'+id,{method:'DELETE'});
+ if(!response.ok)throw new Error(`Deleting the entry failed with HTTP ${response.status}`);
+ revalidatePath('/admin','layout');
+ redirect('/admin/submissions?deleted=1');
+}
+
 export async function deleteRecord(resourceKey:string,id:string){
  const resource=findAdminResource(resourceKey);
  if(!resource?.canDelete)return;

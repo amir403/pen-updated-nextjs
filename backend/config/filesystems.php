@@ -33,7 +33,8 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app/private'),
-            'serve' => true,
+            // Holds volunteer documents (identity cards); never served over HTTP.
+            'serve' => false,
             'throw' => false,
             'report' => false,
         ],

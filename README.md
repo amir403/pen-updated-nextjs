@@ -97,7 +97,7 @@ reached, the site falls back to the content bundled in `lib/` (for example
 an HTTP-only cookie and every admin request is made server-side.
 
 ## External integrations
-Donations and volunteer/job applications continue on PEN's official website. The contact form opens an email draft; it does not submit to a server. Content management uses the admin panel above; no payment processing or form-submission database is configured.
+Donations and job applications continue on PEN's official website. When `PEN_API_URL` is set, the contact and volunteer forms submit to the Laravel API (`/api/forms/*`) and appear under Form submissions in the admin panel; volunteer documents are kept on the API's private disk. Without the API, the contact form opens an email draft and the volunteer form stays a browser-only preview. Set the same random value as `PEN_FORMS_KEY` (Next.js) and `FORMS_PROXY_KEY` (Laravel) so the forms' rate limit applies per visitor rather than to the website server. No payment processing is configured.
 
 ## Validation
 TypeScript, production build, and ESLint pass (existing lint warnings remain). Animation changes were checked in Chrome at desktop and mobile sizes, including hero slides, scroll reveals, hover effects, counters, search, tabs, school pagination, donation selection, reduced-motion changes, and rendering without JavaScript. Screenshots were inspected for layout issues.

@@ -95,3 +95,21 @@
 .admin-upload-field{display:grid;gap:8px}
 .admin-copy-row{display:flex;gap:8px;margin-top:8px}.admin-copy-row input{background:var(--admin-surface)}
 .admin-subheading{font-size:18px;letter-spacing:0;color:var(--admin-text);margin-top:12px}.admin-you{color:var(--admin-muted)}
+.admin-badge{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;margin-left:8px;border-radius:10px;background:var(--admin-accent);color:#fff;font-size:11px}
+.dark .admin-badge{color:#0f1a14}
+.admin-filters{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.admin-filters a{padding:6px 12px;border-radius:16px;border:1px solid var(--admin-border);font-size:12px;font-weight:600;color:var(--admin-muted);background:var(--admin-surface)}
+.admin-filters a[aria-current=page]{border-color:var(--admin-accent);color:var(--admin-accent)}
+.admin-filters span{color:var(--admin-muted)}
+.admin-row-new td{font-weight:600}
+.admin-entry{display:grid;gap:14px;max-width:820px}
+.admin-entry dl{display:grid;gap:8px;margin:0}
+.admin-entry dl div{display:grid;grid-template-columns:160px 1fr;gap:12px;border-bottom:1px solid var(--admin-border);padding-bottom:8px}
+.admin-entry dt{color:var(--admin-muted)}.admin-entry dd{margin:0;overflow-wrap:anywhere}
+.admin-entry h2{font-size:16px;letter-spacing:0;color:var(--admin-text)}
+.admin-entry-message{white-space:pre-wrap;color:var(--admin-text)!important}
+.admin-entry-files{margin:0;padding-left:18px}.admin-entry-files a{color:var(--admin-accent);font-weight:600}
+.admin-entry-note{font-size:12px}
+.admin-entry .admin-button{justify-self:start}
+.admin-entry-actions{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:860px){.admin-entry dl div{grid-template-columns:1fr;gap:2px}}

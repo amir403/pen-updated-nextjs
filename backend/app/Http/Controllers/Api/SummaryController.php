@@ -9,6 +9,7 @@ use App\Models\Faq;
 use App\Models\Page;
 use App\Models\Resource;
 use App\Models\School;
+use App\Models\Submission;
 use App\Models\TeamMember;
 use Illuminate\Http\JsonResponse;
 
@@ -28,6 +29,7 @@ class SummaryController extends Controller
             'schools' => School::count(),
             'resources' => Resource::count(),
             'team-members' => TeamMember::count(),
+            'submissions-new' => Submission::where('status', 'new')->count(),
             ...collect(ContentItem::collections())->mapWithKeys(fn (string $name) => ["collections/{$name}" => (int) ($counts[$name] ?? 0)]),
         ]]);
     }

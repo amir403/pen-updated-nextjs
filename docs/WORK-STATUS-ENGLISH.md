@@ -109,10 +109,10 @@ The volunteer backend, donation-availability updates and five social URLs were e
 
 | Item | Current state | Remaining action |
 | --- | --- | --- |
-| Volunteer submission/upload backend | On-site form preview only; nothing is sent or saved. | Connect submission, storage and email later, as requested. |
+| Volunteer submission/upload backend | Complete (27 October 2026): with the API configured, applications and documents arrive in the admin panel's Form submissions; documents are stored privately. | Email notifications are not set up, as requested. |
 | Donation category availability | Additional options are visible as enquiries. | Confirm and update later, as requested. |
 | Five social-media URLs | Facebook, Instagram, TikTok, LinkedIn and X show Coming soon. | Add proper profile URLs when supplied. |
-| Contact server submission | The form opens an email draft. | Connect a delivery service if direct website submission is wanted. |
+| Contact server submission | Complete (27 October 2026): with the API configured, messages arrive in Form submissions; without it the form opens an email draft. | Email notifications are not set up. |
 | Native payments and recurring billing | Official payment handoff; no on-site checkout. | Separate payment integration and confirmed arrangements are required. |
 | Domain and old-site strategy | GitHub/Vercel workflow is configured. | Decide the final domain and how the old site and Academy should link or redirect. |
 | On-site careers form | The existing external application is retained. | Optional future migration; the on-site form request covered volunteering only. |

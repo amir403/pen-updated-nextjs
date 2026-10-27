@@ -54,10 +54,10 @@ Har module ke liye ye kaam hota hai:
 | M12 | **Legal pages** | Privacy policy & terms ke sections | `/privacy-policy`, `/terms-of-services` | ✅ |
 | M13 | **Navigation menu** | Header menu groups & links, footer links | Header (desktop + mobile), footer | ✅ |
 | M14 | **Admin users & account** | Admin users list, naya admin, remove, apna password change | `/admin` | ✅ |
-| M15 | **Form submissions inbox** | Contact & volunteer forms ki entries admin mein | `/contact-us`, `/volunteer` | ❓ |
+| M15 | **Form submissions inbox** | Contact & volunteer forms ki entries admin mein | `/contact-us`, `/volunteer` | ✅ |
 | M16 | **Final QA & handover** | Poori website + admin ka end-to-end test, docs, deployment guide | Sab | ✅ |
 
-### M15 ke liye aap ka faisla chahiye
+### M15 — faisla: haan (27 Oct 2026)
 Abhi contact form sirf email draft kholta hai, aur volunteer form browser mein preview
 hai (koi data server par nahi jata). Ye project ki pehli requirement thi aur privacy
 policy mein bhi yahi likha hai. Agar entries admin panel mein save karni hain to:
@@ -102,3 +102,4 @@ mein push hota hai, taake har step alag se review aur test ho sake.
 | 27 Oct 2026 | M13 | Collections `nav_menu` (label, description, "Title \| /link" lines, focus-areas mega toggle) aur `footer_columns`. Mega menu thematic areas aur cross-cutting themes se khud banta hai, ginti ke saath |
 | 27 Oct 2026 | M14 | `/api/users` (list, add, remove; khud ko remove nahi kar sakte) aur `/api/auth/password` (purana password zaroori; doosre sessions sign out). Admin mein "Admin users" aur "My account" pages. 3 naye tests |
 | 27 Oct 2026 | M16 | Fresh database par 41 public pages: API aur bundled mode same (homepage par sirf counter animation ki timing ka farq), 40 internal links aur sab images theek, console errors nahi. Admin ke 103 pages (har list, add, edit, settings) bina error. Dark mode aur mobile check. `docs/ADMIN-GUIDE.md` (Roman Urdu) aur update steps add kiye |
+| 27 Oct 2026 | M15 | User ne haan kaha. `submissions` table, `/api/forms/contact` + `/api/forms/volunteer` (honeypot, 10 minute mein 5 per visitor), volunteer documents private disk par. Admin inbox: filters, unread badge, detail, document download, archive, delete. Privacy policy text update. API na ho to purana email-draft / preview behaviour. 5 naye tests |

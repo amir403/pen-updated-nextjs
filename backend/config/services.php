@@ -2,6 +2,12 @@
 
 return [
 
+    // Shared secret the Next.js site sends with form submissions, so rate limits can use the
+    // visitor's IP address it forwards instead of the site server's own address.
+    'forms' => [
+        'proxy_key' => env('FORMS_PROXY_KEY'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Third Party Services

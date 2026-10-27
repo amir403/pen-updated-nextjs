@@ -77,6 +77,7 @@ function fromApi(api:ApiContent):SiteContent{
   publishedImpact:fromCollection(api,'published_impact',staticSiteContent.publishedImpact,item=>item as ImpactFigure),
   disclosureCategories:fromCollection(api,'disclosure_categories',staticSiteContent.disclosureCategories,item=>item as DisclosureCategory),
   navMenu:fromCollection(api,'nav_menu',staticSiteContent.navMenu,item=>({...item,mega:Boolean(item.mega)}) as NavMenuGroup),
+  formsEnabled:true,
   footerColumns:fromCollection(api,'footer_columns',staticSiteContent.footerColumns,item=>item as FooterColumn),
   legalSections:fromCollection(api,'legal_sections',staticSiteContent.legalSections,item=>item as LegalSection),
   opportunities:fromCollection(api,'opportunities',staticSiteContent.opportunities,item=>({...item,is_open:Boolean(item.is_open)}) as Opportunity),

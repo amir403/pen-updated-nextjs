@@ -5,8 +5,8 @@ import {adminGroups,adminResources,adminSettings,adminTools} from '@/lib/admin-r
 import {AdminNav} from '@/components/admin/admin-nav';
 
 export default async function AdminPanelLayout({children}:{children:React.ReactNode}){
- const user=await adminGet<{name:string;email:string}>('/auth/me');
- const links=[...adminResources.map(r=>({group:r.group,href:'/admin/'+r.key,label:r.label})),...adminSettings.map(s=>({group:s.group,href:'/admin/settings/'+s.key,label:s.label})),...adminTools];
+ const [user,counts]=await Promise.all([adminGet<{name:string;email:string}>('/auth/me'),adminGet<Record<string,number>>('/summary')]);
+ const links=[...adminResources.map(r=>({group:r.group,href:'/admin/'+r.key,label:r.label})),...adminSettings.map(s=>({group:s.group,href:'/admin/settings/'+s.key,label:s.label})),...adminTools.map(t=>({group:t.group,href:t.href,label:t.label,badge:t.countKey?counts[t.countKey]:undefined}))];
  const sections=adminGroups.map(group=>({label:group,links:links.filter(link=>link.group===group)})).filter(section=>section.links.length>0);
  return <div className="admin-shell">
   <aside className="admin-sidebar">
