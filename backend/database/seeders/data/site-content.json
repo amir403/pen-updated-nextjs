@@ -3278,6 +3278,12 @@
     "The message emphasises responsible use of funds, transparency and accountability across management and school teams, with children’s academic progress at the centre of the work."
    ],
    "ceo_source_url": "https://pen.org.pk/ceo-message/"
+  },
+  "donations": {
+   "child_title": "Sponsor a child",
+   "child_amount": 30000,
+   "max_children": 1000,
+   "account_title": "Progressive Education Network"
   }
  },
  "collections": {
@@ -4001,6 +4007,96 @@
     "text": "Using monitoring, learning and shared information to inform education programmes.",
     "link_href": "/impact",
     "link_label": "Explore impact and evidence"
+   }
+  ],
+  "sponsorship_options": [
+   {
+    "title": "Sponsor a class",
+    "amount": 600000,
+    "period": "per year",
+    "icon": "class"
+   },
+   {
+    "title": "Sponsor a school",
+    "amount": 6000000,
+    "period": "per year",
+    "icon": "school"
+   },
+   {
+    "title": "Support a computer lab",
+    "amount": 500000,
+    "period": "one time",
+    "icon": "lab"
+   },
+   {
+    "title": "Build a classroom",
+    "amount": 1500000,
+    "period": "one time",
+    "icon": "classroom"
+   },
+   {
+    "title": "Build a washroom",
+    "amount": 1000000,
+    "period": "one time",
+    "icon": "washroom"
+   },
+   {
+    "title": "Student bench & desk",
+    "amount": 15000,
+    "period": "per bench & desk",
+    "icon": "furniture"
+   },
+   {
+    "title": "Electric water cooler",
+    "amount": 150000,
+    "period": "each",
+    "icon": "water"
+   }
+  ],
+  "bank_accounts": [
+   {
+    "name": "Samba Bank Limited",
+    "number": "2000287237",
+    "iban": "PK67SAMB0000002000287237",
+    "swift": "SAMBPKKA"
+   },
+   {
+    "name": "Bank Alfalah Limited",
+    "number": "5501-5000450414",
+    "iban": "PK19ALFH5501005000450414",
+    "swift": null
+   }
+  ],
+  "giving_enquiries": [
+   {
+    "anchor": "teacher-sponsorship",
+    "title": "Sponsor a teacher",
+    "text": "Discuss support for teacher training, mentoring and professional development."
+   },
+   {
+    "anchor": "charitable-gifts",
+    "title": "Charitable gifts",
+    "text": "Books, stationery, toys or clothes: ask about current needs and agree collection or delivery before sending items."
+   },
+   {
+    "anchor": "regular-giving",
+    "title": "Regular giving",
+    "text": "Explore monthly or regular contributions and arrange payment details directly with PEN."
+   },
+   {
+    "anchor": "membership",
+    "title": "Membership",
+    "text": "Ask about membership opportunities, eligibility, contributions and ways to stay involved."
+   },
+   {
+    "anchor": "fundraising",
+    "title": "Fundraising",
+    "text": "Discuss a community appeal, fundraising event or campaign with the PEN team."
+   },
+   {
+    "anchor": "zakat-giving",
+    "title": "Zakat giving",
+    "text": "Confirm PEN’s Zakat acceptance, allocation and payment arrangements before making a transfer."
    }
   ]
  }

@@ -4,6 +4,7 @@ import type {Office} from '@/lib/site-settings';
 import type {FocusArea,HeroSlide,ImpactStat} from '@/lib/homepage';
 import type {CrossCuttingTheme,Partner} from '@/lib/transparency';
 import type {ThematicArea} from '@/lib/website-outline';
+import type {BankAccount,GivingEnquiry,SponsorshipOption} from '@/lib/donations';
 import type {EducationModel,Intervention,OngoingProgramme,Priority,ProgrammePage} from '@/lib/programmes';
 import type {AccountabilityLink,CoreValue,JourneyItem,PurposeCard} from '@/lib/about';
 
@@ -66,6 +67,10 @@ function fromApi(api:ApiContent):SiteContent{
   priorities:fromCollection(api,'upcoming_priorities',staticSiteContent.priorities,item=>item as Priority),
   thematicAreas:fromCollection(api,'thematic_areas',staticSiteContent.thematicAreas,item=>item as ThematicArea),
   crossCuttingThemes:fromCollection(api,'cross_cutting_themes',staticSiteContent.crossCuttingThemes,item=>item as CrossCuttingTheme),
+  donations:(settings=>({...settings,child_amount:Number(settings.child_amount),max_children:Number(settings.max_children)}))(fromSetting(api,'donations',staticSiteContent.donations)),
+  sponsorships:fromCollection(api,'sponsorship_options',staticSiteContent.sponsorships,item=>({...item,amount:Number(item.amount)}) as SponsorshipOption),
+  bankAccounts:fromCollection(api,'bank_accounts',staticSiteContent.bankAccounts,item=>item as BankAccount),
+  givingEnquiries:fromCollection(api,'giving_enquiries',staticSiteContent.givingEnquiries,item=>item as GivingEnquiry),
  };
 }
 

@@ -8,13 +8,16 @@ import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
 import {images} from '@/lib/content';
-import {donationBanks, formatDonationAmount as money, maximumChildren, sponsorshipOptions} from '@/lib/donations';
+import {formatDonationAmount as money, sponsorshipList} from '@/lib/donations';
 import {useSiteContent} from '@/components/site-content-provider';
 
-const optionIcons = [GraduationCap,Users,School,BookOpen,Building2,DoorOpen,Armchair,Droplets];
+/** Icons for sponsorship options, keyed like `sponsorshipIcons` in lib/donations.ts. */
+const optionIcons = {child:GraduationCap,class:Users,school:School,lab:BookOpen,classroom:Building2,washroom:DoorOpen,furniture:Armchair,water:Droplets} as const;
 
 export function Donation() {
-  const {site:{donation_url:officialDonationUrl}} = useSiteContent();
+  const {site:{donation_url:officialDonationUrl},donations,sponsorships,bankAccounts:donationBanks} = useSiteContent();
+  const sponsorshipOptions = sponsorshipList(donations,sponsorships);
+  const maximumChildren = donations.max_children;
   const [mode,setMode] = useState('children');
   const [selectedOther,setSelectedOther] = useState(1);
   const [quantity,setQuantity] = useState('1');
@@ -24,7 +27,8 @@ export function Donation() {
   const validCount = /^\d+$/.test(quantity) && Number.isSafeInteger(count) && count>=1 && count<=maximumChildren;
   const childMode = mode==='children';
   const valid = !childMode || validCount;
-  const option = sponsorshipOptions[childMode?0:selectedOther];
+  // Falls back to the per-child option if the selected one was removed in the admin panel.
+  const option = sponsorshipOptions[childMode?0:selectedOther] ?? sponsorshipOptions[0];
   const yearlyTotal = validCount?count*sponsorshipOptions[0].amount:0;
   const total = childMode?(validCount?(period==='monthly'?yearlyTotal/12:yearlyTotal):null):option.amount;
   const title = childMode?(validCount?`Sponsor ${count===1?'a child':money(count)+' children'}`:'Plan your child sponsorship'):option.title;
@@ -60,7 +64,7 @@ export function Donation() {
             </div>
           </TabsContent>
           <TabsContent value="other"><div className="donation-options">{sponsorshipOptions.slice(1).map((item,index)=>{
-            const Icon = optionIcons[index+1];
+            const Icon = optionIcons[item.icon as keyof typeof optionIcons]??GraduationCap;
             return <button type="button" key={item.id} onClick={()=>setSelectedOther(index+1)} className={`donation-option ${selectedOther===index+1?'chosen':''}`} aria-pressed={selectedOther===index+1}>
               <Icon size={24} aria-hidden="true"/><span><strong>{item.title}</strong><span><b>PKR {money(item.amount)}</b> / {item.period}</span></span><span className="radio-mark">{selectedOther===index+1&&<Check size={12} aria-hidden="true"/>}</span>
             </button>;
@@ -78,7 +82,7 @@ export function Donation() {
     </div>
     <DonationWays onChoose={index=>{if(index===0)setMode('children');else{setMode('other');setSelectedOther(index);}requestAnimationFrame(()=>{const estimate=document.getElementById('sponsorship-estimate');estimate?.focus({preventScroll:true});estimate?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});}}/>
     <div className="bank-section" id="bank-details"><div className="section-heading"><div><p className="eyebrow"><span/>OTHER WAYS TO GIVE</p><h2>A direct contribution. A real difference.</h2><p className="section-intro">Use PEN’s published bank details or send a cheque in favour of Progressive Education Network.</p></div></div>
-      <div className="bank-grid">{donationBanks.map(bank=><div className="bank-card" key={bank.name}><h3>{bank.name}</h3><dl><dt>Account title</dt><dd>Progressive Education Network</dd><dt>Account number</dt><dd>{bank.number}</dd><dt>IBAN</dt><dd className="iban">{bank.iban}</dd>{bank.swift&&<><dt>SWIFT code</dt><dd>{bank.swift}</dd></>}</dl><Button variant="outline" onClick={()=>copy(bank.iban)}>{copied===bank.iban?<Check size={15} aria-hidden="true"/>:<Copy size={15} aria-hidden="true"/>} {copied===bank.iban?'Copied':'Copy IBAN'}</Button></div>)}</div>
+      <div className="bank-grid">{donationBanks.map(bank=><div className="bank-card" key={bank.name}><h3>{bank.name}</h3><dl><dt>Account title</dt><dd>{donations.account_title}</dd><dt>Account number</dt><dd>{bank.number}</dd><dt>IBAN</dt><dd className="iban">{bank.iban}</dd>{bank.swift&&<><dt>SWIFT code</dt><dd>{bank.swift}</dd></>}</dl><Button variant="outline" onClick={()=>copy(bank.iban)}>{copied===bank.iban?<Check size={15} aria-hidden="true"/>:<Copy size={15} aria-hidden="true"/>} {copied===bank.iban?'Copied':'Copy IBAN'}</Button></div>)}</div>
       <div className="cheque-note"><Mail size={23} aria-hidden="true"/><p><strong>Prefer to send a cheque?</strong><br/>Address it to Progressive Education Network, 172-A, Ahmad Block, New Garden Town, Lahore 54000.</p><Link className="text-link" href="/contact-us">Need help?<ArrowUpRight size={16} aria-hidden="true"/></Link></div>
     </div>
   </section>;

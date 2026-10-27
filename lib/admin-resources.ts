@@ -1,6 +1,7 @@
 import {statIcons} from '@/lib/homepage';
 import {valueIcons} from '@/lib/about';
 import {programmeIcons,programmePageSlugs} from '@/lib/programmes';
+import {sponsorshipIcons} from '@/lib/donations';
 
 export type AdminField={name:string;label:string;type:'text'|'textarea'|'number'|'url'|'select'|'image'|'paragraphs'|'lines'|'checkbox'|'date';options?:readonly string[];required?:boolean;help?:string};
 /** A list module. `key` is the admin URL segment; `apiPath` the Laravel path (defaults to `key`). */
@@ -176,6 +177,26 @@ export const adminResources:AdminResource[]=[
   {name:'link_href',label:'Link',type:'text',required:true,help:linkHelp},
   position,
  ]},
+ {key:'sponsorship-options',apiPath:'collections/sponsorship_options',group:'Get involved',label:'Sponsorship options',singular:'option',description:'Donation shop items and estimates, after the per-child rate.',titleField:'title',columns:['title','amount','period'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'amount',label:'Amount (PKR)',type:'number',required:true},
+  {name:'period',label:'Period',type:'text',required:true,help:'For example “per year”, “one time” or “each”.'},
+  {name:'icon',label:'Icon',type:'select',options:sponsorshipIcons,required:true},
+  position,
+ ]},
+ {key:'bank-accounts',apiPath:'collections/bank_accounts',group:'Get involved',label:'Bank accounts',singular:'bank account',description:'Bank details on the donation page.',titleField:'name',columns:['name','iban'],canCreate:true,canDelete:true,fields:[
+  {name:'name',label:'Bank name',type:'text',required:true},
+  {name:'number',label:'Account number',type:'text',required:true},
+  {name:'iban',label:'IBAN',type:'text',required:true,help:'Capital letters and digits, no spaces.'},
+  {name:'swift',label:'SWIFT code',type:'text',help:'Optional. 8 or 11 capital letters and digits.'},
+  position,
+ ]},
+ {key:'giving-enquiries',apiPath:'collections/giving_enquiries',group:'Get involved',label:'Giving enquiries',singular:'enquiry option',description:'“More ways to give” cards, each opening an email enquiry.',titleField:'title',columns:['title','text'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens.'},
+  {name:'text',label:'Text',type:'textarea',required:true},
+  position,
+ ]},
  {key:'partners',apiPath:'collections/partners',group:'About PEN',label:'Partners & supporters',singular:'partner',description:'Logos on the supporters page and the homepage strip.',titleField:'name',columns:['name','url'],canCreate:true,canDelete:true,fields:[
   {name:'name',label:'Name',type:'text',required:true,help:'Also used as the logo description.'},
   {name:'logo',label:'Logo',type:'image',required:true},
@@ -229,6 +250,12 @@ export const adminSettings:AdminSetting[]=[
   {name:'ceo_heading',label:'Message: heading',type:'text',required:true},
   {name:'ceo_message',label:'Message: text',type:'paragraphs',required:true,help:'Separate paragraphs with a blank line.'},
   {name:'ceo_source_url',label:'Message: original link',type:'url',help:'Leave empty to hide the “Read the original message” link.'},
+ ]},
+ {key:'donations',group:'Get involved',label:'Donation settings',description:'Per-child sponsorship rate, calculator limit and bank account title.',fields:[
+  {name:'child_title',label:'Child sponsorship title',type:'text',required:true},
+  {name:'child_amount',label:'Yearly rate per child (PKR)',type:'number',required:true},
+  {name:'max_children',label:'Maximum children in the calculator',type:'number',required:true},
+  {name:'account_title',label:'Bank account title',type:'text',required:true},
  ]},
  {key:'contact',group:'Settings',label:'Contact details',description:'Email, phone, WhatsApp and address shown in the footer, contact page and enquiry forms.',fields:[
   {name:'email',label:'Email address',type:'text',required:true,help:'Enquiry forms open an email draft to this address.'},

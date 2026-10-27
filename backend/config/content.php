@@ -18,6 +18,32 @@
 return [
 
     'collections' => [
+        'sponsorship_options' => [
+            'rules' => [
+                'title' => ['required', 'string', 'max:80'],
+                'amount' => ['required', 'integer', 'min:1', 'max:1000000000'],
+                'period' => ['required', 'string', 'max:40'],
+                'icon' => ['required', 'in:class,school,lab,classroom,washroom,furniture,water,child'],
+            ],
+            'attributes' => ['amount' => 'amount (PKR)'],
+        ],
+        'bank_accounts' => [
+            'rules' => [
+                'name' => ['required', 'string', 'max:120'],
+                'number' => ['required', 'string', 'max:40'],
+                'iban' => ['required', 'string', 'max:34', 'regex:/^[A-Z]{2}[0-9]{2}[A-Z0-9]{1,30}$/'],
+                'swift' => ['nullable', 'string', 'max:11', 'regex:/^[A-Z0-9]{8}([A-Z0-9]{3})?$/'],
+            ],
+            'attributes' => ['name' => 'bank name', 'number' => 'account number', 'iban' => 'IBAN', 'swift' => 'SWIFT code'],
+        ],
+        'giving_enquiries' => [
+            'rules' => [
+                'anchor' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
+                'title' => ['required', 'string', 'max:80'],
+                'text' => ['required', 'string', 'max:400'],
+            ],
+            'attributes' => ['anchor' => 'section link'],
+        ],
         'thematic_areas' => [
             'rules' => [
                 'anchor' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
@@ -190,6 +216,21 @@ return [
     ],
 
     'settings' => [
+        'donations' => [
+            'rules' => [
+                'value' => ['required', 'array'],
+                'value.child_title' => ['required', 'string', 'max:80'],
+                'value.child_amount' => ['required', 'integer', 'min:1', 'max:100000000'],
+                'value.max_children' => ['required', 'integer', 'min:1', 'max:100000'],
+                'value.account_title' => ['required', 'string', 'max:120'],
+            ],
+            'attributes' => [
+                'value.child_title' => 'child sponsorship title',
+                'value.child_amount' => 'yearly rate per child',
+                'value.max_children' => 'maximum children',
+                'value.account_title' => 'account title',
+            ],
+        ],
         'about' => [
             'rules' => [
                 'value' => ['required', 'array'],
