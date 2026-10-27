@@ -1,3 +1,5 @@
+import {statIcons} from '@/lib/homepage';
+
 export type AdminField={name:string;label:string;type:'text'|'textarea'|'number'|'url'|'select'|'image'|'paragraphs'|'lines'|'checkbox'|'date';options?:readonly string[];required?:boolean;help?:string};
 /** A list module. `key` is the admin URL segment; `apiPath` the Laravel path (defaults to `key`). */
 export type AdminResource={key:string;apiPath?:string;group:AdminGroup;label:string;singular:string;description:string;titleField:string;columns:string[];fields:AdminField[];canCreate:boolean;canDelete:boolean};
@@ -56,6 +58,31 @@ export const adminResources:AdminResource[]=[
   {name:'image',label:'Photo',type:'image'},
   position,
  ]},
+ {key:'hero-slides',apiPath:'collections/hero_slides',group:'Homepage',label:'Hero slides',singular:'slide',description:'Large photo slides at the top of the homepage.',titleField:'kicker',columns:['kicker','title','position'],canCreate:true,canDelete:true,fields:[
+  {name:'image',label:'Photo',type:'image',required:true,help:'Wide landscape photo, at least 1600 px across.'},
+  {name:'alt',label:'Photo description',type:'text',required:true,help:'Describes the photo for screen readers.'},
+  {name:'kicker',label:'Small heading',type:'text',help:'Short line above the heading, for example “EVERY CHILD. EVERY OPPORTUNITY.”'},
+  {name:'title',label:'Heading',type:'lines',required:true,help:'One line per row.'},
+  {name:'highlight',label:'Highlighted last line',type:'text',help:'Shown in gold under the heading.'},
+  {name:'text',label:'Text',type:'textarea'},
+  position,
+ ]},
+ {key:'impact-figures',apiPath:'collections/impact_stats',group:'Homepage',label:'Impact counters',singular:'figure',description:'Animated figures under the homepage slides. Up to six fit on one row.',titleField:'label',columns:['value','label','icon'],canCreate:true,canDelete:true,fields:[
+  {name:'value',label:'Number',type:'number',required:true},
+  {name:'label',label:'Label',type:'text',required:true},
+  {name:'icon',label:'Icon',type:'select',options:statIcons,required:true},
+  position,
+ ]},
+ {key:'focus-areas',apiPath:'collections/homepage_focus',group:'Homepage',label:'Focus areas',singular:'focus area',description:'Priority cards on the homepage, linked to What We Do.',titleField:'title',columns:['title','sdgs'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'anchor',label:'What We Do section',type:'text',required:true,help:'The section the card opens, for example “girls-education”.'},
+  {name:'image',label:'Photo',type:'image',required:true},
+  {name:'alt',label:'Photo description',type:'text',required:true},
+  {name:'text',label:'Text',type:'textarea',required:true},
+  {name:'featured',label:'“In focus” line',type:'text'},
+  {name:'sdgs',label:'SDG numbers',type:'lines',help:'One per line. Available: 3, 4, 5, 8, 9, 10, 16, 17.'},
+  position,
+ ]},
  {key:'offices',apiPath:'collections/offices',group:'Settings',label:'Offices',singular:'office',description:'Office addresses on the contact page.',titleField:'title',columns:['title','address'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Office name',type:'text',required:true,help:'For example “Head office · Lahore”.'},
   {name:'address',label:'Address',type:'lines',required:true,help:'One line per row.'},
@@ -69,6 +96,23 @@ export const resourceApiPath=(resource:AdminResource)=>resource.apiPath??resourc
 
 /** Settings forms. `social_media` has its own list editor; the rest use the generic form. */
 export const adminSettings:AdminSetting[]=[
+ {key:'homepage',group:'Homepage',label:'Homepage text',description:'Headings, photos and text in the homepage sections.',fields:[
+  {name:'hero_tagline',label:'Slider bottom line',type:'text'},
+  {name:'hero_caption',label:'Slider photo caption',type:'text'},
+  {name:'stats_kicker',label:'Counters: small heading',type:'text'},
+  {name:'stats_heading',label:'Counters: heading',type:'text'},
+  {name:'stats_note',label:'Counters: source note',type:'text'},
+  {name:'about_image',label:'About: photo',type:'image',required:true},
+  {name:'about_since',label:'About: year badge',type:'text',help:'Leave empty to hide the badge.'},
+  {name:'about_heading',label:'About: heading',type:'text',required:true},
+  {name:'about_highlight',label:'About: highlighted line',type:'text'},
+  {name:'about_text',label:'About: text',type:'paragraphs',required:true,help:'Separate paragraphs with a blank line.'},
+  {name:'focus_heading',label:'Focus areas: heading',type:'text',required:true},
+  {name:'focus_intro',label:'Focus areas: introduction',type:'textarea'},
+  {name:'schools_image',label:'Schools: photo',type:'image',required:true},
+  {name:'schools_heading',label:'Schools: heading',type:'lines',required:true,help:'One line per row.'},
+  {name:'schools_text',label:'Schools: text',type:'textarea'},
+ ]},
  {key:'contact',group:'Settings',label:'Contact details',description:'Email, phone, WhatsApp and address shown in the footer, contact page and enquiry forms.',fields:[
   {name:'email',label:'Email address',type:'text',required:true,help:'Enquiry forms open an email draft to this address.'},
   {name:'phones',label:'Phone numbers',type:'lines',help:'One number per line. The first appears in the footer.'},

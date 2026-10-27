@@ -1,6 +1,7 @@
 import {cache} from 'react';
 import {resourceTypes,staticSiteContent,type ResourceDoc,type ResourceType,type SiteContent} from '@/lib/site-content';
 import type {Office} from '@/lib/site-settings';
+import type {FocusArea,HeroSlide,ImpactStat} from '@/lib/homepage';
 
 /** Base URL of the Laravel API, e.g. https://api.example.org (without /api). */
 export const apiUrl=process.env.PEN_API_URL?.replace(/\/+$/,'');
@@ -42,6 +43,11 @@ function fromApi(api:ApiContent):SiteContent{
   contact:fromSetting(api,'contact',staticSiteContent.contact),
   site:fromSetting(api,'site',staticSiteContent.site),
   offices:fromCollection(api,'offices',staticSiteContent.offices,item=>item as Office),
+  heroSlides:fromCollection(api,'hero_slides',staticSiteContent.heroSlides,item=>item as HeroSlide),
+  impactStats:fromCollection(api,'impact_stats',staticSiteContent.impactStats,item=>({...item,value:Number(item.value)}) as ImpactStat),
+  // SDG numbers typed in the admin panel arrive as strings.
+  homepageFocus:fromCollection(api,'homepage_focus',staticSiteContent.homepageFocus,item=>({...item,sdgs:(item.sdgs as unknown[]).map(Number)}) as FocusArea),
+  homepage:fromSetting(api,'homepage',staticSiteContent.homepage),
  };
 }
 
