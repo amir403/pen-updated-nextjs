@@ -62,6 +62,12 @@ volunteer page. File selection and validation are browser-only; no uploads,
 requests, persistent storage or success/delivery claims are implemented.
 Careers applications continue to use the official external form.
 
+Form submissions update, 27 October 2026: at the user's request, the contact and
+volunteer forms now submit to the Laravel API when it is configured and appear in
+the admin panel's Form submissions inbox; volunteer documents are stored privately.
+The privacy policy copy was updated to describe this. Without the API the earlier
+behaviour below still applies.
+
 Contact, volunteer and careers details were rechecked against their official
 PEN pages on 20 October 2026. Contact enquiries still prepare a local email draft;
 topic selection and draft status do not imply delivery. Partnership is an email
@@ -98,4 +104,4 @@ historical. Leadership and accountability links reuse existing sourced pages.
 certification or leadership appointment is asserted.
 React / TypeScript using the Sites Vinext framework; Tailwind CSS; local shadcn/ui components built on Radix. All main pages use real URL routes. Source datasets are in lib/source-data.json; editorial content, navigation and article summaries are in lib/content.ts; page components in components/pen-site.tsx.
 
-No custom CMS, email delivery server, card processor or job-application database is configured. External services remain on their existing official URLs. Site privacy/terms text describes this build and links to official terms.
+Content can be edited through the `/admin` panel backed by the Laravel API in `backend/`; its database is seeded from the same sourced records in `lib/content.ts` and `lib/source-data.json`, and edits made there are not covered by the provenance notes in this file. No email delivery server, card processor or job-application database is configured. External services remain on their existing official URLs. Site privacy/terms text describes this build and links to official terms.

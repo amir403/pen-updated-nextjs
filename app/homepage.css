@@ -50,3 +50,11 @@
   .focus-sdgs>div { gap: 6px; }
   .focus-sdgs img { width: 43px; height: 43px; }
 }
+
+/* The homepage counters grid widens with the number of figures managed in the admin panel. */
+@media(min-width:981px){.impact-strip[data-count="1"]{grid-template-columns:1.12fr 1fr}.impact-strip[data-count="2"]{grid-template-columns:1.12fr repeat(2,1fr)}.impact-strip[data-count="4"]{grid-template-columns:1.12fr repeat(4,1fr)}.impact-strip[data-count="5"]{grid-template-columns:1.12fr repeat(5,1fr)}.impact-strip[data-count="6"]{grid-template-columns:1.12fr repeat(6,1fr)}}
+
+/* Partner logos linked to the partner's website fill their tile like plain logos. */
+.sponsor-grid>div>a,.homepage-partner-strip>div>a{display:grid;place-items:center;width:100%;height:100%}
+/* Give each logo tile a definite grid area so tall logos scale down instead of overflowing. */
+.sponsor-grid>div,.sponsor-grid>div>a{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}

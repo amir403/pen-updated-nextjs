@@ -1,2 +1,3 @@
 import {Site} from '@/components/pen-site';
-export default function Home(){return <Site page="home"/>}
+import {getSiteContent} from '@/lib/cms';
+export default async function Home(){return <Site page="home" content={await getSiteContent()}/>}

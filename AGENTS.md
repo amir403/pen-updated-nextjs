@@ -3,7 +3,7 @@
 ## Project Structure & Module Organization
 This PEN website uses React, strict TypeScript, Vinext, and Tailwind CSS. `app/` contains the root layout, homepage, dynamic `[slug]` route, and global styles. `components/pen-site.tsx` holds the site shell and page views; `components/ui/` contains vendored shadcn primitives. Keep editorial content and navigation in `lib/content.ts`, structured school/resource records in `lib/source-data.json`, and static assets in `public/`.
 
-`scripts/` and `build/` maintain the Sites/Vite/Cloudflare integration; `build/` contains tracked source files. `db/`, `drizzle/`, and `examples/d1/` provide database scaffolding; the public website has no configured application database. No automated test suite is currently configured.
+`scripts/` and `build/` maintain the Sites/Vite/Cloudflare integration; `build/` contains tracked source files. `db/`, `drizzle/`, and `examples/d1/` are unused Sites database scaffolding. `backend/` is a Laravel 13 API (MySQL, Sanctum) serving the `/admin` panel and the site's managed content; it has PHPUnit feature tests (`php artisan test`). The Next.js app has no automated test suite.
 
 ## Build, Test, and Development Commands
 Use Node.js 22.13+ and the pinned `pnpm@11.25.0` package manager.
@@ -28,4 +28,4 @@ Run lint, TypeScript checks, and a production build before submitting code chang
 The short Git history uses imperative subjects such as `Fix Windows development server startup`; continue with concise, descriptive subjects. Pull requests should explain the behavior changed, list validation performed, link relevant issues, and include screenshots for UI changes.
 
 ## Content & Configuration
-Consult `CONTENT-SOURCES.md` when changing published figures, documents, or integration behavior. Preserve official donation/application links and the contact form's email-draft behavior. Keep credentials and local runtime state out of commits; `.env*` files are ignored.
+Consult `CONTENT-SOURCES.md` when changing published figures, documents, or integration behavior. Preserve official donation/careers links and the contact form's email-draft fallback when the API is unavailable. Keep credentials and local runtime state out of commits; `.env*` files are ignored.

@@ -5,9 +5,13 @@ import {useState} from 'react';
 import {ArrowUpRight, Gift} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
-import {formatDonationAmount as money, givingEnquiries, givingEnquiryUrl, parseGivingAmount, sponsorshipOptions} from '@/lib/donations';
+import {formatDonationAmount as money, givingEnquiryUrl as enquiryUrl, parseGivingAmount, sponsorshipList} from '@/lib/donations';
+import {useSiteContent} from '@/components/site-content-provider';
 
 export function DonationWays({onChoose}: {onChoose:(index:number)=>void}) {
+  const {contact,donations,sponsorships,givingEnquiries} = useSiteContent();
+  const sponsorshipOptions = sponsorshipList(donations,sponsorships);
+  const givingEnquiryUrl = (subject:string,body?:string) => enquiryUrl(contact.email,subject,body);
   const [custom,setCustom] = useState('');
   const [currency,setCurrency] = useState('PKR');
   const [frequency,setFrequency] = useState('One-time');
@@ -30,7 +34,7 @@ export function DonationWays({onChoose}: {onChoose:(index:number)=>void}) {
     </section>
     <section className="giving-section" id="giving-options" aria-labelledby="giving-options-heading">
       <p className="eyebrow"><span/>MORE WAYS TO GIVE</p><h2 id="giving-options-heading">Bring your support to the conversation.</h2><p className="section-intro">These options are open for enquiries. Availability, rates and arrangements will be confirmed by PEN.</p>
-      <div className="giving-enquiry-grid">{givingEnquiries.map(item=><SiteCard asChild key={item.id}><article className="giving-enquiry-card" id={item.id} key={item.id}>
+      <div className="giving-enquiry-grid">{givingEnquiries.map(item=><SiteCard asChild key={item.anchor}><article className="giving-enquiry-card" id={item.anchor} key={item.anchor}>
         <span className="giving-status">By enquiry</span><h3>{item.title}</h3><p>{item.text}</p><a href={givingEnquiryUrl(item.title+' enquiry')} aria-label={'Enquire about '+item.title} className="text-link">Enquire with PEN<ArrowUpRight size={15} aria-hidden="true"/></a>
       </article></SiteCard>)}</div>
       <p className="source-note">Enquiry links open an email draft; send it from your email app to contact PEN.</p>

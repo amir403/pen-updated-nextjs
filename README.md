@@ -58,8 +58,9 @@ The checked-in `vercel.json` selects Next.js, installs with `npm ci`, and runs
 Next.js directly; the existing Sites/Cloudflare commands remain available.
 Next.js uses `tsconfig.next.json` to check application code without requiring
 the local Sites hosting configuration in `.openai/hosting.json`.
-Use Node.js 22.x or 24.x. The current public website requires no environment
-variables, payment credentials, or database bindings.
+Use Node.js 22.x or 24.x. The public website needs no payment credentials or
+database bindings. Set `PEN_API_URL` to enable the admin panel (see below);
+without it the site serves its bundled content.
 
 To verify the Vercel build locally on Windows PowerShell:
 
@@ -73,8 +74,30 @@ For a local Next.js preview matching the Vercel deployment, run
 After pushing your changes, choose **Add New Project** in Vercel, import the
 GitHub repository, keep the settings from `vercel.json`, and select **Deploy**.
 
+## Admin panel and API
+
+`/admin` is a Next.js admin panel for the website's content: page titles and
+hero text, homepage slides, counters and sections, news and stories, FAQs, the
+school directory, documents, the photo gallery, About pages and the CEO message,
+education models, programmes and priorities, thematic areas, donation rates and
+bank accounts, impact figures and disclosures, job and tender notices, privacy
+and terms, the header menu and footer links, contact details, offices, social
+links and admin users. It talks to the Laravel API in `backend/`, which stores
+content in MySQL and handles sign-in and file uploads; see `backend/README.md`
+for setup and endpoints, and `docs/ADMIN-GUIDE.md` for how to use each module.
+The module plan and status are in `docs/ADMIN-CMS-WORK-PLAN.md`.
+
+Set `PEN_API_URL` to the API's base address (for example `http://localhost:8000`)
+in the environment that runs Next.js, including Vercel project settings. Public
+pages read `GET /api/content`, cached for 60 seconds and refreshed immediately
+whenever the admin panel saves. If `PEN_API_URL` is unset or the API cannot be
+reached, the site falls back to the content bundled in `lib/` (for example
+`lib/content.ts`, `lib/homepage.ts`, `lib/programmes.ts` and
+`lib/source-data.json`), which also seeds the database. The admin token is kept in
+an HTTP-only cookie and every admin request is made server-side.
+
 ## External integrations
-Donations and volunteer/job applications continue on PEN's official website. The contact form opens an email draft; it does not submit to a server. No CMS, payment processing or application database is configured.
+Donations and job applications continue on PEN's official website. When `PEN_API_URL` is set, the contact and volunteer forms submit to the Laravel API (`/api/forms/*`) and appear under Form submissions in the admin panel; volunteer documents are kept on the API's private disk. Without the API, the contact form opens an email draft and the volunteer form stays a browser-only preview. Set the same random value as `PEN_FORMS_KEY` (Next.js) and `FORMS_PROXY_KEY` (Laravel) so the forms' rate limit applies per visitor rather than to the website server. No payment processing is configured.
 
 ## Validation
 TypeScript, production build, and ESLint pass (existing lint warnings remain). Animation changes were checked in Chrome at desktop and mobile sizes, including hero slides, scroll reveals, hover effects, counters, search, tabs, school pagination, donation selection, reduced-motion changes, and rendering without JavaScript. Screenshots were inspected for layout issues.
