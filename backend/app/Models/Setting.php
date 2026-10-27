@@ -15,32 +15,13 @@ class Setting extends Model
     protected $keyType = 'string';
 
     /**
-     * Settings the admin panel may edit, with their validation rules.
+     * Validation schema for an editable setting (config/content.php), or null when the key is unknown.
      *
-     * @return array<string, array<string, mixed>>
+     * @return array{rules: array<string, mixed>, attributes?: array<string, string>}|null
      */
-    public static function rules(): array
+    public static function schema(string $key): ?array
     {
-        return [
-            'social_media' => [
-                'value' => ['present', 'array'],
-                'value.*.label' => ['required', 'string', 'max:60'],
-                'value.*.href' => ['nullable', 'url', 'max:500'],
-            ],
-        ];
-    }
-
-    /**
-     * Readable attribute names for validation messages.
-     *
-     * @return array<string, string>
-     */
-    public static function attributes(): array
-    {
-        return [
-            'value.*.label' => 'label',
-            'value.*.href' => 'link',
-        ];
+        return config("content.settings.{$key}");
     }
 
     /**

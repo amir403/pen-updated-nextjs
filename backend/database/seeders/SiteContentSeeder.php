@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
+use App\Models\ContentItem;
 use App\Models\Faq;
 use App\Models\Page;
 use App\Models\Resource;
@@ -40,6 +41,18 @@ class SiteContentSeeder extends Seeder
 
             foreach ($content[$key] as $record) {
                 $model::create($record);
+            }
+        }
+
+        foreach ($content['collections'] ?? [] as $collection => $items) {
+            if (ContentItem::where('collection', $collection)->exists()) {
+                $this->command?->warn("Skipping {$collection}: collection already has items.");
+
+                continue;
+            }
+
+            foreach (array_values($items) as $index => $data) {
+                ContentItem::create(['collection' => $collection, 'data' => $data, 'position' => $index + 1]);
             }
         }
 

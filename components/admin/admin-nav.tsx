@@ -1,11 +1,22 @@
 'use client';
+import {useState} from 'react';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 
-export function AdminNav({links}:{links:{href:string;label:string}[]}){
+type Section={label:string;links:{href:string;label:string}[]};
+
+export function AdminNav({sections}:{sections:Section[]}){
  const pathname=usePathname();
- return <nav className="admin-nav" aria-label="Admin sections">{links.map(link=>{
-  const current=link.href==='/admin'?pathname==='/admin':pathname.startsWith(link.href);
-  return <Link key={link.href} href={link.href} aria-current={current?'page':undefined}>{link.label}</Link>;
- })}</nav>;
+ const [open,setOpen]=useState(false);
+ const [openedAt,setOpenedAt]=useState(pathname);
+ // Close the mobile menu after navigating.
+ if(openedAt!==pathname){setOpenedAt(pathname);setOpen(false)}
+ const link=(href:string,label:string)=>{const current=href==='/admin'?pathname==='/admin':pathname===href||pathname.startsWith(href+'/');return <Link key={href} href={href} aria-current={current?'page':undefined}>{label}</Link>};
+ return <>
+  <button type="button" className="admin-menu-toggle" aria-expanded={open} aria-controls="admin-nav" onClick={()=>setOpen(!open)}>{open?'Close menu':'Menu'}</button>
+  <nav id="admin-nav" className={'admin-nav'+(open?' open':'')} aria-label="Admin sections">
+   {link('/admin','Dashboard')}
+   {sections.map(section=><div className="admin-nav-section" key={section.label}><p>{section.label}</p>{section.links.map(l=>link(l.href,l.label))}</div>)}
+  </nav>
+ </>;
 }

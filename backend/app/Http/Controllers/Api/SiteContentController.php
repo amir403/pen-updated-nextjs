@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\ContentItem;
 use App\Models\Faq;
 use App\Models\Page;
 use App\Models\Resource;
@@ -29,6 +30,20 @@ class SiteContentController extends Controller
             'resources' => Resource::query()->orderBy('position')->orderBy('id')->get(['type', 'title', 'url', 'image']),
             'team' => TeamMember::query()->orderBy('position')->orderBy('id')->get(['name', 'role', 'image']),
             'settings' => Setting::query()->pluck('value', 'key'),
+            // Every configured collection is present, so an emptied list stays empty on the site.
+            'collections' => $this->collections(),
         ]);
+    }
+
+    /**
+     * @return array<string, list<array<string, mixed>>>
+     */
+    private function collections(): array
+    {
+        $items = ContentItem::query()->orderBy('position')->orderBy('id')->get()->groupBy('collection');
+
+        return collect(ContentItem::collections())
+            ->mapWithKeys(fn (string $name) => [$name => ($items[$name] ?? collect())->pluck('data')->all()])
+            ->all();
     }
 }

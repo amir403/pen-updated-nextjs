@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {adminFetch} from '@/lib/admin-api';
-import {findAdminResource} from '@/lib/admin-resources';
+import {findAdminResource,resourceApiPath} from '@/lib/admin-resources';
 import {RecordForm} from '@/components/admin/record-form';
 import {DeleteButton} from '@/components/admin/delete-button';
 
@@ -13,7 +13,7 @@ export default async function EditRecord({params}:Params){
  const {resource:key,id}=await params;
  const resource=findAdminResource(key);
  if(!resource)notFound();
- const response=await adminFetch(`/${resource.key}/${encodeURIComponent(id)}`);
+ const response=await adminFetch(`/${resourceApiPath(resource)}/${encodeURIComponent(id)}`);
  if(response.status===404)notFound();
  if(!response.ok)throw new Error(`Admin API failed with HTTP ${response.status}`);
  const record=(await response.json() as {data:Record<string,unknown>}).data;

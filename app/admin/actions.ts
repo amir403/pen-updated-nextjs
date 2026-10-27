@@ -4,7 +4,7 @@ import {redirect} from 'next/navigation';
 import {revalidatePath,updateTag} from 'next/cache';
 import {apiUrl} from '@/lib/cms';
 import {adminFetch,adminTokenCookie} from '@/lib/admin-api';
-import {findAdminResource} from '@/lib/admin-resources';
+import {findAdminResource,findAdminSetting,resourceApiPath,type AdminField} from '@/lib/admin-resources';
 
 export type FormState={message?:string;errors?:Record<string,string[]>;values?:Record<string,string>};
 
@@ -37,37 +37,66 @@ export async function logout(){
  redirect('/admin/login');
 }
 
-export async function saveRecord(resourceKey:string,id:string|null,_:FormState,form:FormData):Promise<FormState>{
- const resource=findAdminResource(resourceKey);
- if(!resource||(!id&&!resource.canCreate))return {message:'This content type cannot be saved here.'};
+type Converted={payload:Record<string,unknown>;values:Record<string,string>;error?:FormState};
+
+/**
+ * Converts submitted form fields to the API payload. Image files are uploaded first and
+ * replaced by their URL. `values` keeps what was typed so a failed save can refill the form.
+ */
+async function convertFields(fields:AdminField[],form:FormData):Promise<Converted>{
  const payload:Record<string,unknown>={};
- // Returned with errors so the form keeps what was typed.
  const values:Record<string,string>={};
- for(const field of resource.fields){
+ for(const field of fields){
   const value=String(form.get(field.name)??'').trim();
   values[field.name]=value;
   if(field.type==='number')payload[field.name]=value===''?null:Number(value);
+  else if(field.type==='checkbox'){payload[field.name]=form.get(field.name)==='on';values[field.name]=payload[field.name]?'on':''}
   else if(field.type==='paragraphs')payload[field.name]=value.split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean);
+  else if(field.type==='lines')payload[field.name]=value.split('\n').map(p=>p.trim()).filter(Boolean);
   else if(field.type==='image'){
    const file=form.get(field.name+'_file');
    if(file instanceof File&&file.size>0){
     const upload=new FormData();upload.append('file',file);
     const response=await adminFetch('/uploads',{method:'POST',body:upload});
-    if(!response.ok){const state=await failure(response);return {message:state.message,errors:{[field.name]:state.errors?.file??[state.message!]},values}}
+    if(!response.ok){const state=await failure(response);return {payload,values,error:{message:state.message,errors:{[field.name]:state.errors?.file??[state.message!]},values}}}
     payload[field.name]=values[field.name]=(await response.json() as {url:string}).url;
    }else payload[field.name]=value||null;
   }else payload[field.name]=value===''&&!field.required?null:value;
  }
- const response=await adminFetch(`/${resource.key}${id?'/'+id:''}`,{method:id?'PUT':'POST',body:JSON.stringify(payload)});
+ return {payload,values};
+}
+
+export async function saveRecord(resourceKey:string,id:string|null,_:FormState,form:FormData):Promise<FormState>{
+ const resource=findAdminResource(resourceKey);
+ if(!resource||(!id&&!resource.canCreate))return {message:'This content type cannot be saved here.'};
+ const {payload,values,error}=await convertFields(resource.fields,form);
+ if(error)return error;
+ const response=await adminFetch(`/${resourceApiPath(resource)}${id?'/'+id:''}`,{method:id?'PUT':'POST',body:JSON.stringify(payload)});
  if(!response.ok)return {...await failure(response),values};
  refreshSite();
  redirect(`/admin/${resource.key}?saved=1`);
 }
 
+export async function saveSetting(key:string,_:FormState,form:FormData):Promise<FormState>{
+ const setting=findAdminSetting(key);
+ if(!setting)return {message:'Unknown setting.'};
+ const {payload,values,error}=await convertFields(setting.fields,form);
+ if(error)return error;
+ const response=await adminFetch('/settings/'+setting.key,{method:'PUT',body:JSON.stringify({value:payload})});
+ if(!response.ok){
+  const state=await failure(response);
+  // Laravel names setting fields "value.<field>"; the form uses the bare field names.
+  const errors=state.errors&&Object.fromEntries(Object.entries(state.errors).map(([name,messages])=>[name.replace(/^value\./,''),messages]));
+  return {...state,errors,values};
+ }
+ refreshSite();
+ return {message:'Saved. The website has been updated.',values};
+}
+
 export async function deleteRecord(resourceKey:string,id:string){
  const resource=findAdminResource(resourceKey);
  if(!resource?.canDelete)return;
- const response=await adminFetch(`/${resource.key}/${id}`,{method:'DELETE'});
+ const response=await adminFetch(`/${resourceApiPath(resource)}/${id}`,{method:'DELETE'});
  if(!response.ok)throw new Error(`Delete failed with HTTP ${response.status}`);
  refreshSite();
  redirect(`/admin/${resource.key}?deleted=1`);

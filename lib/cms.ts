@@ -11,8 +11,21 @@ type ApiContent={
  schools:{name:string;district:string;enrollment:number|null;boys:number|null;girls:number|null;map:string|null}[];
  resources:{type:string;title:string;url:string;image:string|null}[];
  team:{name:string;role:string;image:string|null}[];
- settings:{social_media?:{label:string;href:string|null}[]};
+ settings:{social_media?:{label:string;href:string|null}[]}&Record<string,unknown>;
+ collections?:Record<string,Record<string,unknown>[]>;
 };
+
+/** A collection from the API, or the bundled fallback when the API predates it. */
+export function fromCollection<T>(api:ApiContent,name:string,fallback:T[],map:(item:Record<string,unknown>)=>T=item=>item as T):T[]{
+ const items=api.collections?.[name];
+ return items?items.map(map):fallback;
+}
+
+/** A settings record from the API merged over the bundled fallback, so new fields keep a value. */
+export function fromSetting<T extends object>(api:ApiContent,key:string,fallback:T):T{
+ const value=api.settings[key];
+ return value&&typeof value==='object'&&!Array.isArray(value)?{...fallback,...value}:fallback;
+}
 
 function fromApi(api:ApiContent):SiteContent{
  const resources=Object.fromEntries(resourceTypes.map(type=>[type,[] as ResourceDoc[]])) as Record<ResourceType,ResourceDoc[]>;

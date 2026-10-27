@@ -40,7 +40,7 @@ Har module ke liye ye kaam hota hai:
 | # | Module | Admin mein kya manage hoga | Website pages | Status |
 | --- | --- | --- | --- | --- |
 | M0 | **Foundation** | Login/logout, page titles & hero text (31 pages), news & stories, FAQs, schools (268), documents (51), founders & directors, footer social links | Sab pages ke hero, `/news`, `/stories`, `/pen-blogs`, articles, `/faq`, `/explore-our-schools`, `/publications`, `/pen-activity-books`, `/corporate-information`, `/founders`, footer | ✅ |
-| M1 | **Collections & settings engine** | Generic list modules + generic settings forms, admin sidebar groups, naye field types (list of lines, toggle, date) | — (infrastructure) | ⏳ |
+| M1 | **Collections & settings engine** | Generic list modules + generic settings forms, admin sidebar groups, naye field types (list of lines, toggle, date) | — (infrastructure) | ✅ |
 | M2 | **Site settings & contact** | Phone numbers, emails, head office address, office directions, footer tagline, homepage video link, official donation/volunteer/careers links | Header, footer, `/contact-us`, `/volunteer`, `/careers`, homepage video | ⏳ |
 | M3 | **Homepage** | Hero slides (image, heading, text), impact counters (530 schools, 90,301 students, 27 districts), 5 focus areas (image, text, SDGs), programme cards | `/` (home) | ⏳ |
 | M4 | **Partners & supporters** | Partner logos (name, logo, link) | `/our-donors-supporters`, homepage supporters strip | ⏳ |
@@ -87,3 +87,4 @@ mein push hota hai, taake har step alag se review aur test ho sake.
 | Date | Module | Notes |
 | --- | --- | --- |
 | 27 Oct 2026 | M0 | Laravel API, admin panel, 6 content types, social links. Local test user ne confirm kiya |
+| 27 Oct 2026 | M1 | `content_items` table + `config/content.php` schemas, `/api/collections/{name}` CRUD, settings schemas, `/api/summary`. Admin: grouped sidebar (mobile menu), grouped dashboard, generic settings forms, list/toggle/date fields. 4 naye tests |

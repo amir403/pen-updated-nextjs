@@ -16,8 +16,9 @@ class SettingController extends Controller
 
     public function update(Request $request, string $key): JsonResponse
     {
-        $rules = Setting::rules()[$key] ?? abort(404);
-        $setting = Setting::updateOrCreate(['key' => $key], ['value' => $request->validate($rules, [], Setting::attributes())['value']]);
+        $schema = Setting::schema($key) ?? abort(404);
+        $value = $request->validate($schema['rules'], [], $schema['attributes'] ?? [])['value'];
+        $setting = Setting::updateOrCreate(['key' => $key], ['value' => $value]);
 
         return response()->json(['data' => $setting->value]);
     }
