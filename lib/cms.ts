@@ -1,5 +1,5 @@
 import {cache} from 'react';
-import {resourceTypes,staticSiteContent,type ResourceDoc,type ResourceType,type SiteContent} from '@/lib/site-content';
+import {resourceTypes,staticSiteContent,type GalleryPhoto,type ResourceDoc,type ResourceType,type SiteContent} from '@/lib/site-content';
 import type {Office} from '@/lib/site-settings';
 import type {FocusArea,HeroSlide,ImpactStat} from '@/lib/homepage';
 import type {Partner} from '@/lib/transparency';
@@ -50,6 +50,7 @@ function fromApi(api:ApiContent):SiteContent{
   homepageFocus:fromCollection(api,'homepage_focus',staticSiteContent.homepageFocus,item=>({...item,sdgs:(item.sdgs as unknown[]).map(Number)}) as FocusArea),
   homepage:fromSetting(api,'homepage',staticSiteContent.homepage),
   partners:fromCollection(api,'partners',staticSiteContent.partners,item=>item as Partner),
+  gallery:fromCollection(api,'gallery',staticSiteContent.gallery,item=>item as GalleryPhoto),
  };
 }
 

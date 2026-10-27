@@ -21,6 +21,6 @@ export default async function ResourceList({params,searchParams}:Params){
   </header>
   {saved&&<p className="admin-alert success" role="status">Saved. The website has been updated.</p>}
   {deleted&&<p className="admin-alert success" role="status">Deleted. The website has been updated.</p>}
-  <RecordTable resourceKey={resource.key} columns={resource.columns} rows={rows.map(row=>({id:String(row.id),cells:resource.columns.map(c=>cell(row[c]))}))}/>
+  <RecordTable resourceKey={resource.key} columns={resource.columns} imageColumns={resource.fields.filter(f=>f.type==='image').map(f=>f.name)} rows={rows.map(row=>({id:String(row.id),cells:resource.columns.map(c=>cell(row[c]))}))}/>
  </>;
 }

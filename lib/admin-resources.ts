@@ -89,6 +89,11 @@ export const adminResources:AdminResource[]=[
   {name:'url',label:'Website',type:'url',help:'Optional. The logo links here when set.'},
   position,
  ]},
+ {key:'gallery',apiPath:'collections/gallery',group:'Content',label:'Photo gallery',singular:'photo',description:'Photos on the gallery page.',titleField:'caption',columns:['image','caption','position'],canCreate:true,canDelete:true,fields:[
+  {name:'image',label:'Photo',type:'image',required:true},
+  {name:'caption',label:'Caption',type:'text',help:'Optional. Shown in the photo viewer and read by screen readers.'},
+  position,
+ ]},
  {key:'offices',apiPath:'collections/offices',group:'Settings',label:'Offices',singular:'office',description:'Office addresses on the contact page.',titleField:'title',columns:['title','address'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Office name',type:'text',required:true,help:'For example “Head office · Lahore”.'},
   {name:'address',label:'Address',type:'lines',required:true,help:'One line per row.'},

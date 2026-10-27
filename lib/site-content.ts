@@ -11,6 +11,7 @@ export const resourceTypes=['publications','pen-activity-books','corporate-infor
 export type ResourceType=typeof resourceTypes[number];
 export type TeamMember={name:string;role:string;image:string};
 export type SocialLink={label:string;href:string|null};
+export type GalleryPhoto={image:string;caption:string|null};
 
 /** Content managed through the admin panel, in the shapes the site components render. */
 export type SiteContent={
@@ -29,6 +30,7 @@ export type SiteContent={
  homepageFocus:FocusArea[];
  homepage:HomepageText;
  partners:Partner[];
+ gallery:GalleryPhoto[];
 };
 
 /** Content bundled with the site; used when the Laravel API is not configured or unreachable. */
@@ -48,4 +50,5 @@ export const staticSiteContent:SiteContent={
  homepageFocus:homepageFocus.map(f=>({anchor:f.id,title:f.title,image:'/images/website-outline/'+f.image,alt:f.alt,text:f.text,featured:f.featured??null,sdgs:f.sdgs})),
  homepage:homepageText,
  partners:existingPartners,
+ gallery:data.gallery.map(image=>({image,caption:null})),
 };

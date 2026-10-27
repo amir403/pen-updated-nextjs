@@ -18,6 +18,12 @@
 return [
 
     'collections' => [
+        'gallery' => [
+            'rules' => [
+                'image' => ['required', 'string', 'max:255'],
+                'caption' => ['nullable', 'string', 'max:200'],
+            ],
+        ],
         'partners' => [
             'rules' => [
                 'name' => ['required', 'string', 'max:120'],
