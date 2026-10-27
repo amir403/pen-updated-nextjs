@@ -18,6 +18,14 @@
 return [
 
     'collections' => [
+        'partners' => [
+            'rules' => [
+                'name' => ['required', 'string', 'max:120'],
+                'logo' => ['required', 'string', 'max:255'],
+                'url' => ['nullable', 'url', 'max:500'],
+            ],
+            'attributes' => ['url' => 'website link'],
+        ],
         'hero_slides' => [
             'rules' => [
                 'image' => ['required', 'string', 'max:255'],

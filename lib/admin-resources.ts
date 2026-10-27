@@ -83,6 +83,12 @@ export const adminResources:AdminResource[]=[
   {name:'sdgs',label:'SDG numbers',type:'lines',help:'One per line. Available: 3, 4, 5, 8, 9, 10, 16, 17.'},
   position,
  ]},
+ {key:'partners',apiPath:'collections/partners',group:'About PEN',label:'Partners & supporters',singular:'partner',description:'Logos on the supporters page and the homepage strip.',titleField:'name',columns:['name','url'],canCreate:true,canDelete:true,fields:[
+  {name:'name',label:'Name',type:'text',required:true,help:'Also used as the logo description.'},
+  {name:'logo',label:'Logo',type:'image',required:true},
+  {name:'url',label:'Website',type:'url',help:'Optional. The logo links here when set.'},
+  position,
+ ]},
  {key:'offices',apiPath:'collections/offices',group:'Settings',label:'Offices',singular:'office',description:'Office addresses on the contact page.',titleField:'title',columns:['title','address'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Office name',type:'text',required:true,help:'For example “Head office · Lahore”.'},
   {name:'address',label:'Address',type:'lines',required:true,help:'One line per row.'},

@@ -43,7 +43,7 @@ Har module ke liye ye kaam hota hai:
 | M1 | **Collections & settings engine** | Generic list modules + generic settings forms, admin sidebar groups, naye field types (list of lines, toggle, date) | — (infrastructure) | ✅ |
 | M2 | **Site settings & contact** | Contact details (email, phones, WhatsApp, footer address), offices (address, map link), top bar text, footer tagline, homepage video, official donation & careers links | Header, footer, `/contact-us`, `/volunteer`, `/careers`, homepage video | ✅ |
 | M3 | **Homepage** | Hero slides (image, heading, text), impact counters (530 schools, 90,301 students, 27 districts), 5 focus areas (image, text, SDGs), homepage section text & photos | `/` (home) | ✅ |
-| M4 | **Partners & supporters** | Partner logos (name, logo, link) | `/our-donors-supporters`, homepage supporters strip | ⏳ |
+| M4 | **Partners & supporters** | Partner logos (name, logo, link) | `/our-donors-supporters`, homepage supporters strip | ✅ |
 | M5 | **Photo gallery** | Photos (image, caption), order | `/photo-gallery` | ⏳ |
 | M6 | **About PEN** | Mission/vision cards, journey timeline, core values, CEO message (photo, name, paragraphs), accountability links | `/about-us`, `/ceo-message`, `/core-values` | ⏳ |
 | M7 | **Programmes & projects** | Education models (PEIMA, PEN model, NFE), programme pages (PEN Academy, teacher development, academics, scholarships), ongoing programmes, upcoming priorities | `/our-work`, `/pen-academy`, `/teacher-training`, `/academics`, `/scholarships`, `/ongoing-projects`, `/upcoming-projects` | ⏳ |
@@ -90,3 +90,4 @@ mein push hota hai, taake har step alag se review aur test ho sake.
 | 27 Oct 2026 | M1 | `content_items` table + `config/content.php` schemas, `/api/collections/{name}` CRUD, settings schemas, `/api/summary`. Admin: grouped sidebar (mobile menu), grouped dashboard, generic settings forms, list/toggle/date fields. 4 naye tests |
 | 27 Oct 2026 | M2 | Settings `contact` + `site`, collection `offices`. Footer, top bar, contact page, enquiry forms (email), careers link, donation links aur homepage video ab admin se. Video link khali ho to button chhup jata hai; WhatsApp numbers khali hon to section chhup jata hai |
 | 27 Oct 2026 | M3 | Collections `hero_slides`, `impact_stats`, `homepage_focus` + setting `homepage`. Slider kitni bhi slides chala sakta hai; counters 1–6 ek row mein; SDG sirf woh 8 jin ki images maujood hain. Education model cards M7 mein |
+| 27 Oct 2026 | M4 | Collection `partners` (name, logo, optional website link). Supporters page aur homepage strip ek hi list se. Pehle se maujood bug theek kiya: lambe logos tile se bahar nikal rahe the |

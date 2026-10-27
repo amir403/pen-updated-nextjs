@@ -2,6 +2,7 @@ import {articles,faqs,founders,pageMeta,socialMedia,type Article} from '@/lib/co
 import data from '@/lib/source-data.json';
 import {heroSlides,homepageText,impactStats,type FocusArea,type HeroSlide,type HomepageText,type ImpactStat} from '@/lib/homepage';
 import {homepageFocus} from '@/lib/website-outline';
+import {existingPartners,type Partner} from '@/lib/transparency';
 import {contactDetails,offices,siteOptions,type ContactDetails,type Office,type SiteOptions} from '@/lib/site-settings';
 
 export type School={name:string;district:string;enrollment:number;boys:number;girls:number;map:string};
@@ -27,6 +28,7 @@ export type SiteContent={
  impactStats:ImpactStat[];
  homepageFocus:FocusArea[];
  homepage:HomepageText;
+ partners:Partner[];
 };
 
 /** Content bundled with the site; used when the Laravel API is not configured or unreachable. */
@@ -45,4 +47,5 @@ export const staticSiteContent:SiteContent={
  impactStats,
  homepageFocus:homepageFocus.map(f=>({anchor:f.id,title:f.title,image:'/images/website-outline/'+f.image,alt:f.alt,text:f.text,featured:f.featured??null,sdgs:f.sdgs})),
  homepage:homepageText,
+ partners:existingPartners,
 };

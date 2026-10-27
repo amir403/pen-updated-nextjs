@@ -8,12 +8,13 @@ export const crossCuttingThemes=[
  {id:'evidence-accountability',title:'Evidence-based programming and accountability',text:'Using monitoring, learning and shared information to inform education programmes.',href:'/impact',label:'Explore impact and evidence'},
 ];
 // Existing logo assets already used on the sourced supporters page.
-export const existingPartners=[
- {name:'ABS & Co.',image:'ABS-Co.png'},
- {name:'Agha Shahid & Associates',image:'Agha-Shahid-Associates.jpg'},
- {name:'AGP',image:'AGP.jpg'},
- {name:'Al-Fateh',image:'Al-Fateh.png'},
- {name:'Excel Group',image:'Excel-Group-Logo.jpg'},
+export type Partner={name:string;logo:string;url:string|null};
+export const existingPartners:Partner[]=[
+ {name:'ABS & Co.',logo:'/images/ABS-Co.png',url:null},
+ {name:'Agha Shahid & Associates',logo:'/images/Agha-Shahid-Associates.jpg',url:null},
+ {name:'AGP',logo:'/images/AGP.jpg',url:null},
+ {name:'Al-Fateh',logo:'/images/Al-Fateh.png',url:null},
+ {name:'Excel Group',logo:'/images/Excel-Group-Logo.jpg',url:null},
 ];
 export const publishedImpact=[
  {value:'530',label:'Adopted schools'},

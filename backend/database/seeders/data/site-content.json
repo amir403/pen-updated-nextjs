@@ -3394,6 +3394,33 @@
      17
     ]
    }
+  ],
+  "partners": [
+   {
+    "name": "ABS & Co.",
+    "logo": "/images/ABS-Co.png",
+    "url": null
+   },
+   {
+    "name": "Agha Shahid & Associates",
+    "logo": "/images/Agha-Shahid-Associates.jpg",
+    "url": null
+   },
+   {
+    "name": "AGP",
+    "logo": "/images/AGP.jpg",
+    "url": null
+   },
+   {
+    "name": "Al-Fateh",
+    "logo": "/images/Al-Fateh.png",
+    "url": null
+   },
+   {
+    "name": "Excel Group",
+    "logo": "/images/Excel-Group-Logo.jpg",
+    "url": null
+   }
   ]
  }
 }
