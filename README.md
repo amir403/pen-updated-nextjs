@@ -77,17 +77,23 @@ GitHub repository, keep the settings from `vercel.json`, and select **Deploy**.
 ## Admin panel and API
 
 `/admin` is a Next.js admin panel for the website's content: page titles and
-hero text, news and stories, FAQs, the school directory, documents, founders and
-directors, and footer social links. It talks to the Laravel API in `backend/`,
-which stores content in MySQL and handles sign-in and file uploads; see
-`backend/README.md` for setup and endpoints.
+hero text, homepage slides, counters and sections, news and stories, FAQs, the
+school directory, documents, the photo gallery, About pages and the CEO message,
+education models, programmes and priorities, thematic areas, donation rates and
+bank accounts, impact figures and disclosures, job and tender notices, privacy
+and terms, the header menu and footer links, contact details, offices, social
+links and admin users. It talks to the Laravel API in `backend/`, which stores
+content in MySQL and handles sign-in and file uploads; see `backend/README.md`
+for setup and endpoints, and `docs/ADMIN-GUIDE.md` for how to use each module.
+The module plan and status are in `docs/ADMIN-CMS-WORK-PLAN.md`.
 
 Set `PEN_API_URL` to the API's base address (for example `http://localhost:8000`)
 in the environment that runs Next.js, including Vercel project settings. Public
 pages read `GET /api/content`, cached for 60 seconds and refreshed immediately
 whenever the admin panel saves. If `PEN_API_URL` is unset or the API cannot be
-reached, the site falls back to the content bundled in `lib/content.ts` and
-`lib/source-data.json`, which also seeds the database. The admin token is kept in
+reached, the site falls back to the content bundled in `lib/` (for example
+`lib/content.ts`, `lib/homepage.ts`, `lib/programmes.ts` and
+`lib/source-data.json`), which also seeds the database. The admin token is kept in
 an HTTP-only cookie and every admin request is made server-side.
 
 ## External integrations

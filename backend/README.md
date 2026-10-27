@@ -21,9 +21,21 @@ Point the website at the API by setting `PEN_API_URL` (for example `http://local
 
 `APP_URL` must be the public address of this API: uploaded image URLs are built from it.
 
+## Updating
+
+After pulling new code:
+
+```sh
+composer install
+php artisan migrate --force   # new tables or columns
+php artisan db:seed --force   # fills newly added modules with the website's current content
+```
+
+The seeder only fills empty tables and collections, so existing admin edits are never overwritten.
+
 ## Seed data
 
-`database/seeders/data/site-content.json` holds the content the website shipped with (pages, articles, FAQs, schools, documents, founders and social links). `SiteContentSeeder` only fills empty tables, so running `php artisan db:seed` again never overwrites admin edits.
+`database/seeders/data/site-content.json` holds the content the website shipped with: the typed tables (pages, articles, FAQs, schools, documents, founders) plus every collection and setting defined in `config/content.php`. `SiteContentSeeder` only fills empty tables, so running `php artisan db:seed` again never overwrites admin edits.
 
 ## Endpoints
 

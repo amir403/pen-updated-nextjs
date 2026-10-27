@@ -55,7 +55,7 @@ Har module ke liye ye kaam hota hai:
 | M13 | **Navigation menu** | Header menu groups & links, footer links | Header (desktop + mobile), footer | ✅ |
 | M14 | **Admin users & account** | Admin users list, naya admin, remove, apna password change | `/admin` | ✅ |
 | M15 | **Form submissions inbox** | Contact & volunteer forms ki entries admin mein | `/contact-us`, `/volunteer` | ❓ |
-| M16 | **Final QA & handover** | Poori website + admin ka end-to-end test, docs, deployment guide | Sab | ⏳ |
+| M16 | **Final QA & handover** | Poori website + admin ka end-to-end test, docs, deployment guide | Sab | ✅ |
 
 ### M15 ke liye aap ka faisla chahiye
 Abhi contact form sirf email draft kholta hai, aur volunteer form browser mein preview
@@ -101,3 +101,4 @@ mein push hota hai, taake har step alag se review aur test ho sake.
 | 27 Oct 2026 | M12 | Collection `legal_sections` (page, heading, paragraphs, optional link). Text mein `{email}` likhne se contact email ka link ban jata hai |
 | 27 Oct 2026 | M13 | Collections `nav_menu` (label, description, "Title \| /link" lines, focus-areas mega toggle) aur `footer_columns`. Mega menu thematic areas aur cross-cutting themes se khud banta hai, ginti ke saath |
 | 27 Oct 2026 | M14 | `/api/users` (list, add, remove; khud ko remove nahi kar sakte) aur `/api/auth/password` (purana password zaroori; doosre sessions sign out). Admin mein "Admin users" aur "My account" pages. 3 naye tests |
+| 27 Oct 2026 | M16 | Fresh database par 41 public pages: API aur bundled mode same (homepage par sirf counter animation ki timing ka farq), 40 internal links aur sab images theek, console errors nahi. Admin ke 103 pages (har list, add, edit, settings) bina error. Dark mode aur mobile check. `docs/ADMIN-GUIDE.md` (Roman Urdu) aur update steps add kiye |
