@@ -4,9 +4,10 @@ import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {ArrowUpRight, ChevronDown, Heart, Menu, Search} from 'lucide-react';
-import {images, nav} from '@/lib/content';
+import {images, nav as staticNav} from '@/lib/content';
+import {countWord} from '@/lib/count-words';
+import {thematicAreas as staticThematicAreas} from '@/lib/website-outline';
 import {useSiteContent} from '@/components/site-content-provider';
-import {thematicAreas} from '@/lib/website-outline';
 import {ThemeToggle} from '@/components/theme-toggle';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
@@ -26,9 +27,11 @@ export function Header() {
   const scheduleClose=()=>{cancelClose();closeTimer.current=setTimeout(()=>setOpenGroup(null),220)};
   useEffect(()=>()=>{if(closeTimer.current!==null)clearTimeout(closeTimer.current)},[]);
   const pathname = usePathname();
-  const {pageMeta,articles,site} = useSiteContent();
+  const {pageMeta,articles,site,thematicAreas} = useSiteContent();
+  // The What We Do mega menu lists the managed thematic areas, then its fixed links.
+  const nav = staticNav.map(group=>group.mega?{...group,description:`${countWord(thematicAreas.length,true)} focus areas. One commitment to every child.`,items:[...thematicAreas.map(area=>({title:area.title,href:'/what-we-do#'+area.anchor,description:area.summary})),...group.items.slice(staticThematicAreas.length)]}:group);
   const currentGroup = nav.find(group=>group.overview===pathname) ?? nav.find(group=>group.items.some(item=>item.href===pathname));
-  const results = [...Object.entries(pageMeta).map(([slug,value])=>({title:value[0],slug})),...thematicAreas.map(area=>({title:area.title,slug:'what-we-do#'+area.id})),...articles.map(article=>({title:article.title,slug:article.slug}))]
+  const results = [...Object.entries(pageMeta).map(([slug,value])=>({title:value[0],slug})),...thematicAreas.map(area=>({title:area.title,slug:'what-we-do#'+area.anchor})),...articles.map(article=>({title:article.title,slug:article.slug}))]
     .filter(item=>item.title.toLowerCase().includes(query.trim().toLowerCase()));
 
   return <>

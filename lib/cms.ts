@@ -2,7 +2,8 @@ import {cache} from 'react';
 import {resourceTypes,staticSiteContent,type GalleryPhoto,type ResourceDoc,type ResourceType,type SiteContent} from '@/lib/site-content';
 import type {Office} from '@/lib/site-settings';
 import type {FocusArea,HeroSlide,ImpactStat} from '@/lib/homepage';
-import type {Partner} from '@/lib/transparency';
+import type {CrossCuttingTheme,Partner} from '@/lib/transparency';
+import type {ThematicArea} from '@/lib/website-outline';
 import type {EducationModel,Intervention,OngoingProgramme,Priority,ProgrammePage} from '@/lib/programmes';
 import type {AccountabilityLink,CoreValue,JourneyItem,PurposeCard} from '@/lib/about';
 
@@ -63,6 +64,8 @@ function fromApi(api:ApiContent):SiteContent{
   programmePages:fromCollection(api,'programme_pages',staticSiteContent.programmePages,item=>item as ProgrammePage),
   ongoingProgrammes:fromCollection(api,'ongoing_programmes',staticSiteContent.ongoingProgrammes,item=>item as OngoingProgramme),
   priorities:fromCollection(api,'upcoming_priorities',staticSiteContent.priorities,item=>item as Priority),
+  thematicAreas:fromCollection(api,'thematic_areas',staticSiteContent.thematicAreas,item=>item as ThematicArea),
+  crossCuttingThemes:fromCollection(api,'cross_cutting_themes',staticSiteContent.crossCuttingThemes,item=>item as CrossCuttingTheme),
  };
 }
 

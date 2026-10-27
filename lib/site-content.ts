@@ -1,8 +1,8 @@
 import {articles,faqs,founders,pageMeta,socialMedia,type Article} from '@/lib/content';
 import data from '@/lib/source-data.json';
 import {heroSlides,homepageText,impactStats,type FocusArea,type HeroSlide,type HomepageText,type ImpactStat} from '@/lib/homepage';
-import {homepageFocus} from '@/lib/website-outline';
-import {existingPartners,type Partner} from '@/lib/transparency';
+import {homepageFocus,thematicAreas,type ThematicArea} from '@/lib/website-outline';
+import {crossCuttingThemes,existingPartners,type CrossCuttingTheme,type Partner} from '@/lib/transparency';
 import {educationModels,interventions,ongoingProgrammes,priorities,programmePages,type EducationModel,type Intervention,type OngoingProgramme,type Priority,type ProgrammePage} from '@/lib/programmes';
 import {aboutText,accountabilityLinks,coreValues,journey,purposeCards,type AboutText,type AccountabilityLink,type CoreValue,type JourneyItem,type PurposeCard} from '@/lib/about';
 import {contactDetails,offices,siteOptions,type ContactDetails,type Office,type SiteOptions} from '@/lib/site-settings';
@@ -43,6 +43,8 @@ export type SiteContent={
  programmePages:ProgrammePage[];
  ongoingProgrammes:OngoingProgramme[];
  priorities:Priority[];
+ thematicAreas:ThematicArea[];
+ crossCuttingThemes:CrossCuttingTheme[];
 };
 
 /** Content bundled with the site; used when the Laravel API is not configured or unreachable. */
@@ -73,4 +75,6 @@ export const staticSiteContent:SiteContent={
  programmePages,
  ongoingProgrammes,
  priorities,
+ thematicAreas:thematicAreas.map(a=>({anchor:a.id,title:a.title,summary:a.summary,points:a.points,link_href:a.href,link_label:a.linkText})),
+ crossCuttingThemes:crossCuttingThemes.map(c=>({anchor:c.id,title:c.title,text:c.text,link_href:c.href,link_label:c.label})),
 };

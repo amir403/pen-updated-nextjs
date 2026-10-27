@@ -18,6 +18,28 @@
 return [
 
     'collections' => [
+        'thematic_areas' => [
+            'rules' => [
+                'anchor' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
+                'title' => ['required', 'string', 'max:120'],
+                'summary' => ['required', 'string', 'max:300'],
+                'points' => ['present', 'array', 'max:10'],
+                'points.*' => ['string', 'max:200'],
+                'link_href' => ['required', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/|mailto:)/'],
+                'link_label' => ['required', 'string', 'max:80'],
+            ],
+            'attributes' => ['anchor' => 'section link', 'points.*' => 'point', 'link_href' => 'link', 'link_label' => 'link text'],
+        ],
+        'cross_cutting_themes' => [
+            'rules' => [
+                'anchor' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
+                'title' => ['required', 'string', 'max:120'],
+                'text' => ['required', 'string', 'max:400'],
+                'link_href' => ['required', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/|mailto:)/'],
+                'link_label' => ['required', 'string', 'max:80'],
+            ],
+            'attributes' => ['anchor' => 'section link', 'link_href' => 'link', 'link_label' => 'link text'],
+        ],
         'education_models' => [
             'rules' => [
                 'anchor' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],

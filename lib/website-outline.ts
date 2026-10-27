@@ -1,5 +1,6 @@
 // Website-specific source: WEBSITE OUTLINE.docx, supplied 19 October 2026.
 // Potential partner.docx belongs to a separate portal and is not a website source.
+export type ThematicArea={anchor:string;title:string;summary:string;points:string[];link_href:string;link_label:string};
 export const thematicAreas = [
   {id:'quality-education',title:'Access to Quality Education',summary:'Stronger public schools and more opportunities to learn.',points:['Public-school adoption and improvement','Education for underserved communities','Foundational literacy and numeracy','Inclusive and equitable education','Out-of-school children and non-formal education'],href:'/our-work',linkText:'Explore our education models'},
   {id:'girls-education',title:'Girls’ Education and Gender Equality',summary:'Equal opportunities, safe schools and girls’ empowerment.',points:['Girls’ enrolment, attendance and retention','Adolescent girls’ empowerment','Prevention of child marriage','Gender-responsive schools','Equal learning opportunities'],href:'/contact-us',linkText:'Connect with our team'},

@@ -159,6 +159,23 @@ export const adminResources:AdminResource[]=[
   {name:'link_href',label:'Link',type:'text',required:true,help:linkHelp},
   position,
  ]},
+ {key:'thematic-areas',apiPath:'collections/thematic_areas',group:'Programmes',label:'Thematic areas',singular:'thematic area',description:'Focus areas on the What We Do page and in the header menu.',titleField:'title',columns:['title','anchor'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens; the section opens at /what-we-do#this-value. Programmes and focus cards refer to it.'},
+  {name:'summary',label:'Summary',type:'textarea',required:true,help:'Also shown in the header menu.'},
+  {name:'points',label:'Points',type:'lines',help:'One point per line.'},
+  {name:'link_label',label:'Link text',type:'text',required:true},
+  {name:'link_href',label:'Link',type:'text',required:true,help:linkHelp},
+  position,
+ ]},
+ {key:'cross-cutting-themes',apiPath:'collections/cross_cutting_themes',group:'Programmes',label:'Cross-cutting themes',singular:'theme',description:'Shared commitments on the What We Do page.',titleField:'title',columns:['title','link_href'],canCreate:true,canDelete:true,fields:[
+  {name:'title',label:'Title',type:'text',required:true},
+  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens.'},
+  {name:'text',label:'Text',type:'textarea',required:true},
+  {name:'link_label',label:'Link text',type:'text',required:true},
+  {name:'link_href',label:'Link',type:'text',required:true,help:linkHelp},
+  position,
+ ]},
  {key:'partners',apiPath:'collections/partners',group:'About PEN',label:'Partners & supporters',singular:'partner',description:'Logos on the supporters page and the homepage strip.',titleField:'name',columns:['name','url'],canCreate:true,canDelete:true,fields:[
   {name:'name',label:'Name',type:'text',required:true,help:'Also used as the logo description.'},
   {name:'logo',label:'Logo',type:'image',required:true},

@@ -3844,6 +3844,164 @@
     "link_href": "/contact-us",
     "link_label": "Connect with PEN"
    }
+  ],
+  "thematic_areas": [
+   {
+    "anchor": "quality-education",
+    "title": "Access to Quality Education",
+    "summary": "Stronger public schools and more opportunities to learn.",
+    "points": [
+     "Public-school adoption and improvement",
+     "Education for underserved communities",
+     "Foundational literacy and numeracy",
+     "Inclusive and equitable education",
+     "Out-of-school children and non-formal education"
+    ],
+    "link_href": "/our-work",
+    "link_label": "Explore our education models"
+   },
+   {
+    "anchor": "girls-education",
+    "title": "Girls’ Education and Gender Equality",
+    "summary": "Equal opportunities, safe schools and girls’ empowerment.",
+    "points": [
+     "Girls’ enrolment, attendance and retention",
+     "Adolescent girls’ empowerment",
+     "Prevention of child marriage",
+     "Gender-responsive schools",
+     "Equal learning opportunities"
+    ],
+    "link_href": "/contact-us",
+    "link_label": "Connect with our team"
+   },
+   {
+    "anchor": "digital-learning",
+    "title": "Digital Learning and Educational Technology",
+    "summary": "PEN Academy, digital content and technology-enabled teaching.",
+    "points": [
+     "PEN Academy",
+     "E-learning and digital content",
+     "Technology-enabled teaching",
+     "Digital literacy",
+     "Learning analytics and education dashboards"
+    ],
+    "link_href": "/pen-academy",
+    "link_label": "Discover PEN Academy"
+   },
+   {
+    "anchor": "teacher-development",
+    "title": "Teacher Development and School Leadership",
+    "summary": "Supporting teachers, school leaders and better classroom practice.",
+    "points": [
+     "Teacher training and mentoring",
+     "School leadership and management",
+     "Pedagogical innovation",
+     "Classroom assessment",
+     "Institutional capacity building"
+    ],
+    "link_href": "/teacher-training",
+    "link_label": "Explore teacher development"
+   },
+   {
+    "anchor": "community-wellbeing",
+    "title": "Community Engagement and Child Wellbeing",
+    "summary": "Families, communities and children’s wellbeing at the heart of learning.",
+    "points": [
+     "Parent and community participation",
+     "Child protection and safeguarding",
+     "Adolescent life skills",
+     "Positive social norms",
+     "School-community partnerships"
+    ],
+    "link_href": "/volunteer",
+    "link_label": "Get involved with PEN"
+   },
+   {
+    "anchor": "inclusive-education",
+    "title": "Inclusive Education and Child Rights",
+    "summary": "Reducing barriers and creating safe, inclusive learning environments.",
+    "points": [
+     "Education for children with disabilities",
+     "Access for marginalized children",
+     "Safe and inclusive learning environments",
+     "Child participation and rights awareness",
+     "Prevention of discrimination and exclusion"
+    ],
+    "link_href": "/contact-us",
+    "link_label": "Discuss inclusive education"
+   },
+   {
+    "anchor": "school-infrastructure",
+    "title": "School Infrastructure and Learning Environments",
+    "summary": "Better facilities, accessible classrooms and learning resources.",
+    "points": [
+     "School rehabilitation and facilities",
+     "Water, sanitation and hygiene in schools",
+     "Safe classrooms and accessibility",
+     "Learning materials and educational resources",
+     "Climate-resilient schools"
+    ],
+    "link_href": "/explore-our-schools",
+    "link_label": "Explore our schools"
+   },
+   {
+    "anchor": "research-impact",
+    "title": "Research, Monitoring, Evaluation and Learning",
+    "summary": "Using education data, assessment and evidence to inform learning.",
+    "points": [
+     "Education data and performance monitoring",
+     "Learning assessments",
+     "Research and evidence generation",
+     "Digital dashboards and reporting",
+     "Impact evaluations and knowledge products"
+    ],
+    "link_href": "/publications",
+    "link_label": "Browse publications"
+   }
+  ],
+  "cross_cutting_themes": [
+   {
+    "anchor": "safeguarding-psea",
+    "title": "Child safeguarding and PSEA",
+    "text": "Keeping child safeguarding and protection from sexual exploitation and abuse in view across education programmes.",
+    "link_href": "/disclosures#policies",
+    "link_label": "Policy information"
+   },
+   {
+    "anchor": "gender-social-inclusion",
+    "title": "Gender equality and social inclusion",
+    "text": "Recognising barriers to participation and supporting equal learning opportunities.",
+    "link_href": "/what-we-do#girls-education",
+    "link_label": "Girls’ education"
+   },
+   {
+    "anchor": "disability-accessibility",
+    "title": "Disability inclusion and accessibility",
+    "text": "Considering accessibility and the participation of children with disabilities in learning environments.",
+    "link_href": "/what-we-do#inclusive-education",
+    "link_label": "Inclusive education"
+   },
+   {
+    "anchor": "climate-disaster-risk",
+    "title": "Climate resilience and disaster risk reduction",
+    "text": "Considering safer learning environments, resilience and risks that can interrupt education.",
+    "link_href": "/what-we-do#school-infrastructure",
+    "link_label": "Learning environments"
+   },
+   {
+    "anchor": "community-participation",
+    "title": "Community participation",
+    "text": "Engaging families and communities in children’s education and wellbeing.",
+    "link_href": "/what-we-do#community-wellbeing",
+    "link_label": "Community engagement"
+   },
+   {
+    "anchor": "evidence-accountability",
+    "title": "Evidence-based programming and accountability",
+    "text": "Using monitoring, learning and shared information to inform education programmes.",
+    "link_href": "/impact",
+    "link_label": "Explore impact and evidence"
+   }
   ]
  }
 }

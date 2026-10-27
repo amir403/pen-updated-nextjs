@@ -1,17 +1,17 @@
 import {SiteCard} from '@/components/site-card';
 import Link from 'next/link';
 import {ArrowUpRight, BookOpen, GraduationCap, Handshake, Laptop, School, Search, Users} from 'lucide-react';
-import {thematicAreas} from '@/lib/website-outline';
 import {useSiteContent} from '@/components/site-content-provider';
+import {countWord} from '@/lib/count-words';
 
 /** Icons for programme cards, keyed like `programmeIcons` in lib/programmes.ts. */
 const programmeIcons = {school:School,handshake:Handshake,users:Users,graduation:GraduationCap,book:BookOpen,laptop:Laptop,search:Search} as const;
-const countWords=['no','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
 const external=(href:string)=>/^https?:\/\//.test(href)?{target:'_blank',rel:'noreferrer'}:{};
 
 function RelatedTheme({id}: {id:string}) {
-  const theme = thematicAreas.find(area=>area.id===id);
-  return theme?<Link href={'/what-we-do#'+theme.id} className="project-theme-link">{theme.title}<ArrowUpRight size={13} aria-hidden="true"/></Link>:null;
+  const {thematicAreas}=useSiteContent();
+  const theme = thematicAreas.find(area=>area.anchor===id);
+  return theme?<Link href={'/what-we-do#'+theme.anchor} className="project-theme-link">{theme.title}<ArrowUpRight size={13} aria-hidden="true"/></Link>:null;
 }
 
 export function OngoingProjects() {
@@ -23,7 +23,7 @@ export function OngoingProjects() {
       </div>
       <img src="/images/website-outline/quality-education.jpg" alt="A teacher supporting children with classroom learning" width={640} height={420}/>
     </div>
-    <div className="project-section-heading"><h2>Explore our {countWords[ongoingProgrammes.length]??ongoingProgrammes.length} programmes</h2><p>Find the work that matters to you.</p></div>
+    <div className="project-section-heading"><h2>Explore our {countWord(ongoingProgrammes.length)} programmes</h2><p>Find the work that matters to you.</p></div>
     <nav className="programme-jump-links" aria-label="Jump to a programme">{ongoingProgrammes.map(programme=><a href={'#'+programme.anchor} key={programme.anchor}>{programme.title}</a>)}</nav>
     <div className="project-grid">
       {ongoingProgrammes.map((programme,index)=>{

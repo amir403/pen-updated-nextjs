@@ -47,7 +47,7 @@ Har module ke liye ye kaam hota hai:
 | M5 | **Photo gallery** | Photos (image, caption), order | `/photo-gallery` | ✅ |
 | M6 | **About PEN** | Mission/vision cards, journey timeline, core values, CEO message (photo, name, paragraphs), accountability links | `/about-us`, `/ceo-message`, `/core-values` | ✅ |
 | M7 | **Programmes & projects** | Education models (PEIMA, PEN model, NFE), programme pages (PEN Academy, teacher development, academics, scholarships), ongoing programmes, upcoming priorities | `/our-work`, `/pen-academy`, `/teacher-training`, `/academics`, `/scholarships`, `/ongoing-projects`, `/upcoming-projects` | ✅ |
-| M8 | **What we do** | 8 thematic areas (summary, points), 6 cross-cutting themes | `/what-we-do`, header mega menu | ⏳ |
+| M8 | **What we do** | 8 thematic areas (summary, points), 6 cross-cutting themes | `/what-we-do`, header mega menu | ✅ |
 | M9 | **Donations** | Sponsorship options & rates, bank accounts (IBAN/SWIFT), giving enquiry categories, max children limit | `/donate-now` (calculator, shop, bank details) | ⏳ |
 | M10 | **Impact & transparency** | Published impact figures, disclosure categories (status, text, document links) | `/impact`, `/disclosures` | ⏳ |
 | M11 | **Jobs & tenders** | Real job/tender notices (reference, title, type, deadline, document link, open/closed) — demo notices hata kar | `/job`, `/careers` | ⏳ |
@@ -94,3 +94,4 @@ mein push hota hai, taake har step alag se review aur test ho sake.
 | 27 Oct 2026 | M5 | Collection `gallery` (photo, optional caption). Caption viewer mein dikhta hai aur screen readers ke liye alt text banta hai. Admin lists mein ab image columns ke thumbnails |
 | 27 Oct 2026 | M6 | Collections `purpose_cards`, `journey`, `core_values` (About page ka chhota text + Core Values page ka poora text ek hi record mein), `accountability_links` + setting `about` (story aur CEO message). Founders & partners bhi "About PEN" group mein |
 | 27 Oct 2026 | M7 | Collections `education_models`, `interventions`, `programme_pages` (4 fixed pages, sirf edit), `ongoing_programmes`, `upcoming_priorities`. Data `lib/programmes.ts` mein ikattha. "Explore our eight programmes" ab ginti ke hisaab se badalta hai; external links naye tab mein |
+| 27 Oct 2026 | M8 | Collections `thematic_areas`, `cross_cutting_themes`. What We Do page, header mega menu ("Eight focus areas" ginti ke saath badalta hai), website search aur programme cards ke related-theme links sab isi se |

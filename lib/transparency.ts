@@ -1,4 +1,5 @@
 // Cross-cutting headings: WEBSITE OUTLINE.docx. Summaries are editorial navigation aids.
+export type CrossCuttingTheme={anchor:string;title:string;text:string;link_href:string;link_label:string};
 export const crossCuttingThemes=[
  {id:'safeguarding-psea',title:'Child safeguarding and PSEA',text:'Keeping child safeguarding and protection from sexual exploitation and abuse in view across education programmes.',href:'/disclosures#policies',label:'Policy information'},
  {id:'gender-social-inclusion',title:'Gender equality and social inclusion',text:'Recognising barriers to participation and supporting equal learning opportunities.',href:'/what-we-do#girls-education',label:'Girls’ education'},
