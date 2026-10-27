@@ -4,7 +4,8 @@ import {useEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {ArrowUpRight, ChevronDown, Heart, Menu, Search} from 'lucide-react';
-import {images, nav, pageMeta, articles} from '@/lib/content';
+import {images, nav} from '@/lib/content';
+import {useSiteContent} from '@/components/site-content-provider';
 import {thematicAreas} from '@/lib/website-outline';
 import {ThemeToggle} from '@/components/theme-toggle';
 import {Button} from '@/components/ui/button';
@@ -25,6 +26,7 @@ export function Header() {
   const scheduleClose=()=>{cancelClose();closeTimer.current=setTimeout(()=>setOpenGroup(null),220)};
   useEffect(()=>()=>{if(closeTimer.current!==null)clearTimeout(closeTimer.current)},[]);
   const pathname = usePathname();
+  const {pageMeta,articles} = useSiteContent();
   const currentGroup = nav.find(group=>group.overview===pathname) ?? nav.find(group=>group.items.some(item=>item.href===pathname));
   const results = [...Object.entries(pageMeta).map(([slug,value])=>({title:value[0],slug})),...thematicAreas.map(area=>({title:area.title,slug:'what-we-do#'+area.id})),...articles.map(article=>({title:article.title,slug:article.slug}))]
     .filter(item=>item.title.toLowerCase().includes(query.trim().toLowerCase()));

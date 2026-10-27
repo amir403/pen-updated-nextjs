@@ -33,7 +33,7 @@ export const programmes = [
  {title:'Academic support',text:'Lesson plans, activity books and learning materials.',image:images.classroom,href:'/academics'},
  {title:'100 Scholarship Program',text:'Helping deserving students continue their education.',image:images.scholarship,href:'/scholarships'}
 ];
-export type Article={slug:string;title:string;category:string;date:string;image:string;summary:string;body:string[];source?:string};
+export type Article={slug:string;title:string;category:string;date:string;image:string;summary:string;body:string[];source?:string;sourceUrl?:string};
 export const articles:Article[]=[
  {slug:'ali-garh-model-school-sports-gala-2025',title:'A day of teamwork, talent and possibility',category:'News',date:'15 April 2025',image:'/images/pic-3.Edited-Pic-png-1.png',summary:'Highlights from the Ali Garh Model School Sports Gala 2025.',body:['PEN shared photographic highlights from the Ali Garh Model School Sports Gala 2025. Explore the event through the original photo feature.'],source:'Ali Garh Model School Sports Gala 2025'},
  {slug:'second-annual-health-screening-camp',title:'Healthier children. Stronger communities.',category:'News',date:'14 April 2025',image:'/images/camp.jpg',summary:'PEN and IPAC Foundation brought health screening to the Assu Mehta school community.',body:['The second annual health screening camp took place at Government Girls Primary School, Assu Mehta, in collaboration with IPAC Foundation.','The initiative reached 83 students, staff members and parents. Services included 73 general checkups, 72 dental screenings and 73 eye screenings, supporting early detection and access to care.'],source:'Second Annual Health Screening Camp'},
