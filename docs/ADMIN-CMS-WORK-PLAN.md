@@ -51,7 +51,7 @@ Har module ke liye ye kaam hota hai:
 | M9 | **Donations** | Sponsorship options & rates, bank accounts (IBAN/SWIFT), giving enquiry categories, max children limit | `/donate-now` (calculator, shop, bank details) | ✅ |
 | M10 | **Impact & transparency** | Published impact figures, disclosure categories (status, text, document links) | `/impact`, `/disclosures` | ✅ |
 | M11 | **Jobs & tenders** | Real job/tender notices (reference, title, type, deadline, document link, open/closed) — demo notices hata kar | `/job`, `/careers` | ✅ |
-| M12 | **Legal pages** | Privacy policy & terms ke sections | `/privacy-policy`, `/terms-of-services` | ⏳ |
+| M12 | **Legal pages** | Privacy policy & terms ke sections | `/privacy-policy`, `/terms-of-services` | ✅ |
 | M13 | **Navigation menu** | Header menu groups & links, footer links | Header (desktop + mobile), footer | ⏳ |
 | M14 | **Admin users & account** | Admin users list, naya admin, remove, apna password change | `/admin` | ⏳ |
 | M15 | **Form submissions inbox** | Contact & volunteer forms ki entries admin mein | `/contact-us`, `/volunteer` | ❓ |
@@ -98,3 +98,4 @@ mein push hota hai, taake har step alag se review aur test ho sake.
 | 27 Oct 2026 | M9 | Setting `donations` (per-child rate, calculator limit, account title) + collections `sponsorship_options`, `bank_accounts` (IBAN/SWIFT format check), `giving_enquiries`. Per-child rate alag setting mein taake ghalti se delete na ho |
 | 27 Oct 2026 | M10 | Collections `published_impact`, `disclosure_categories` (har category mein documents: "Title \| link" lines). Uploads ab PDF/Word/Excel/PowerPoint bhi (max 10 MB); admin mein "File uploads" page (upload + copy link); Documents module mein PDF seedha upload |
 | 27 Oct 2026 | M11 | Collection `opportunities` (job/tender, reference, closing date, notice document upload, apply link, published toggle). Demo notices hata diye; closing date guzarne par notice khud chhup jata hai; careers page par open jobs; koi notice na ho to empty state |
+| 27 Oct 2026 | M12 | Collection `legal_sections` (page, heading, paragraphs, optional link). Text mein `{email}` likhne se contact email ka link ban jata hai |

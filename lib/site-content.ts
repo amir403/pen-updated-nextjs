@@ -6,6 +6,7 @@ import {crossCuttingThemes,disclosureCategories,existingPartners,publishedImpact
 import {educationModels,interventions,ongoingProgrammes,priorities,programmePages,type EducationModel,type Intervention,type OngoingProgramme,type Priority,type ProgrammePage} from '@/lib/programmes';
 import {donationBanks,donationSettings,givingEnquiries,sponsorships,type BankAccount,type DonationSettings,type GivingEnquiry,type SponsorshipOption} from '@/lib/donations';
 import type {Opportunity} from '@/lib/opportunities';
+import {legalSections,type LegalSection} from '@/lib/legal';
 import {aboutText,accountabilityLinks,coreValues,journey,purposeCards,type AboutText,type AccountabilityLink,type CoreValue,type JourneyItem,type PurposeCard} from '@/lib/about';
 import {contactDetails,offices,siteOptions,type ContactDetails,type Office,type SiteOptions} from '@/lib/site-settings';
 
@@ -54,6 +55,7 @@ export type SiteContent={
  publishedImpact:ImpactFigure[];
  disclosureCategories:DisclosureCategory[];
  opportunities:Opportunity[];
+ legalSections:LegalSection[];
 };
 
 /** Content bundled with the site; used when the Laravel API is not configured or unreachable. */
@@ -93,4 +95,5 @@ export const staticSiteContent:SiteContent={
  publishedImpact,
  disclosureCategories,
  opportunities:[],
+ legalSections,
 };

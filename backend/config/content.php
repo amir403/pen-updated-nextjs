@@ -18,6 +18,17 @@
 return [
 
     'collections' => [
+        'legal_sections' => [
+            'rules' => [
+                'page' => ['required', 'in:privacy-policy,terms-of-services'],
+                'heading' => ['required', 'string', 'max:120'],
+                'text' => ['required', 'array', 'min:1'],
+                'text.*' => ['string', 'max:3000'],
+                'link_label' => ['nullable', 'required_with:link_href', 'string', 'max:80'],
+                'link_href' => ['nullable', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/|mailto:)/'],
+            ],
+            'attributes' => ['link_label' => 'link text', 'link_href' => 'link'],
+        ],
         'opportunities' => [
             'rules' => [
                 'type' => ['required', 'in:Job,Tender'],

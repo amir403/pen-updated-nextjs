@@ -3,6 +3,7 @@ import {valueIcons} from '@/lib/about';
 import {programmeIcons,programmePageSlugs} from '@/lib/programmes';
 import {sponsorshipIcons} from '@/lib/donations';
 import {opportunityTypes} from '@/lib/opportunities';
+import {legalPages} from '@/lib/legal';
 
 /** `upload` adds a file picker to a url/text field; the uploaded file's link fills the field. */
 export type AdminField={name:string;label:string;type:'text'|'textarea'|'number'|'url'|'select'|'image'|'paragraphs'|'lines'|'checkbox'|'date';options?:readonly string[];required?:boolean;help?:string;upload?:boolean};
@@ -234,6 +235,14 @@ export const adminResources:AdminResource[]=[
  {key:'gallery',apiPath:'collections/gallery',group:'Content',label:'Photo gallery',singular:'photo',description:'Photos on the gallery page.',titleField:'caption',columns:['image','caption','position'],canCreate:true,canDelete:true,fields:[
   {name:'image',label:'Photo',type:'image',required:true},
   {name:'caption',label:'Caption',type:'text',help:'Optional. Shown in the photo viewer and read by screen readers.'},
+  position,
+ ]},
+ {key:'legal-sections',apiPath:'collections/legal_sections',group:'Website',label:'Privacy & terms',singular:'section',description:'Sections of the privacy policy and terms of use pages.',titleField:'heading',columns:['page','heading','position'],canCreate:true,canDelete:true,fields:[
+  {name:'page',label:'Page',type:'select',options:legalPages,required:true},
+  {name:'heading',label:'Heading',type:'text',required:true},
+  {name:'text',label:'Text',type:'paragraphs',required:true,help:'Separate paragraphs with a blank line. Write {email} to insert the contact email as a link.'},
+  {name:'link_label',label:'Link text',type:'text'},
+  {name:'link_href',label:'Link',type:'text',help:'Optional. '+linkHelp},
   position,
  ]},
  {key:'offices',apiPath:'collections/offices',group:'Settings',label:'Offices',singular:'office',description:'Office addresses on the contact page.',titleField:'title',columns:['title','address'],canCreate:true,canDelete:true,fields:[
