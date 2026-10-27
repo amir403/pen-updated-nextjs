@@ -4208,6 +4208,111 @@
     "link_label": "Read PEN’s official terms",
     "link_href": "https://pen.org.pk/terms-of-services/"
    }
+  ],
+  "nav_menu": [
+   {
+    "label": "About PEN",
+    "description": "The people and purpose behind PEN.",
+    "mega": false,
+    "overview_href": null,
+    "links": [
+     "Our story | /about-us",
+     "Our impact | /impact",
+     "CEO message | /ceo-message",
+     "Founders & directors | /founders",
+     "Our values | /core-values",
+     "Our supporters | /our-donors-supporters",
+     "Privacy policy | /privacy-policy",
+     "FAQs | /faq"
+    ]
+   },
+   {
+    "label": "What We Do",
+    "description": "Eight focus areas. One commitment to every child.",
+    "mega": true,
+    "overview_href": "/what-we-do",
+    "links": []
+   },
+   {
+    "label": "Our Projects",
+    "description": "Explore our programmes, schools and future priorities.",
+    "mega": false,
+    "overview_href": null,
+    "links": [
+     "Ongoing programmes | /ongoing-projects",
+     "Upcoming project priorities | /upcoming-projects",
+     "Our education models | /our-work",
+     "Our schools | /explore-our-schools",
+     "PEN Academy | /pen-academy",
+     "Teacher development | /teacher-training",
+     "Academic support | /academics",
+     "Scholarships | /scholarships"
+    ]
+   },
+   {
+    "label": "Get Involved",
+    "description": "Make a difference with your time, skills or support.",
+    "mega": false,
+    "overview_href": null,
+    "links": [
+     "Ways to give | /donate-now",
+     "Donation shop | /donate-now#donation-shop",
+     "More giving options | /donate-now#giving-options",
+     "Zakat calculator | /donate-now#zakat-calculator",
+     "Volunteer with us | /volunteer",
+     "Careers | /careers",
+     "Become a partner | /contact-us"
+    ]
+   },
+   {
+    "label": "News & Media",
+    "description": "Meet our community and follow the latest stories.",
+    "mega": false,
+    "overview_href": null,
+    "links": [
+     "Latest news | /news",
+     "PEN heroes | /stories",
+     "Our blog | /pen-blogs",
+     "Photo gallery | /photo-gallery"
+    ]
+   },
+   {
+    "label": "Resources",
+    "description": "Learning materials, publications and organisational records.",
+    "mega": false,
+    "overview_href": null,
+    "links": [
+     "Publications | /publications",
+     "Activity books | /pen-activity-books",
+     "Corporate information | /corporate-information",
+     "Disclosures | /disclosures",
+     "Tenders & opportunities | /job"
+    ]
+   }
+  ],
+  "footer_columns": [
+   {
+    "heading": "Discover PEN",
+    "links": [
+     "Our story | /about-us",
+     "Our work | /our-work",
+     "Our schools | /explore-our-schools",
+     "News & stories | /news",
+     "Our impact | /impact",
+     "Disclosures | /disclosures",
+     "Corporate information | /corporate-information"
+    ]
+   },
+   {
+    "heading": "Make a difference",
+    "links": [
+     "Donate now | /donate-now",
+     "Become a volunteer | /volunteer",
+     "Work with us | /careers",
+     "Publications | /publications",
+     "FAQs | /faq"
+    ]
+   }
   ]
  }
 }

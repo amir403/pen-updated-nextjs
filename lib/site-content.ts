@@ -7,6 +7,7 @@ import {educationModels,interventions,ongoingProgrammes,priorities,programmePage
 import {donationBanks,donationSettings,givingEnquiries,sponsorships,type BankAccount,type DonationSettings,type GivingEnquiry,type SponsorshipOption} from '@/lib/donations';
 import type {Opportunity} from '@/lib/opportunities';
 import {legalSections,type LegalSection} from '@/lib/legal';
+import {footerColumns,navMenu,type FooterColumn,type NavMenuGroup} from '@/lib/navigation';
 import {aboutText,accountabilityLinks,coreValues,journey,purposeCards,type AboutText,type AccountabilityLink,type CoreValue,type JourneyItem,type PurposeCard} from '@/lib/about';
 import {contactDetails,offices,siteOptions,type ContactDetails,type Office,type SiteOptions} from '@/lib/site-settings';
 
@@ -56,6 +57,8 @@ export type SiteContent={
  disclosureCategories:DisclosureCategory[];
  opportunities:Opportunity[];
  legalSections:LegalSection[];
+ navMenu:NavMenuGroup[];
+ footerColumns:FooterColumn[];
 };
 
 /** Content bundled with the site; used when the Laravel API is not configured or unreachable. */
@@ -96,4 +99,6 @@ export const staticSiteContent:SiteContent={
  disclosureCategories,
  opportunities:[],
  legalSections,
+ navMenu,
+ footerColumns,
 };

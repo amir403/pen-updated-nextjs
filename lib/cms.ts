@@ -6,6 +6,7 @@ import type {CrossCuttingTheme,DisclosureCategory,ImpactFigure,Partner} from '@/
 import type {ThematicArea} from '@/lib/website-outline';
 import type {Opportunity} from '@/lib/opportunities';
 import type {LegalSection} from '@/lib/legal';
+import type {FooterColumn,NavMenuGroup} from '@/lib/navigation';
 import type {BankAccount,GivingEnquiry,SponsorshipOption} from '@/lib/donations';
 import type {EducationModel,Intervention,OngoingProgramme,Priority,ProgrammePage} from '@/lib/programmes';
 import type {AccountabilityLink,CoreValue,JourneyItem,PurposeCard} from '@/lib/about';
@@ -75,6 +76,8 @@ function fromApi(api:ApiContent):SiteContent{
   givingEnquiries:fromCollection(api,'giving_enquiries',staticSiteContent.givingEnquiries,item=>item as GivingEnquiry),
   publishedImpact:fromCollection(api,'published_impact',staticSiteContent.publishedImpact,item=>item as ImpactFigure),
   disclosureCategories:fromCollection(api,'disclosure_categories',staticSiteContent.disclosureCategories,item=>item as DisclosureCategory),
+  navMenu:fromCollection(api,'nav_menu',staticSiteContent.navMenu,item=>({...item,mega:Boolean(item.mega)}) as NavMenuGroup),
+  footerColumns:fromCollection(api,'footer_columns',staticSiteContent.footerColumns,item=>item as FooterColumn),
   legalSections:fromCollection(api,'legal_sections',staticSiteContent.legalSections,item=>item as LegalSection),
   opportunities:fromCollection(api,'opportunities',staticSiteContent.opportunities,item=>({...item,is_open:Boolean(item.is_open)}) as Opportunity),
  };

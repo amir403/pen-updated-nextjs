@@ -18,6 +18,26 @@
 return [
 
     'collections' => [
+        // Menu links are "Title | /link" lines.
+        'nav_menu' => [
+            'rules' => [
+                'label' => ['required', 'string', 'max:40'],
+                'description' => ['nullable', 'string', 'max:160'],
+                'mega' => ['required', 'boolean'],
+                'overview_href' => ['nullable', 'string', 'max:300', 'regex:/^(\/|#|https?:\/\/)/'],
+                'links' => ['present', 'array', 'max:20'],
+                'links.*' => ['string', 'max:300', 'regex:/^[^|]+\|\s*(\/|#|https?:\/\/|mailto:)\S*$/'],
+            ],
+            'attributes' => ['overview_href' => 'overview link', 'links.*' => 'link line'],
+        ],
+        'footer_columns' => [
+            'rules' => [
+                'heading' => ['required', 'string', 'max:60'],
+                'links' => ['required', 'array', 'min:1', 'max:15'],
+                'links.*' => ['string', 'max:300', 'regex:/^[^|]+\|\s*(\/|#|https?:\/\/|mailto:)\S*$/'],
+            ],
+            'attributes' => ['links.*' => 'link line'],
+        ],
         'legal_sections' => [
             'rules' => [
                 'page' => ['required', 'in:privacy-policy,terms-of-services'],

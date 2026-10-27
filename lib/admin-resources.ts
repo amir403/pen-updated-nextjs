@@ -237,6 +237,19 @@ export const adminResources:AdminResource[]=[
   {name:'caption',label:'Caption',type:'text',help:'Optional. Shown in the photo viewer and read by screen readers.'},
   position,
  ]},
+ {key:'menu',apiPath:'collections/nav_menu',group:'Website',label:'Header menu',singular:'menu group',description:'Dropdown groups in the header and mobile menu.',titleField:'label',columns:['label','mega','position'],canCreate:true,canDelete:true,fields:[
+  {name:'label',label:'Menu label',type:'text',required:true},
+  {name:'description',label:'Description',type:'text',help:'Shown at the top of the dropdown.'},
+  {name:'links',label:'Links',type:'lines',help:'One per line as “Title | /page” (or a full https:// link).'},
+  {name:'mega',label:'Focus areas menu',type:'checkbox',help:'Lists the thematic areas and cross-cutting themes automatically instead of the links above.'},
+  {name:'overview_href',label:'“Explore all” link',type:'text',help:'Optional page for the “Explore all focus areas” link, for example /what-we-do.'},
+  position,
+ ]},
+ {key:'footer-links',apiPath:'collections/footer_columns',group:'Website',label:'Footer links',singular:'footer column',description:'Link columns in the website footer. Two columns fit best.',titleField:'heading',columns:['heading','links'],canCreate:true,canDelete:true,fields:[
+  {name:'heading',label:'Heading',type:'text',required:true},
+  {name:'links',label:'Links',type:'lines',required:true,help:'One per line as “Title | /page” (or a full https:// link).'},
+  position,
+ ]},
  {key:'legal-sections',apiPath:'collections/legal_sections',group:'Website',label:'Privacy & terms',singular:'section',description:'Sections of the privacy policy and terms of use pages.',titleField:'heading',columns:['page','heading','position'],canCreate:true,canDelete:true,fields:[
   {name:'page',label:'Page',type:'select',options:legalPages,required:true},
   {name:'heading',label:'Heading',type:'text',required:true},
