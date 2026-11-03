@@ -8,6 +8,11 @@ import {Label} from '@/components/ui/label';
 import {Textarea} from '@/components/ui/textarea';
 import {RichTextEditor} from '@/components/admin/rich-text-editor';
 import {FileUpload} from '@/components/admin/file-upload';
+import {SlugInput} from '@/components/admin/slug-input';
+import {DateLabelInput,DatePicker} from '@/components/admin/date-picker';
+
+/** Choices for `optionsFrom` selects, loaded by the page from the API and keyed by field name. */
+export type SelectOptions=Record<string,{value:string;label:string}[]>;
 
 /** Fields that take a whole row of the form grid; the rest share a row two at a time. */
 const wideTypes:AdminField['type'][]=['textarea','paragraphs','lines','image'];
@@ -19,17 +24,27 @@ const initialValue=(field:AdminField,value:unknown)=>{
  return String(value);
 };
 
-function FieldInput({field,value,invalid}:{field:AdminField;value:string;invalid:boolean}){
+type Context={isNew:boolean;options:SelectOptions;values:Record<string,string>};
+
+function FieldInput({field,value,invalid,context}:{field:AdminField;value:string;invalid:boolean;context:Context}){
  const common={id:field.name,name:field.name,defaultValue:value,required:field.required&&!field.upload,'aria-invalid':invalid||undefined,'aria-describedby':field.help?field.name+'-help':undefined};
  if(field.type==='textarea'||field.type==='paragraphs')return <RichTextEditor id={field.name} name={field.name} value={value} multiline={field.type==='paragraphs'} labelId={field.name+'-label'} invalid={invalid} describedBy={common['aria-describedby']}/>;
  if(field.type==='lines')return <Textarea {...common} rows={6}/>;
- if(field.type==='select')return <select {...common} className="admin-select"><option value="">Choose…</option>{field.options?.map(o=><option key={o} value={o}>{o}</option>)}</select>;
+ if(field.slugFrom)return <SlugInput id={field.name} name={field.name} value={value} source={field.slugFrom} sourceValue={context.values[field.slugFrom]??''} max={field.max??60} isNew={context.isNew} required={field.required} invalid={invalid} describedBy={common['aria-describedby']}/>;
+ if(field.dateLabel)return <DateLabelInput id={field.name} name={field.name} value={value} required={field.required} invalid={invalid} describedBy={common['aria-describedby']}/>;
+ if(field.type==='date')return <DatePicker id={field.name} name={field.name} value={value} required={field.required} invalid={invalid} describedBy={common['aria-describedby']}/>;
+ if(field.type==='select'){
+  const choices=field.optionsFrom?context.options[field.name]??[]:(field.options??[]).map(o=>({value:o,label:o}));
+  // Keep a saved value selectable even if its record has since been renamed or removed.
+  if(value&&!choices.some(c=>c.value===value))choices.push({value,label:value});
+  return <select {...common} className="admin-select"><option value="">{field.required?'Choose…':'None'}</option>{choices.map(o=><option key={o.value} value={o.value}>{o.label}</option>)}</select>;
+ }
  if(field.type==='checkbox')return <input id={field.name} name={field.name} type="checkbox" defaultChecked={value==='on'} className="admin-checkbox" aria-describedby={common['aria-describedby']}/>;
  if(field.type==='image')return <div className="admin-image-field">
   {value&&<img src={value} alt=""/>}
   <div><Input {...common} required={false} placeholder="/images/photo.jpg or https://…"/><FileUpload name={field.name+'_file'} accept="image/jpeg,image/png,image/webp,image/gif" label={field.label} hint="JPG, PNG, WebP or GIF, up to 10 MB. Or enter an image path above."/></div>
  </div>;
- const input=<Input {...common} type={field.type==='number'?'number':field.type==='url'?'url':field.type==='date'?'date':'text'} min={field.type==='number'?0:undefined}/>;
+ const input=<Input {...common} type={field.type==='number'?'number':field.type==='url'?'url':'text'} min={field.type==='number'?0:undefined}/>;
  if(field.upload)return <div className="admin-upload-field">{input}<FileUpload name={field.name+'_file'} accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.webp,.gif" label={field.label} hint="PDF, Word, Excel, PowerPoint or an image, up to 10 MB. Or enter a link above."/></div>;
  return input;
 }
@@ -37,22 +52,23 @@ function FieldInput({field,value,invalid}:{field:AdminField;value:string;invalid
 /** Field errors arrive under the field name, or under "name.0" etc. for list fields. */
 const fieldErrors=(state:FormState,name:string)=>state.errors?.[name]??Object.entries(state.errors??{}).find(([key])=>key.startsWith(name+'.'))?.[1];
 
-export function FieldList({fields,record,state}:{fields:AdminField[];record:Record<string,unknown>;state:FormState}){
+export function FieldList({fields,record,state,isNew=false,options={}}:{fields:AdminField[];record:Record<string,unknown>;state:FormState;isNew?:boolean;options?:SelectOptions}){
+ const values=Object.fromEntries(fields.map(field=>[field.name,state.values?.[field.name]??initialValue(field,record[field.name])]));
  return fields.map(field=>{const errors=fieldErrors(state,field.name);return <div className={'admin-field'+(field.type==='checkbox'?' admin-field-checkbox':'')+(wideTypes.includes(field.type)?' admin-field-wide':'')} key={field.name}>
   <Label htmlFor={field.name} id={field.name+'-label'}>{field.label}{field.required&&<span aria-hidden="true"> *</span>}</Label>
-  <FieldInput field={field} value={state.values?.[field.name]??initialValue(field,record[field.name])} invalid={!!errors}/>
+  <FieldInput field={field} value={values[field.name]} invalid={!!errors} context={{isNew,options,values}}/>
   {field.help&&<small id={field.name+'-help'}>{field.help}</small>}
   {errors&&<p className="admin-field-error">{errors[0]}</p>}
  </div>});
 }
 
-export function RecordForm({resource,id,record}:{resource:AdminResource;id:string|null;record:Record<string,unknown>}){
+export function RecordForm({resource,id,record,options}:{resource:AdminResource;id:string|null;record:Record<string,unknown>;options?:SelectOptions}){
  // React resets the form after each attempt but restores <select> to its first option, so remount the
  // fields with the submitted values instead.
  const [state,action,pending]=useActionState<FormState&{attempt?:number},FormData>(async(previous,form)=>({...await saveRecord(resource.key,id,previous,form),attempt:(previous.attempt??0)+1}),{});
  return <form action={action} className="admin-form admin-form-grid admin-card" key={state.attempt}>
   {state.message&&<p className="admin-alert error" role="alert">{state.errors?'Please correct the highlighted fields.':state.message}</p>}
-  <FieldList fields={resource.fields} record={record} state={state}/>
+  <FieldList fields={resource.fields} record={record} state={state} isNew={id===null} options={options}/>
   <div className="admin-actions"><Button type="submit" disabled={pending}>{pending?'Saving…':'Save'}</Button></div>
  </form>;
 }

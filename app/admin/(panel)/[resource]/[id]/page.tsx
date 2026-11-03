@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
-import {adminFetch} from '@/lib/admin-api';
-import {findAdminResource,resourceApiPath} from '@/lib/admin-resources';
+import {adminFetch,adminGet} from '@/lib/admin-api';
+import {findAdminResource,loadSelectOptions,resourceApiPath} from '@/lib/admin-resources';
 import {RecordForm} from '@/components/admin/record-form';
 import {DeleteButton} from '@/components/admin/delete-button';
 
@@ -21,6 +21,6 @@ export default async function EditRecord({params}:Params){
   <header className="admin-header"><div><Link href={'/admin/'+resource.key} className="admin-back">← {resource.label}</Link><h1>{String(record[resource.titleField]??'Edit '+resource.singular)}</h1>{resource.key==='pages'&&<p>/{String(record.slug)}</p>}</div>
    {resource.canDelete&&<DeleteButton resourceKey={resource.key} id={id} label={resource.singular}/>}
   </header>
-  <RecordForm resource={resource} id={id} record={record}/>
+  <RecordForm resource={resource} id={id} record={record} options={await loadSelectOptions(resource,adminGet)}/>
  </>;
 }

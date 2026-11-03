@@ -5,8 +5,13 @@ import {sponsorshipIcons} from '@/lib/donations';
 import {opportunityTypes} from '@/lib/opportunities';
 import {legalPages} from '@/lib/legal';
 
-/** `upload` adds a file picker to a url/text field; the uploaded file's link fills the field. */
-export type AdminField={name:string;label:string;type:'text'|'textarea'|'number'|'url'|'select'|'image'|'paragraphs'|'lines'|'checkbox'|'date';options?:readonly string[];required?:boolean;help?:string;upload?:boolean};
+/**
+ * `upload` adds a file picker to a url/text field; the uploaded file's link fills the field.
+ * `slugFrom` makes a URL slug or section link from another field (at most `max` characters).
+ * `optionsFrom` fills a select with the records of a collection (value and label fields).
+ * `dateLabel` adds a calendar to a free-text date label.
+ */
+export type AdminField={name:string;label:string;type:'text'|'textarea'|'number'|'url'|'select'|'image'|'paragraphs'|'lines'|'checkbox'|'date';options?:readonly string[];required?:boolean;help?:string;upload?:boolean;slugFrom?:string;max?:number;optionsFrom?:{collection:string;value:string;label:string};dateLabel?:boolean};
 /** A list module. `key` is the admin URL segment; `apiPath` the Laravel path (defaults to `key`). */
 export type AdminResource={key:string;apiPath?:string;group:AdminGroup;label:string;singular:string;description:string;titleField:string;columns:string[];fields:AdminField[];canCreate:boolean;canDelete:boolean};
 /** A single-record settings form, stored in Laravel under `settings/<key>`. */
@@ -30,9 +35,9 @@ export const adminResources:AdminResource[]=[
  ]},
  {key:'articles',group:'Content',label:'News & stories',singular:'article',description:'News, PEN heroes and blog posts.',titleField:'title',columns:['title','category','date_label'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Title',type:'text',required:true},
-  {name:'slug',label:'URL slug',type:'text',required:true,help:'Lowercase words separated by hyphens; the article opens at /your-slug.'},
+  {name:'slug',label:'URL slug',type:'text',required:true,slugFrom:'title',max:160,help:'The article opens at /your-slug.'},
   {name:'category',label:'Category',type:'select',options:['News','PEN heroes','Blog'],required:true},
-  {name:'date_label',label:'Date label',type:'text',required:true,help:'For example “15 April 2025” or “Student stories”.'},
+  {name:'date_label',label:'Date label',type:'text',required:true,dateLabel:true,help:'Pick a date from the calendar, or type a label such as “Student stories”.'},
   {name:'image',label:'Image',type:'image',required:true},
   {name:'summary',label:'Summary',type:'textarea',required:true},
   {name:'body',label:'Body',type:'paragraphs',required:true},
@@ -84,7 +89,7 @@ export const adminResources:AdminResource[]=[
  ]},
  {key:'focus-areas',apiPath:'collections/homepage_focus',group:'Homepage',label:'Focus areas',singular:'focus area',description:'Priority cards on the homepage, linked to What We Do.',titleField:'title',columns:['title','sdgs'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Title',type:'text',required:true},
-  {name:'anchor',label:'What We Do section',type:'text',required:true,help:'The section the card opens, for example “girls-education”.'},
+  {name:'anchor',label:'What We Do section',type:'select',required:true,optionsFrom:{collection:'thematic_areas',value:'anchor',label:'title'},help:'The thematic area the card opens.'},
   {name:'image',label:'Photo',type:'image',required:true},
   {name:'alt',label:'Photo description',type:'text',required:true},
   {name:'text',label:'Text',type:'textarea',required:true},
@@ -120,7 +125,7 @@ export const adminResources:AdminResource[]=[
  ]},
  {key:'education-models',apiPath:'collections/education_models',group:'Programmes',label:'Education models',singular:'model',description:'Model cards on the homepage and the Our Work page.',titleField:'title',columns:['image','title','tag'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Title',type:'text',required:true},
-  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens; the card opens /our-work#this-value.'},
+  {name:'anchor',label:'Section link',type:'text',required:true,slugFrom:'title',max:60,help:'The card opens /our-work#this-value.'},
   {name:'tag',label:'Small heading',type:'text'},
   {name:'image',label:'Photo',type:'image',required:true},
   {name:'text',label:'Text',type:'textarea',required:true},
@@ -144,7 +149,7 @@ export const adminResources:AdminResource[]=[
  ]},
  {key:'ongoing-programmes',apiPath:'collections/ongoing_programmes',group:'Programmes',label:'Ongoing programmes',singular:'programme',description:'Programme cards on the Ongoing Programmes page.',titleField:'title',columns:['title','icon','position'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Title',type:'text',required:true},
-  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens, used for the jump links.'},
+  {name:'anchor',label:'Section link',type:'text',required:true,slugFrom:'title',max:60,help:'Used for the jump links.'},
   {name:'description',label:'Description',type:'textarea',required:true},
   {name:'icon',label:'Icon',type:'select',options:programmeIcons,required:true},
   {name:'themes',label:'Related focus areas',type:'lines',help:'One What We Do section per line, for example “girls-education”.'},
@@ -156,16 +161,16 @@ export const adminResources:AdminResource[]=[
  ]},
  {key:'upcoming-priorities',apiPath:'collections/upcoming_priorities',group:'Programmes',label:'Upcoming priorities',singular:'priority',description:'Cards on the Upcoming Project Priorities page and the What We Do summary.',titleField:'title',columns:['title','theme'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Title',type:'text',required:true},
-  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens.'},
+  {name:'anchor',label:'Section link',type:'text',required:true,slugFrom:'title',max:60},
   {name:'text',label:'Text',type:'textarea',required:true},
-  {name:'theme',label:'Related focus area',type:'text',help:'A What We Do section, for example “digital-learning”.'},
+  {name:'theme',label:'Related focus area',type:'select',optionsFrom:{collection:'thematic_areas',value:'anchor',label:'title'}},
   {name:'link_label',label:'Link text',type:'text',required:true},
   {name:'link_href',label:'Link',type:'text',required:true,help:linkHelp},
   position,
  ]},
  {key:'thematic-areas',apiPath:'collections/thematic_areas',group:'Programmes',label:'Thematic areas',singular:'thematic area',description:'Focus areas on the What We Do page and in the header menu.',titleField:'title',columns:['title','anchor'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Title',type:'text',required:true},
-  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens; the section opens at /what-we-do#this-value. Programmes and focus cards refer to it.'},
+  {name:'anchor',label:'Section link',type:'text',required:true,slugFrom:'title',max:60,help:'The section opens at /what-we-do#this-value. Programmes and focus cards refer to it.'},
   {name:'summary',label:'Summary',type:'textarea',required:true,help:'Also shown in the header menu.'},
   {name:'points',label:'Points',type:'lines',help:'One point per line.'},
   {name:'link_label',label:'Link text',type:'text',required:true},
@@ -174,7 +179,7 @@ export const adminResources:AdminResource[]=[
  ]},
  {key:'cross-cutting-themes',apiPath:'collections/cross_cutting_themes',group:'Programmes',label:'Cross-cutting themes',singular:'theme',description:'Shared commitments on the What We Do page.',titleField:'title',columns:['title','link_href'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Title',type:'text',required:true},
-  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens.'},
+  {name:'anchor',label:'Section link',type:'text',required:true,slugFrom:'title',max:60},
   {name:'text',label:'Text',type:'textarea',required:true},
   {name:'link_label',label:'Link text',type:'text',required:true},
   {name:'link_href',label:'Link',type:'text',required:true,help:linkHelp},
@@ -196,7 +201,7 @@ export const adminResources:AdminResource[]=[
  ]},
  {key:'giving-enquiries',apiPath:'collections/giving_enquiries',group:'Get involved',label:'Giving enquiries',singular:'enquiry option',description:'“More ways to give” cards, each opening an email enquiry.',titleField:'title',columns:['title','text'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Title',type:'text',required:true},
-  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens.'},
+  {name:'anchor',label:'Section link',type:'text',required:true,slugFrom:'title',max:60},
   {name:'text',label:'Text',type:'textarea',required:true},
   position,
  ]},
@@ -207,7 +212,7 @@ export const adminResources:AdminResource[]=[
  ]},
  {key:'disclosures',apiPath:'collections/disclosure_categories',group:'Transparency',label:'Disclosures',singular:'disclosure category',description:'Audit reports, policies and reporting channels on the Disclosures page.',titleField:'title',columns:['title','status','documents'],canCreate:true,canDelete:true,fields:[
   {name:'title',label:'Title',type:'text',required:true},
-  {name:'anchor',label:'Section link',type:'text',required:true,help:'Lowercase words with hyphens.'},
+  {name:'anchor',label:'Section link',type:'text',required:true,slugFrom:'title',max:60},
   {name:'status',label:'Status',type:'text',required:true,help:'For example “Awaiting documents” or “Published”.'},
   {name:'text',label:'Text',type:'textarea',required:true},
   {name:'documents',label:'Documents',type:'lines',help:'One per line as “Title | https://link”. Upload files under File uploads to get a link.'},
@@ -334,3 +339,13 @@ export const adminTools:{href:string;group:AdminGroup;label:string;description:s
 
 export const findAdminSetting=(key:string)=>adminSettings.find(s=>s.key===key);
 
+
+/** Loads the choices of a resource's `optionsFrom` selects. */
+export async function loadSelectOptions(resource:AdminResource,get:<T>(path:string)=>Promise<T>){
+ const entries=await Promise.all(resource.fields.filter(field=>field.optionsFrom).map(async field=>{
+  const {collection,value,label}=field.optionsFrom!;
+  const items=await get<Record<string,unknown>[]>('/collections/'+collection);
+  return [field.name,items.map(item=>({value:String(item[value]),label:String(item[label])}))] as const;
+ }));
+ return Object.fromEntries(entries);
+}
