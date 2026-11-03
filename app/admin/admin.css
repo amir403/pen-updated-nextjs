@@ -75,8 +75,16 @@
  .admin-image-field{flex-direction:column}
 }
 
-.admin-nav-section{display:grid;gap:2px;margin-top:14px}
-.admin-nav-section>p{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--admin-muted);padding:0 12px 4px}
+.admin-nav-section{display:grid;gap:2px;margin-top:4px}
+.admin-nav-heading{display:flex;align-items:center;gap:6px;width:100%;padding:8px 12px;border:0;border-radius:6px;background:none;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--admin-muted);cursor:pointer;text-align:left}
+.admin-nav-heading:hover{background:var(--admin-accent-soft);color:var(--admin-text)}
+.admin-nav-heading>span:first-child{flex:1}
+.admin-nav-heading>.admin-badge{margin-left:0}
+.admin-nav-heading>svg{flex-shrink:0;transition:transform .2s}
+.admin-nav-heading[aria-expanded=false]>svg{transform:rotate(-90deg)}
+.admin-nav-links{display:grid;gap:2px;padding-bottom:6px}
+.admin-nav-links[hidden]{display:none}
+.admin-nav-links a{padding-left:20px}
 .admin-menu-toggle{display:none}
 .admin-dashboard-group{display:grid;gap:12px}
 .admin-dashboard-group h2{font-size:16px;letter-spacing:0;color:var(--admin-text)}
@@ -88,8 +96,8 @@
  .admin-menu-toggle{display:inline-flex;align-items:center;justify-content:center;height:38px;border:1px solid var(--admin-border);border-radius:6px;background:var(--admin-surface);color:var(--admin-text);font-weight:600}
  .admin-nav{display:none}
  .admin-nav.open{display:grid;gap:2px}
- .admin-nav-section{display:flex;flex-wrap:wrap;gap:4px}
- .admin-nav-section>p{flex-basis:100%}
+ .admin-nav-links:not([hidden]){display:flex;flex-wrap:wrap;gap:4px}
+ .admin-nav-links a{padding-left:12px}
 }
 .admin-thumb{width:72px;height:48px;object-fit:cover;border-radius:4px;border:1px solid var(--admin-border)}
 .admin-upload-field{display:grid;gap:8px}
@@ -134,3 +142,4 @@
 .admin-rich-content ul{list-style:disc}.admin-rich-content ol{list-style:decimal}
 .admin-rich-content em{font-style:italic;color:inherit}
 .admin-rich-content a{color:var(--admin-accent);text-decoration:underline}
+@media (prefers-reduced-motion:reduce){.admin-nav-heading>svg{transition:none}}
