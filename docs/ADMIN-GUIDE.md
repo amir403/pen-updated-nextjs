@@ -70,15 +70,17 @@ PDF ya Word file ka link chahiye? **Content → File uploads** par file upload k
 
 ## 3. Khaas baatein
 
-- **Article ka URL slug** chhote huroof aur hyphens mein (`new-library-opening`). Wahi page ka address banta hai.
+- **Article ka URL slug** aur **"Section link"** title likhte hi khud ban jate hain (`new-library-opening`). Badalna ho to **Edit** dabayein; **Use title** se dobara title wala ban jata hai. Pehle se save kiye record ka slug band rehta hai, kyunke badalne se purane links toot jate hain; Edit kar ke badal sakte hain, lekin warning aati hai.
+- **Date label**: calendar button se tareekh chunein (jaise "15 April 2025"), ya koi label khud likhein (jaise "Student stories"). Jobs & tenders ki **Closing date** bhi calendar se chunein.
+- **Focus areas** aur **Upcoming priorities** mein "What We Do section" ab dropdown hai, jis mein Thematic areas ki list aati hai.
 - **Donation settings** mein per-child rate alag rakha gaya hai, taake calculator kabhi na toote.
   Baaki options **Sponsorship options** mein hain.
 - **Jobs & tenders**: closing date guzarne par notice website se khud hat jata hai.
   Koi open notice na ho to `/job` par "No open jobs or tenders" dikhta hai.
 - **Header menu**: "Focus areas menu" wala group thematic areas khud dikhata hai. Us ke links field ki zaroorat nahi.
 - **Privacy & terms** text mein `{email}` likhein to wahan contact email ka link ban jata hai.
-- **"Section link"** fields (anchor) chhote huroof aur hyphens mein hon. Doosre modules
-  (focus areas, programmes) inhi naamon se thematic areas ko jodte hain.
+- **"Section link"** se doosre modules (focus areas, programmes) thematic areas ko jodte hain, is liye
+  thematic area ka section link badalne se pehle soch lein.
 - **Programme pages** sirf edit ho sakte hain, kyunke un ke page addresses fixed hain.
   Naya page add karne ke liye developer ki zaroorat hai.
 - **Form submissions**: naye entries ki ginti sidebar mein dikhti hai. Entry kholne par woh "read" ho jati hai.

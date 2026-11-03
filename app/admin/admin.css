@@ -150,3 +150,13 @@
 .admin-file-upload [data-slot=attachment][data-state=error] [data-slot=attachment-description]{color:#b42318}
 .dark .admin-file-upload [data-slot=attachment][data-state=error] [data-slot=attachment-description]{color:#ff8a80}
 .admin-file-upload [data-slot=attachment-trigger]:focus-visible{outline:2px solid var(--admin-accent);outline-offset:2px;border-radius:12px}
+.admin-slug{display:grid;gap:6px}
+.admin-slug-row,.admin-date{display:flex;gap:8px;align-items:center}
+.admin-slug-row>input{flex:1;min-width:0;background:var(--admin-surface)}
+.admin-slug-row>input:read-only{background:var(--admin-accent-soft);color:var(--admin-muted)}
+.admin-slug-row>button{flex-shrink:0}
+.admin-slug-warning{color:#9a5b00!important}
+.dark .admin-slug-warning{color:#f5c26b!important}
+.admin-date>input{flex:1;min-width:0;background:var(--admin-surface)}
+.admin-date-trigger{flex:1;justify-content:flex-start;gap:8px;font-weight:400;background:var(--admin-surface)}
+.admin-date-placeholder{color:var(--admin-muted)}

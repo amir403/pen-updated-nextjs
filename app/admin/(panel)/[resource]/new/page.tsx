@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
-import {findAdminResource} from '@/lib/admin-resources';
+import {findAdminResource,loadSelectOptions} from '@/lib/admin-resources';
+import {adminGet} from '@/lib/admin-api';
 import {RecordForm} from '@/components/admin/record-form';
 
 type Params={params:Promise<{resource:string}>};
@@ -12,6 +13,6 @@ export default async function NewRecord({params}:Params){
  if(!resource?.canCreate)notFound();
  return <>
   <header className="admin-header"><div><Link href={'/admin/'+resource.key} className="admin-back">← {resource.label}</Link><h1>Add {resource.singular}</h1></div></header>
-  <RecordForm resource={resource} id={null} record={{}}/>
+  <RecordForm resource={resource} id={null} record={{}} options={await loadSelectOptions(resource,adminGet)}/>
  </>;
 }
