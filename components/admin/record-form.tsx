@@ -6,6 +6,10 @@ import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
 import {Textarea} from '@/components/ui/textarea';
+import {RichTextEditor} from '@/components/admin/rich-text-editor';
+
+/** Fields that take a whole row of the form grid; the rest share a row two at a time. */
+const wideTypes:AdminField['type'][]=['textarea','paragraphs','lines','image'];
 
 const initialValue=(field:AdminField,value:unknown)=>{
  if(value==null)return '';
@@ -16,7 +20,8 @@ const initialValue=(field:AdminField,value:unknown)=>{
 
 function FieldInput({field,value,invalid}:{field:AdminField;value:string;invalid:boolean}){
  const common={id:field.name,name:field.name,defaultValue:value,required:field.required&&!field.upload,'aria-invalid':invalid||undefined,'aria-describedby':field.help?field.name+'-help':undefined};
- if(field.type==='textarea'||field.type==='paragraphs'||field.type==='lines')return <Textarea {...common} rows={field.type==='paragraphs'?10:field.type==='lines'?6:4}/>;
+ if(field.type==='textarea'||field.type==='paragraphs')return <RichTextEditor id={field.name} name={field.name} value={value} multiline={field.type==='paragraphs'} labelId={field.name+'-label'} invalid={invalid} describedBy={common['aria-describedby']}/>;
+ if(field.type==='lines')return <Textarea {...common} rows={6}/>;
  if(field.type==='select')return <select {...common} className="admin-select"><option value="">Choose…</option>{field.options?.map(o=><option key={o} value={o}>{o}</option>)}</select>;
  if(field.type==='checkbox')return <input id={field.name} name={field.name} type="checkbox" defaultChecked={value==='on'} className="admin-checkbox" aria-describedby={common['aria-describedby']}/>;
  if(field.type==='image')return <div className="admin-image-field">
@@ -32,8 +37,8 @@ function FieldInput({field,value,invalid}:{field:AdminField;value:string;invalid
 const fieldErrors=(state:FormState,name:string)=>state.errors?.[name]??Object.entries(state.errors??{}).find(([key])=>key.startsWith(name+'.'))?.[1];
 
 export function FieldList({fields,record,state}:{fields:AdminField[];record:Record<string,unknown>;state:FormState}){
- return fields.map(field=>{const errors=fieldErrors(state,field.name);return <div className={'admin-field'+(field.type==='checkbox'?' admin-field-checkbox':'')} key={field.name}>
-  <Label htmlFor={field.name}>{field.label}{field.required&&<span aria-hidden="true"> *</span>}</Label>
+ return fields.map(field=>{const errors=fieldErrors(state,field.name);return <div className={'admin-field'+(field.type==='checkbox'?' admin-field-checkbox':'')+(wideTypes.includes(field.type)?' admin-field-wide':'')} key={field.name}>
+  <Label htmlFor={field.name} id={field.name+'-label'}>{field.label}{field.required&&<span aria-hidden="true"> *</span>}</Label>
   <FieldInput field={field} value={state.values?.[field.name]??initialValue(field,record[field.name])} invalid={!!errors}/>
   {field.help&&<small id={field.name+'-help'}>{field.help}</small>}
   {errors&&<p className="admin-field-error">{errors[0]}</p>}
@@ -44,7 +49,7 @@ export function RecordForm({resource,id,record}:{resource:AdminResource;id:strin
  // React resets the form after each attempt but restores <select> to its first option, so remount the
  // fields with the submitted values instead.
  const [state,action,pending]=useActionState<FormState&{attempt?:number},FormData>(async(previous,form)=>({...await saveRecord(resource.key,id,previous,form),attempt:(previous.attempt??0)+1}),{});
- return <form action={action} className="admin-form admin-card" key={state.attempt}>
+ return <form action={action} className="admin-form admin-form-grid admin-card" key={state.attempt}>
   {state.message&&<p className="admin-alert error" role="alert">{state.errors?'Please correct the highlighted fields.':state.message}</p>}
   <FieldList fields={resource.fields} record={record} state={state}/>
   <div className="admin-actions"><Button type="submit" disabled={pending}>{pending?'Saving…':'Save'}</Button></div>

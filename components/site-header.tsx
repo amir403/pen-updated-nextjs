@@ -15,6 +15,7 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from '@/co
 import {Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle} from '@/components/ui/dialog';
 import {DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger} from '@/components/ui/dropdown-menu';
 import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from '@/components/ui/sheet';
+import {RichText} from '@/components/rich-text';
 
 export function Header() {
   const [menu,setMenu] = useState(false);
@@ -61,7 +62,7 @@ export function Header() {
             <DropdownMenuGroup className={group.mega?'nav-menu-grid':undefined}>
               {group.items.map(item=><DropdownMenuItem asChild key={item.href}>
                 <Link href={item.href} className="nav-menu-item" aria-current={item.href===pathname?'page':undefined}>
-                  <span className="nav-menu-copy"><span className="nav-menu-title">{item.title}</span>{item.description&&<span className="nav-menu-description">{item.description}</span>}</span>
+                  <span className="nav-menu-copy"><span className="nav-menu-title">{item.title}</span>{item.description&&<span className="nav-menu-description"><RichText value={item.description} inLink/></span>}</span>
                   <ArrowUpRight size={15} aria-hidden="true"/>
                 </Link>
               </DropdownMenuItem>)}
