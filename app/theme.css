@@ -68,8 +68,6 @@
 .dark .light-button { background: #e6eee0; color: #164a31; }
 .dark .light-button:hover { background: #f2dfb3; color: #164a31; }
 .dark .skip-link { background: var(--card); color: var(--foreground); }
-.dark .tender-demo-notice { background: #342d19; border-color: #9b8144; color: #f0d68c; }
-.dark .tender-demo-notice p { color: #dfcfa3; }
 .dark .tender-notice-card dt { color: var(--muted-foreground); }
 .dark .tender-notice-card dd { color: var(--foreground); }
 .dark .tender-notice-card dl div { border-color: var(--border); }

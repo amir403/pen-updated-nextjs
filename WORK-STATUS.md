@@ -88,7 +88,7 @@ PPT mein doosri organisations ke screenshots ko design references samjha gaya ha
 | Disclosures landing page/navigation | Structure ban sakta hai; actual reports, policies aur reporting channels ke liye approved data chahiye. |
 | Homepage partner strip | Five existing logos se initial strip ban sakti hai; expanded list/placement approval pending. |
 | Dedicated impact overview | Existing published counters/stories se initial overview ban sakta hai; stronger/current reporting ke liye updated data chahiye. |
-| Demo tenders cleanup | `/job` par three clearly labelled demo notices hain. Real notices na hon to empty state aur matching hero copy karna pending hai. |
+| Demo tenders cleanup | Complete (27 October 2026): demo notices hata diye. `/job` ab admin panel ke "Jobs & tenders" module se real notices dikhata hai; koi open notice na ho to empty state. |
 
 ## 6. Old website ke collected data mein nahi mila / approved data chahiye
 
@@ -112,10 +112,10 @@ Ye **collected dataset ka gap** hai; poori old website/internet par kabhi data t
 
 | Item | Current state | Remaining action |
 | --- | --- | --- |
-| Volunteer submission/upload backend | On-site form preview only; nothing sent or saved | Connect submission/storage/email later, as requested |
+| Volunteer submission/upload backend | Complete (27 October 2026): API configured hone par form aur documents admin panel ke Form submissions mein aate hain; documents private storage mein | Email notification abhi nahi |
 | Donation category availability | Visible enquiry options | Confirm and update later, as requested |
 | Five social media URLs | Facebook, Instagram, TikTok, LinkedIn and X show Coming soon | User will supply proper URLs later |
-| Contact server submission | Opens email draft | Connect a delivery service if direct website submission is wanted |
+| Contact server submission | Complete (27 October 2026): API configured hone par message admin panel ke Form submissions mein; API na ho to email draft | Email notification abhi nahi |
 | Native payments/recurring billing | Official payment handoff; no on-site checkout | Separate payment integration and confirmed arrangements required |
 | Domain / old-site strategy | GitHub/Vercel workflow configured | Decide final domain and how the old site/Academy should be linked or redirected |
 | On-site careers form | Official external application retained | Optional future migration; current request was volunteer only |

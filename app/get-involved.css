@@ -14,3 +14,11 @@
 .contact-page .office-grid{margin-top:60px}.contact-page .office-grid>div{background:var(--muted);border:1px solid var(--border);border-radius:4px}
 @media(max-width:1000px){.involvement-grid,.application-steps{gap:18px}.involvement-grid article,.application-steps li{padding:24px}.involvement-grid h3,.application-steps h3{font-size:23px}}
 @media(max-width:700px){.involvement-grid,.application-steps{grid-template-columns:1fr}.involvement-paths,.application-guide{margin-top:50px}.enquiry-form h2{font-size:29px}.enquiry-form>button{width:100%;gap:10px}.enquiry-form .form-row{gap:20px}.contact-page .office-grid{margin-top:40px}.involvement-grid p,.application-steps p{font-size:13px}}
+
+/* Website form spam trap: off-screen for people, still filled in by most bots. */
+.form-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.form-status--error{background:#fdecea;color:#8a1c12}.form-status--error ul{margin:8px 0 0;padding-left:18px}.form-status--error a{text-decoration:underline}
+.volunteer-field-error{color:#b42318;font-size:12px;margin-top:6px}
+.volunteer-form-status--error{border-color:#e8a59d;background:#fdecea;color:#8a1c12}
+.dark .form-status--error,.dark .volunteer-form-status--error{background:#3b1d1a;color:#ffb4ab}
+.dark .volunteer-field-error{color:#ff8a80}
