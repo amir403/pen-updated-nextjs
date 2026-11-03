@@ -7,6 +7,7 @@ import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
 import {Textarea} from '@/components/ui/textarea';
 import {RichTextEditor} from '@/components/admin/rich-text-editor';
+import {FileUpload} from '@/components/admin/file-upload';
 
 /** Fields that take a whole row of the form grid; the rest share a row two at a time. */
 const wideTypes:AdminField['type'][]=['textarea','paragraphs','lines','image'];
@@ -26,10 +27,10 @@ function FieldInput({field,value,invalid}:{field:AdminField;value:string;invalid
  if(field.type==='checkbox')return <input id={field.name} name={field.name} type="checkbox" defaultChecked={value==='on'} className="admin-checkbox" aria-describedby={common['aria-describedby']}/>;
  if(field.type==='image')return <div className="admin-image-field">
   {value&&<img src={value} alt=""/>}
-  <div><Input {...common} required={false} placeholder="/images/photo.jpg or https://…"/><Input name={field.name+'_file'} type="file" accept="image/jpeg,image/png,image/webp,image/gif" aria-label={field.label+' upload'}/><small>Upload a new image (max 10 MB) or enter an image path.</small></div>
+  <div><Input {...common} required={false} placeholder="/images/photo.jpg or https://…"/><FileUpload name={field.name+'_file'} accept="image/jpeg,image/png,image/webp,image/gif" label={field.label} hint="JPG, PNG, WebP or GIF, up to 10 MB. Or enter an image path above."/></div>
  </div>;
  const input=<Input {...common} type={field.type==='number'?'number':field.type==='url'?'url':field.type==='date'?'date':'text'} min={field.type==='number'?0:undefined}/>;
- if(field.upload)return <div className="admin-upload-field">{input}<Input name={field.name+'_file'} type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,image/*" aria-label={field.label+' upload'}/><small>Upload a file (max 10 MB) or enter a link.</small></div>;
+ if(field.upload)return <div className="admin-upload-field">{input}<FileUpload name={field.name+'_file'} accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.jpeg,.png,.webp,.gif" label={field.label} hint="PDF, Word, Excel, PowerPoint or an image, up to 10 MB. Or enter a link above."/></div>;
  return input;
 }
 
