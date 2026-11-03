@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {ArrowUpRight, BookOpen, GraduationCap, Handshake, Laptop, School, Search, Users} from 'lucide-react';
 import {useSiteContent} from '@/components/site-content-provider';
 import {countWord} from '@/lib/count-words';
+import {RichText} from '@/components/rich-text';
 
 /** Icons for programme cards, keyed like `programmeIcons` in lib/programmes.ts. */
 const programmeIcons = {school:School,handshake:Handshake,users:Users,graduation:GraduationCap,book:BookOpen,laptop:Laptop,search:Search} as const;
@@ -30,7 +31,7 @@ export function OngoingProjects() {
         const Icon = programmeIcons[programme.icon as keyof typeof programmeIcons]??School;
         return <SiteCard asChild key={index}><article className="project-card" id={programme.anchor} key={programme.anchor} aria-labelledby={'programme-'+programme.anchor}>
           <div className="project-card-top"><span className="project-icon"><Icon size={24} aria-hidden="true"/></span><span className="project-number">{String(index+1).padStart(2,'0')}</span></div>
-          <h3 id={'programme-'+programme.anchor}>{programme.title}</h3><p>{programme.description}</p>
+          <h3 id={'programme-'+programme.anchor}>{programme.title}</h3><p><RichText value={programme.description}/></p>
           <div className="project-themes"><span className="project-label">Related focus areas</span>{programme.themes.map(theme=><RelatedTheme id={theme} key={theme}/>)}</div>
           <div className="project-card-links"><Link href={programme.link_href} className="text-link" {...external(programme.link_href)}>{programme.link_label}<ArrowUpRight size={16} aria-hidden="true"/></Link>
             {programme.resource_href&&<a href={programme.resource_href} className="project-resource" {...external(programme.resource_href)}>{programme.resource_title}<ArrowUpRight size={14} aria-hidden="true"/></a>}
@@ -50,7 +51,7 @@ export function UpcomingProjects() {
       {priorities.map((priority,index)=>{
         return <SiteCard asChild key={index}><article className="project-card priority-card" id={priority.anchor} key={priority.anchor}>
           <div className="project-card-top"><span className="priority-status">Future priority</span><span className="project-number">{String(index+1).padStart(2,'0')}</span></div>
-          <h3>{priority.title}</h3><p>{priority.text.replace(/\.?$/,'.')}</p>
+          <h3>{priority.title}</h3><p><RichText value={priority.text.replace(/\.?$/,'.')}/></p>
           {priority.theme&&<div className="project-themes"><span className="project-label">Related focus area</span><RelatedTheme id={priority.theme}/></div>}
           <div className="project-card-links"><Link href={priority.link_href} className="text-link" {...external(priority.link_href)}>{priority.link_label}<ArrowUpRight size={16} aria-hidden="true"/></Link></div>
         </article></SiteCard>;

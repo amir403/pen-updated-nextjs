@@ -83,3 +83,4 @@
 .dark .brand img { background: #fff; border-radius: 5px; padding: 3px; }
 .dark .sponsor-grid>div { background: #fff; }
 .theme-toggle { border-radius: 50%; }
+.dark .rich-list { color: var(--muted-foreground); }

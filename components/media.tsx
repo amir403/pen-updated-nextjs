@@ -10,8 +10,10 @@ import {Input} from '@/components/ui/input';
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription} from '@/components/ui/dialog';
 import {type Article} from '@/lib/content';
 import {useSiteContent} from '@/components/site-content-provider';
+import {RichText} from '@/components/rich-text';
+import {richToPlain} from '@/lib/rich-text';
 
-export function ArticleCard({article}:{article:Article}){return <SiteCard asChild interactive><Link href={'/'+article.slug} className="article-card"><div className="article-image"><img src={article.image} alt={article.source||article.title} loading="lazy"/><span className="round-arrow"><ArrowUpRight size={19} aria-hidden="true"/></span></div><CardContent className="news-card-content"><div className="article-meta"><span>{article.category==='PEN heroes'?'PEN Heroes':article.category}</span><span>{article.date}</span></div><h3>{article.title}</h3><p>{article.summary}</p><span className="text-link media-read-link">Read story<ArrowUpRight size={16} aria-hidden="true"/></span></CardContent></Link></SiteCard>}
+export function ArticleCard({article}:{article:Article}){return <SiteCard asChild interactive><Link href={'/'+article.slug} className="article-card"><div className="article-image"><img src={article.image} alt={article.source||article.title} loading="lazy"/><span className="round-arrow"><ArrowUpRight size={19} aria-hidden="true"/></span></div><CardContent className="news-card-content"><div className="article-meta"><span>{article.category==='PEN heroes'?'PEN Heroes':article.category}</span><span>{article.date}</span></div><h3>{article.title}</h3><p><RichText value={article.summary} inLink/></p><span className="text-link media-read-link">Read story<ArrowUpRight size={16} aria-hidden="true"/></span></CardContent></Link></SiteCard>}
 
 export function News({page}:{page:string}){
   const {articles}=useSiteContent();
@@ -20,7 +22,7 @@ export function News({page}:{page:string}){
   const [category,setCategory]=useState(initial);
   const input=useRef<HTMLInputElement>(null);
   const words=query.toLowerCase().trim().split(/\s+/).filter(Boolean);
-  const filtered=articles.filter(a=>(category==='All'||a.category===category)&&words.every(word=>(a.title+' '+a.summary+' '+(a.source||'')).toLowerCase().includes(word)));
+  const filtered=articles.filter(a=>(category==='All'||a.category===category)&&words.every(word=>(a.title+' '+richToPlain(a.summary)+' '+(a.source||'')).toLowerCase().includes(word)));
   const reset=()=>{setQuery('');setCategory(initial)};
   return <section className="section container media-directory">
     <div className="media-intro"><div><p className="eyebrow"><span/>NEWS & MEDIA</p><h2>{page==='stories'?'Every child has a story.':page==='pen-blogs'?'Ideas that move education forward.':'Life, learning and progress at PEN.'}</h2><p>{page==='stories'?'Meet students whose determination shines through the opportunities around them.':page==='pen-blogs'?'Explore perspectives on learning, opportunity and the role of education in everyday life.':'Explore school updates, student journeys and perspectives from the PEN community.'}</p></div><Link href="/photo-gallery" className="text-link">Explore our photo gallery<ArrowUpRight size={17}/></Link></div>
