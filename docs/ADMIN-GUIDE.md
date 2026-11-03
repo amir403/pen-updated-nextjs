@@ -18,7 +18,7 @@ page se banaya gaya.
 
 | Field | Kaise bharein |
 | --- | --- |
-| Photo / Logo | **Choose File** se image upload karein (max 10 MB), ya maujooda path rehne dein (jaise `/images/IMG_4631.jpg`) |
+| Photo / Logo | Upload wale dabbe par click karein ya image us par drag karein (max 10 MB), ya maujooda path rehne dein (jaise `/images/IMG_4631.jpg`). Chuni hui file ka naam, size aur chhoti tasveer nazar aati hai; ✕ se hata sakte hain. File **Save** dabane par upload hoti hai |
 | Text / paragraphs | Editor ke upar wale buttons se **bold**, *italic*, underline, link aur (lambe text mein) bullet ya numbered list lagayein. Lambe text mein **Enter** naya paragraph banata hai; chhote text mein Enter se nayi line. Kahin aur se copy kiya text sirf text ki shakal mein paste hota hai |
 | Lines (list) | Har cheez alag line par (yahan formatting nahi hoti), jaise phone numbers, checklist points, SDG numbers |
 | Link | Website ka page (`/pen-academy`), section (`/what-we-do#girls-education`) ya poora `https://` link |
