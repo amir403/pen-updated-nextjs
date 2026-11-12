@@ -2,7 +2,7 @@ import {cache} from 'react';
 import {resourceTypes,staticSiteContent,type GalleryPhoto,type ResourceDoc,type ResourceType,type SiteContent} from '@/lib/site-content';
 import type {Office} from '@/lib/site-settings';
 import type {FocusArea,HeroSlide,ImpactStat} from '@/lib/homepage';
-import type {CrossCuttingTheme,DisclosureCategory,ImpactFigure,Partner} from '@/lib/transparency';
+import type {CrossCuttingTheme,ImpactFigure,Partner} from '@/lib/transparency';
 import type {ThematicArea} from '@/lib/website-outline';
 import type {Opportunity} from '@/lib/opportunities';
 import type {LegalSection} from '@/lib/legal';
@@ -75,7 +75,6 @@ function fromApi(api:ApiContent):SiteContent{
   bankAccounts:fromCollection(api,'bank_accounts',staticSiteContent.bankAccounts,item=>item as BankAccount),
   givingEnquiries:fromCollection(api,'giving_enquiries',staticSiteContent.givingEnquiries,item=>item as GivingEnquiry),
   publishedImpact:fromCollection(api,'published_impact',staticSiteContent.publishedImpact,item=>item as ImpactFigure),
-  disclosureCategories:fromCollection(api,'disclosure_categories',staticSiteContent.disclosureCategories,item=>item as DisclosureCategory),
   navMenu:fromCollection(api,'nav_menu',staticSiteContent.navMenu,item=>({...item,mega:Boolean(item.mega)}) as NavMenuGroup),
   formsEnabled:true,
   footerColumns:fromCollection(api,'footer_columns',staticSiteContent.footerColumns,item=>item as FooterColumn),

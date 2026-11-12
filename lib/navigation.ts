@@ -10,8 +10,8 @@ export type FooterColumn={heading:string;links:string[]};
 export const navMenu:NavMenuGroup[]=nav.map(group=>({label:group.label,description:group.description,mega:Boolean(group.mega),overview_href:group.overview??null,links:group.mega?[]:group.items.map(item=>item.title+' | '+item.href)}));
 
 export const footerColumns:FooterColumn[]=[
- {heading:'Discover PEN',links:['Our story | /about-us','Our work | /our-work','Our schools | /explore-our-schools','News & stories | /news','Our impact | /impact','Disclosures | /disclosures','Corporate information | /corporate-information']},
- {heading:'Make a difference',links:['Donate now | /donate-now','Become a volunteer | /volunteer','Work with us | /careers','Publications | /publications','FAQs | /faq']},
+ {heading:'Discover PEN',links:['Our story | /about-us','Our work | /our-work','Our schools | /explore-our-schools','News & stories | /news','Our impact | /impact','PEN Academy | /pen-academy','Corporate information | /corporate-information']},
+ {heading:'Make a difference',links:['Donate now | /donate-now','Become a volunteer | /volunteer','Work with us | /careers','Publications | /publications','FAQs | /faq','Contact us | /contact-us']},
 ];
 
 /** Splits a "Title | /link" line; lines without both parts are skipped. */

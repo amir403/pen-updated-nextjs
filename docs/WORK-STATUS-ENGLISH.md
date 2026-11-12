@@ -16,7 +16,7 @@ This report separates work derived from the presentation, website outline, exist
 | Donation shop and examples; slides 13–15 | Eight priced PEN options, six additional enquiry categories, custom amount/currency/frequency enquiry and Zakat estimator. | Interface complete; programme availability and payment arrangements require confirmation. |
 | Get Involved; slide 16 | Volunteer page, on-site application preview, careers page and partnership enquiry. | Present; a separate alumni programme is unconfirmed. |
 | Pictures, media and stories; slide 17 | News, blog and student-story cards, filters, search and photo gallery. | Complete using available content. |
-| Disclosures; slide 18 | /disclosures landing page, four status-labelled categories and links to existing corporate records/publications. | Structure complete; approved reports, policies and reporting channels pending. |
+| Disclosures; slide 18 | The /disclosures page was removed on 12 November 2026 at the client's request. Corporate records remain at /corporate-information and publications at /publications. | Removed by request. |
 | Contact; slide 18 | Contact details, office directions and an email-draft form. | Interface complete; direct server submission is not connected. |
 
 Screenshots of other organisations in the presentation were treated as design references. Their statistics, services, policies and certifications were not copied as PEN claims.
@@ -80,7 +80,7 @@ Potential partner.docx was excluded at the user’s request because it belongs t
 | --- | --- |
 | Dedicated cross-cutting section | Completed: all six supplied headings are presented together with summaries and related links. |
 | Cross-cutting coverage | Include child safeguarding/PSEA; gender equality/social inclusion; disability inclusion/accessibility; climate resilience/disaster risk reduction; community participation; evidence-based programming/accountability. |
-| Disclosures landing page and navigation | Completed at /disclosures. Audit reports, policies, complaints and whistleblowing show explicit pending statuses; approved material is still needed. |
+| Disclosures landing page and navigation | Removed on 12 November 2026 at the client's request. |
 | Homepage partner strip | Completed on the homepage using the five existing PEN logo assets. Expanded coverage still needs approved logos and names. |
 | Dedicated impact overview | Completed at /impact, with a homepage introduction. Uses existing published counters, stories and evidence links; stronger/current reporting needs updated material. |
 | Demo tender cleanup | Complete (27 October 2026): demo notices removed. /job lists real notices from the admin panel's Jobs & tenders module, with an empty state when none are open. |
@@ -129,6 +129,5 @@ The volunteer backend, donation-availability updates and five social URLs were e
 ## Recommended next steps
 
 1. ~~Replace demo tenders with approved notices or an appropriate empty state.~~ Done: notices are managed in the admin panel.
-2. Supply approved audit reports, policies and reporting contacts to populate the completed Disclosures structure.
-3. Confirm updated impact figures and any additional partner logos for the completed overview and homepage strip.
-4. Connect deferred services when their content and arrangements are confirmed.
+2. Confirm updated impact figures and any additional partner logos for the completed overview and homepage strip.
+3. Connect deferred services when their content and arrangements are confirmed.

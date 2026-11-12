@@ -20,7 +20,7 @@ export const nav:NavGroup[] = [
  {label:'Our Projects',description:'Explore our programmes, schools and future priorities.',items:[{title:'Ongoing programmes',href:'/ongoing-projects'},{title:'Upcoming project priorities',href:'/upcoming-projects'},{title:'Our education models',href:'/our-work'},{title:'Our schools',href:'/explore-our-schools'},{title:'PEN Academy',href:'/pen-academy'},{title:'Teacher development',href:'/teacher-training'},{title:'Academic support',href:'/academics'},{title:'Scholarships',href:'/scholarships'}]},
  {label:'Get Involved',description:'Make a difference with your time, skills or support.',items:[{title:'Ways to give',href:'/donate-now'},{title:'Donation shop',href:'/donate-now#donation-shop'},{title:'More giving options',href:'/donate-now#giving-options'},{title:'Zakat calculator',href:'/donate-now#zakat-calculator'},{title:'Volunteer with us',href:'/volunteer'},{title:'Careers',href:'/careers'},{title:'Become a partner',href:'/contact-us'}]},
  {label:'News & Media',description:'Meet our community and follow the latest stories.',items:[{title:'Latest news',href:'/news'},{title:'PEN heroes',href:'/stories'},{title:'Our blog',href:'/pen-blogs'},{title:'Photo gallery',href:'/photo-gallery'}]},
- {label:'Resources',description:'Learning materials, publications and organisational records.',items:[{title:'Publications',href:'/publications'},{title:'Activity books',href:'/pen-activity-books'},{title:'Corporate information',href:'/corporate-information'},{title:'Disclosures',href:'/disclosures'},{title:'Tenders & opportunities',href:'/job'}]}
+ {label:'Resources',description:'Learning materials, publications and organisational records.',items:[{title:'Publications',href:'/publications'},{title:'Activity books',href:'/pen-activity-books'},{title:'Corporate information',href:'/corporate-information'},{title:'Tenders & opportunities',href:'/job'}]}
 ];
 export type Article={slug:string;title:string;category:string;date:string;image:string;summary:string;body:string[];source?:string;sourceUrl?:string};
 export const articles:Article[]=[
@@ -48,7 +48,6 @@ export const pageMeta:Record<string,[string,string,string]>={
  'ongoing-projects':['Ongoing Programmes','Stronger schools. Lasting opportunities.','Explore the education programmes connecting children, teachers and communities with learning opportunities.'],
  'upcoming-projects':['Upcoming Project Priorities','Inclusion. Innovation. Impact.','Explore the education priorities guiding future project discussions and opportunities to work with PEN.'],
  'what-we-do':['What We Do','Education with every child in mind.','Explore PEN’s thematic focus areas, from stronger public schools to inclusive, community-led learning.'],
- 'disclosures':['Disclosures','Information you can explore.','Corporate records, audit reports, policies and reporting information, with a clear status for material awaiting publication.'],
  'impact':['Our impact','Behind every number, a possibility.','Explore the published reach, student journeys and available evidence.'],
  'about-us':['Our story','A shared belief. A better future.','Helping children discover what is possible through free, quality education.'],
  'ceo-message':['CEO message','Working together for every child.','A commitment to education, accountability and the potential of our children.'],

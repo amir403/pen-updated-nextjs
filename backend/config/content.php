@@ -70,18 +70,6 @@ return [
                 'label' => ['required', 'string', 'max:80'],
             ],
         ],
-        'disclosure_categories' => [
-            'rules' => [
-                'anchor' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'],
-                'title' => ['required', 'string', 'max:80'],
-                'status' => ['required', 'string', 'max:60'],
-                'text' => ['required', 'string', 'max:600'],
-                'documents' => ['present', 'array', 'max:50'],
-                // "Title | https://link" per line.
-                'documents.*' => ['string', 'max:500', 'regex:/^[^|]+\|\s*https?:\/\/\S+$/'],
-            ],
-            'attributes' => ['anchor' => 'section link', 'documents.*' => 'document line'],
-        ],
         'sponsorship_options' => [
             'rules' => [
                 'title' => ['required', 'string', 'max:80'],
@@ -374,14 +362,12 @@ return [
         'site' => [
             'rules' => [
                 'value' => ['required', 'array'],
-                'value.topbar_text' => ['nullable', 'string', 'max:120'],
                 'value.footer_tagline' => ['nullable', 'string', 'max:200'],
                 'value.video_url' => ['nullable', 'url', 'max:300'],
                 'value.donation_url' => ['required', 'url', 'max:300'],
                 'value.careers_url' => ['required', 'url', 'max:300'],
             ],
             'attributes' => [
-                'value.topbar_text' => 'top bar text',
                 'value.footer_tagline' => 'footer tagline',
                 'value.video_url' => 'video link',
                 'value.donation_url' => 'donation page link',

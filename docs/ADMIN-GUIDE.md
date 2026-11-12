@@ -22,7 +22,7 @@ page se banaya gaya.
 | Text / paragraphs | Editor ke upar wale buttons se **bold**, *italic*, underline, link aur (lambe text mein) bullet ya numbered list lagayein. Lambe text mein **Enter** naya paragraph banata hai; chhote text mein Enter se nayi line. Kahin aur se copy kiya text sirf text ki shakal mein paste hota hai |
 | Lines (list) | Har cheez alag line par (yahan formatting nahi hoti), jaise phone numbers, checklist points, SDG numbers |
 | Link | Website ka page (`/pen-academy`), section (`/what-we-do#girls-education`) ya poora `https://` link |
-| "Title \| link" lines | Menu links, footer links aur disclosure documents: `Audit report 2025 \| https://...` |
+| "Title \| link" lines | Menu aur footer links: `Contact us \| /contact-us` |
 | Published (checkbox) | Untick karne se record chhup jata hai, delete nahi hota |
 
 PDF ya Word file ka link chahiye? **Content → File uploads** par file upload karein aur
@@ -57,14 +57,13 @@ PDF ya Word file ka link chahiye? **Content → File uploads** par file upload k
 | Get involved | Sponsorship options, Bank accounts, Giving enquiries, Donation settings | `/donate-now` (calculator, shop, bank details) |
 | | Jobs & tenders | `/job`, `/careers` |
 | Transparency | Published impact figures | `/impact` |
-| | Disclosures | `/disclosures` (har category mein documents ki list) |
 | Website | Pages | Har page ka title (browser tab), hero heading aur hero text |
 | | Header menu | Upar ka menu (desktop + mobile) |
 | | Footer links | Footer ke link columns |
 | | Privacy & terms | `/privacy-policy`, `/terms-of-services` |
 | Settings | Offices | `/contact-us` office addresses |
 | | Contact details | Footer, `/contact-us`, enquiry forms ka email |
-| | Site options | Top bar text, footer tagline, homepage video, official donation/careers links |
+| | Site options | Footer tagline, homepage video, official donation/careers links |
 | | Social links | Footer social profiles |
 | | Admin users, My account | Admins add/remove, apna password |
 

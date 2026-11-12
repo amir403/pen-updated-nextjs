@@ -80,7 +80,7 @@ GitHub repository, keep the settings from `vercel.json`, and select **Deploy**.
 hero text, homepage slides, counters and sections, news and stories, FAQs, the
 school directory, documents, the photo gallery, About pages and the CEO message,
 education models, programmes and priorities, thematic areas, donation rates and
-bank accounts, impact figures and disclosures, job and tender notices, privacy
+bank accounts, impact figures, job and tender notices, privacy
 and terms, the header menu and footer links, contact details, offices, social
 links and admin users. It talks to the Laravel API in `backend/`, which stores
 content in MySQL and handles sign-in and file uploads; see `backend/README.md`

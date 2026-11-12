@@ -27,7 +27,7 @@ class AdminApiTest extends TestCase
     {
         $this->getJson('/api/content')
             ->assertOk()
-            ->assertJsonCount(31, 'pages')
+            ->assertJsonCount(30, 'pages')
             ->assertJsonCount(9, 'articles')
             ->assertJsonCount(268, 'schools')
             ->assertJsonCount(51, 'resources')

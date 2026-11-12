@@ -28,7 +28,7 @@ export function Header() {
   const scheduleClose=()=>{cancelClose();closeTimer.current=setTimeout(()=>setOpenGroup(null),220)};
   useEffect(()=>()=>{if(closeTimer.current!==null)clearTimeout(closeTimer.current)},[]);
   const pathname = usePathname();
-  const {pageMeta,articles,site,thematicAreas,crossCuttingThemes,navMenu} = useSiteContent();
+  const {pageMeta,articles,thematicAreas,crossCuttingThemes,navMenu} = useSiteContent();
   // A mega menu lists the thematic areas and a link to the cross-cutting themes, with counts in its copy.
   const nav = navMenu.map(group=>group.mega?{label:group.label,overview:group.overview_href??undefined,mega:true,description:`${countWord(thematicAreas.length,true)} focus areas. One commitment to every child.`,items:[...thematicAreas.map(area=>({title:area.title,href:'/what-we-do#'+area.anchor,description:area.summary})),...(crossCuttingThemes.length?[{title:'Cross-cutting commitments',href:'/what-we-do#cross-cutting-themes',description:`${countWord(crossCuttingThemes.length,true)} shared themes connecting our programmes.`}]:[])]}
    :{label:group.label,overview:group.overview_href??undefined,mega:false,description:group.description,items:group.links.map(parseLinkLine).filter(link=>link!==null).map(link=>({...link,description:undefined as string|undefined}))});
@@ -37,10 +37,6 @@ export function Header() {
     .filter(item=>item.title.toLowerCase().includes(query.trim().toLowerCase()));
 
   return <>
-    <div className="topbar"><div className="container topbar-inner">
-      <span>{site.topbar_text}</span>
-      <div><Link href="/pen-academy">PEN Academy<ArrowUpRight size={12} aria-hidden="true"/></Link><Link href="/careers">Careers</Link><Link href="/contact-us">Contact us</Link></div>
-    </div></div>
     <header className="header"><div className="container nav-inner">
       <Link href="/" className="brand" aria-label="PEN home"><img src={images.logo} alt="PEN"/></Link>
       <nav className="desktop-nav" aria-label="Main navigation">

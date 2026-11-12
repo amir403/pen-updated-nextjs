@@ -210,14 +210,6 @@ export const adminResources:AdminResource[]=[
   {name:'label',label:'Label',type:'text',required:true},
   position,
  ]},
- {key:'disclosures',apiPath:'collections/disclosure_categories',group:'Transparency',label:'Disclosures',singular:'disclosure category',description:'Audit reports, policies and reporting channels on the Disclosures page.',titleField:'title',columns:['title','status','documents'],canCreate:true,canDelete:true,fields:[
-  {name:'title',label:'Title',type:'text',required:true},
-  {name:'anchor',label:'Section link',type:'text',required:true,slugFrom:'title',max:60},
-  {name:'status',label:'Status',type:'text',required:true,help:'For example “Awaiting documents” or “Published”.'},
-  {name:'text',label:'Text',type:'textarea',required:true},
-  {name:'documents',label:'Documents',type:'lines',help:'One per line as “Title | https://link”. Upload files under File uploads to get a link.'},
-  position,
- ]},
  {key:'jobs-tenders',apiPath:'collections/opportunities',group:'Get involved',label:'Jobs & tenders',singular:'notice',description:'Job and tender notices on the Jobs & Tenders and Careers pages.',titleField:'title',columns:['type','title','closing_date','is_open'],canCreate:true,canDelete:true,fields:[
   {name:'type',label:'Type',type:'select',options:opportunityTypes,required:true},
   {name:'title',label:'Title',type:'text',required:true},
@@ -318,8 +310,7 @@ export const adminSettings:AdminSetting[]=[
   {name:'whatsapp',label:'WhatsApp numbers',type:'lines',help:'One number per line. Leave empty to hide the WhatsApp section.'},
   {name:'address',label:'Footer address',type:'lines',required:true,help:'One line per row. Office addresses are managed under Offices.'},
  ]},
- {key:'site',group:'Settings',label:'Site options',description:'Top bar text, footer tagline, homepage video and official links.',fields:[
-  {name:'topbar_text',label:'Top bar text',type:'text'},
+ {key:'site',group:'Settings',label:'Site options',description:'Footer tagline, homepage video and official links.',fields:[
   {name:'footer_tagline',label:'Footer tagline',type:'textarea',help:'Press Enter for a line break.'},
   {name:'video_url',label:'Homepage video (YouTube link)',type:'url',help:'Leave empty to hide the “Watch our story” button.'},
   {name:'donation_url',label:'Official donation page',type:'url',required:true},

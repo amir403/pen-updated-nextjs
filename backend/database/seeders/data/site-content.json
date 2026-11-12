@@ -19,12 +19,6 @@
    "intro": "Explore PEN’s thematic focus areas, from stronger public schools to inclusive, community-led learning."
   },
   {
-   "slug": "disclosures",
-   "title": "Disclosures",
-   "heading": "Information you can explore.",
-   "intro": "Corporate records, audit reports, policies and reporting information, with a clear status for material awaiting publication."
-  },
-  {
    "slug": "impact",
    "title": "Our impact",
    "heading": "Behind every number, a possibility.",
@@ -3230,7 +3224,6 @@
    ]
   },
   "site": {
-   "topbar_text": "Opening doors through education, since 2005.",
    "footer_tagline": "Every child deserves the chance\nto learn. Every future matters.",
    "video_url": "https://www.youtube.com/watch?v=AzbJMPYcaV0",
    "donation_url": "https://pen.org.pk/donate-now/",
@@ -3970,8 +3963,8 @@
     "anchor": "safeguarding-psea",
     "title": "Child safeguarding and PSEA",
     "text": "Keeping child safeguarding and protection from sexual exploitation and abuse in view across education programmes.",
-    "link_href": "/disclosures#policies",
-    "link_label": "Policy information"
+    "link_href": "/contact-us",
+    "link_label": "Contact PEN"
    },
    {
     "anchor": "gender-social-inclusion",
@@ -4111,36 +4104,6 @@
    {
     "value": "27",
     "label": "Districts across Pakistan"
-   }
-  ],
-  "disclosure_categories": [
-   {
-    "anchor": "audit-reports",
-    "title": "Audit reports",
-    "status": "Awaiting documents",
-    "text": "Year-wise approved audit reports, including the requested 2025–2026 material, will appear here when supplied.",
-    "documents": []
-   },
-   {
-    "anchor": "policies",
-    "title": "PEN policies",
-    "status": "Awaiting documents",
-    "text": "Approved organisational policies, including safeguarding and PSEA material, will be added when available for publication.",
-    "documents": []
-   },
-   {
-    "anchor": "complaints",
-    "title": "Complaints",
-    "status": "Awaiting confirmed process",
-    "text": "The authorised complaints contact, submission instructions and process are awaiting confirmation. A dedicated complaint number is not currently published here.",
-    "documents": []
-   },
-   {
-    "anchor": "whistleblowing",
-    "title": "Whistleblowing",
-    "status": "Awaiting confirmed process",
-    "text": "The approved policy, authorised reporting channel and confidentiality information will be published once confirmed.",
-    "documents": []
    }
   ],
   "opportunities": [],
@@ -4286,7 +4249,6 @@
      "Publications | /publications",
      "Activity books | /pen-activity-books",
      "Corporate information | /corporate-information",
-     "Disclosures | /disclosures",
      "Tenders & opportunities | /job"
     ]
    }
@@ -4300,7 +4262,7 @@
      "Our schools | /explore-our-schools",
      "News & stories | /news",
      "Our impact | /impact",
-     "Disclosures | /disclosures",
+     "PEN Academy | /pen-academy",
      "Corporate information | /corporate-information"
     ]
    },
@@ -4311,7 +4273,8 @@
      "Become a volunteer | /volunteer",
      "Work with us | /careers",
      "Publications | /publications",
-     "FAQs | /faq"
+     "FAQs | /faq",
+     "Contact us | /contact-us"
     ]
    }
   ]
