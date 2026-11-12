@@ -33,9 +33,9 @@
 .dark body { background: var(--background); color: var(--foreground); }
 .dark p { color: var(--muted-foreground); }
 .dark :is(.header,.model-card,.school-card,.resource-card,.tender-notice-card,.bank-card,.office-grid>div,.value-card) { background: var(--card); border-color: var(--border); }
-.dark :is(.topbar,footer,.soft-section,.involved-section,.page-hero,.contact-form,.donation-summary,.partnership-box,.cheque-note,.schools-feature-copy) { background: var(--muted); border-color: var(--border); }
+.dark :is(footer,.soft-section,.involved-section,.page-hero,.contact-form,.donation-summary,.partnership-box,.cheque-note,.schools-feature-copy) { background: var(--muted); border-color: var(--border); }
 .dark :is(.impact-strip,.stat,.news-tabs,.involved-card,.signature,.sponsor-grid>div,.school-numbers,.article-share,.bank-section,.footer-bottom,.footer-bottom button,.search-results a,.article-meta>span+span,.filter-pills button,.donation-option,.radio-mark,.empty-state) { border-color: var(--border); }
-.dark :is(.nav-link,.topbar,.footer-grid>div>a:not(.footer-brand),.social-links a,.mobile-direct-links a,.contact-item a,.bank-card dd,.check-list li,.contact-form label,.article-body>p,.faq-list [data-slot=accordion-content],.mobile-sheet [data-slot=accordion-content] a) { color: var(--foreground); }
+.dark :is(.nav-link,.footer-grid>div>a:not(.footer-brand),.social-links a,.mobile-direct-links a,.contact-item a,.bank-card dd,.check-list li,.contact-form label,.article-body>p,.faq-list [data-slot=accordion-content],.mobile-sheet [data-slot=accordion-content] a) { color: var(--foreground); }
 .dark :is(.eyebrow,.text-link,.inline-links a,.breadcrumbs a,.legal-copy a,.footer-brand,.stat strong,.school-numbers strong,.timeline strong,.donation-amount,.schools-feature-copy h2,.article-meta>span:first-child,.nav-link:hover,.nav-link[data-state=open]) { color: var(--primary); }
 .dark em { color: var(--primary); }
 .dark :is(.small-label,.stat span,.stats-note,.impact-label>span,.feature-note,.article-meta,.breadcrumbs,.source-note,.signature span,.results-meta,.school-numbers span,.pagination>span,.resource-count,.bank-card dt,.donation-option>span>span,.footer-bottom,.value-card>span) { color: var(--muted-foreground); }

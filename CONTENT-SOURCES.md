@@ -46,9 +46,9 @@ available so existing links continue to resolve.
 ## Implementation
 
 21 October follow-up: `/what-we-do#cross-cutting-themes` displays all six outline
-headings with editorial summaries. `/disclosures` provides a structure only:
-audit reports, organisational policies and reporting channels are visibly
-pending, with no invented files, contacts or confidentiality promises. The
+headings with editorial summaries. The `/disclosures` page that followed was
+removed on 12 November 2026 at the client's request, and the safeguarding theme
+now links to the contact page. The
 homepage supporter strip reuses the same five logo assets as the supporters
 page. `/impact` reuses the published homepage figures collected 13 October
 and the existing two PEN Heroes summaries, clearly distinguishing the smaller

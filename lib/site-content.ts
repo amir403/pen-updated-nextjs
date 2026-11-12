@@ -2,7 +2,7 @@ import {articles,faqs,founders,pageMeta,socialMedia,type Article} from '@/lib/co
 import data from '@/lib/source-data.json';
 import {heroSlides,homepageText,impactStats,type FocusArea,type HeroSlide,type HomepageText,type ImpactStat} from '@/lib/homepage';
 import {homepageFocus,thematicAreas,type ThematicArea} from '@/lib/website-outline';
-import {crossCuttingThemes,disclosureCategories,existingPartners,publishedImpact,type CrossCuttingTheme,type DisclosureCategory,type ImpactFigure,type Partner} from '@/lib/transparency';
+import {crossCuttingThemes,existingPartners,publishedImpact,type CrossCuttingTheme,type ImpactFigure,type Partner} from '@/lib/transparency';
 import {educationModels,interventions,ongoingProgrammes,priorities,programmePages,type EducationModel,type Intervention,type OngoingProgramme,type Priority,type ProgrammePage} from '@/lib/programmes';
 import {donationBanks,donationSettings,givingEnquiries,sponsorships,type BankAccount,type DonationSettings,type GivingEnquiry,type SponsorshipOption} from '@/lib/donations';
 import type {Opportunity} from '@/lib/opportunities';
@@ -54,7 +54,6 @@ export type SiteContent={
  bankAccounts:BankAccount[];
  givingEnquiries:GivingEnquiry[];
  publishedImpact:ImpactFigure[];
- disclosureCategories:DisclosureCategory[];
  opportunities:Opportunity[];
  legalSections:LegalSection[];
  navMenu:NavMenuGroup[];
@@ -98,7 +97,6 @@ export const staticSiteContent:SiteContent={
  bankAccounts:donationBanks,
  givingEnquiries,
  publishedImpact,
- disclosureCategories,
  opportunities:[],
  legalSections,
  navMenu,
